@@ -1,0 +1,67 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="dev.game.legend.androidify.AndroidifyActivity"
+    tools:ignore="MergeRootFrame" >
+
+    <!--ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/mainCanvas"
+        android:layout_gravity="center"/-->
+    <SurfaceView
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:id="@+id/mainCanvas"
+    android:layout_gravity="center"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="&lt;"
+        android:id="@+id/bodyLeft"
+        android:onClick="bodyLeft"
+        android:layout_gravity="left|center_vertical"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=">"
+        android:id="@+id/bodyRight"
+        android:onClick="bodyRight"
+        android:layout_gravity="right|center_vertical"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="&lt;"
+        android:id="@+id/headLeft"
+        android:onClick="headLeft"
+        android:layout_gravity="left|top"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=">"
+        android:id="@+id/headRight"
+        android:onClick="headRight"
+        android:layout_gravity="right|top"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="&lt;"
+        android:id="@+id/legsLeft"
+        android:onClick="legsLeft"
+        android:layout_gravity="left|bottom"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=">"
+        android:id="@+id/legsRight"
+        android:onClick="legsRight"
+        android:layout_gravity="right|bottom"/>
+</FrameLayout>
