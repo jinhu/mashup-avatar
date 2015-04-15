@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 14.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 43363)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="content" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="500px" height="500px" viewBox="0 0 500 500" enable-background="new 0 0 500 500" xml:space="preserve">
+<rect id="position" x="0" y="0" display="none" fill="none" stroke="#000000" width="500" height="500"/>
+<g id="shoes">
+	<path fill="#E5E5E5" d="M233.594,437.447c0.018-3.82-0.753-9.354-1.208-12.281c-0.189-1.223-0.814-1.389-1.779-0.518
+		c-2.49,2.242-13.597,6.252-22.244,6.227c-15.156,0-21.392-8.413-21.392-8.413s6.016-5.731-0.21-13.624
+		c0,0-17.59,11.881-28.598,17.909s-30.04,12.14-30.04,12.14c-7.35,0.946-10.443,4.221-11.478,8.258v5.158
+		c0,0,33.719,3.613,57.51,2.609s58.849-2.007,58.849-2.007S233.569,442.863,233.594,437.447z"/>
+	<circle fill="#CECECE" cx="177.719" cy="423.309" r="1.893"/>
+	<circle fill="#CECECE" cx="169.079" cy="428.067" r="1.894"/>
+	<circle fill="#CECECE" cx="161.989" cy="431.855" r="1.893"/>
+	<circle fill="#CECECE" cx="154.451" cy="435.848" r="1.894"/>
+	<circle fill="#CECECE" cx="146.25" cy="437.857" r="1.389"/>
+	
+		<line fill="none" stroke="#F9F9F9" stroke-width="1.7351" stroke-linecap="round" stroke-linejoin="round" x1="173.906" y1="417.24" x2="177.719" y2="423.308"/>
+	
+		<line fill="none" stroke="#F9F9F9" stroke-width="1.7351" stroke-linecap="round" stroke-linejoin="round" x1="165.75" y1="421.995" x2="169.079" y2="427.81"/>
+	
+		<line fill="none" stroke="#F9F9F9" stroke-width="1.7351" stroke-linecap="round" stroke-linejoin="round" x1="159.076" y1="426.174" x2="161.989" y2="431.433"/>
+	
+		<line fill="none" stroke="#F9F9F9" stroke-width="1.7351" stroke-linecap="round" stroke-linejoin="round" x1="151.608" y1="429.756" x2="154.198" y2="435.604"/>
+	
+		<line fill="none" stroke="#F9F9F9" stroke-width="1.2717" stroke-linecap="round" stroke-linejoin="round" x1="144.863" y1="432.976" x2="145.961" y2="437.187"/>
+	<path fill="#8E8E8E" d="M179.613,415.193l3.923,6.375c0,0,5.868-4.601,2.086-9.933
+		C181.103,413.966,179.613,415.193,179.613,415.193z"/>
+	<rect x="116.648" y="448.885" fill="#E5E5E5" width="116.386" height="7.707"/>
+	<line fill="none" stroke="#ADADAD" stroke-width="2.4086" x1="116.648" y1="451.016" x2="233.006" y2="451.016"/>
+</g>
+</svg>

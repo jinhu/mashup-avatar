@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@android:color/white" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include android:id="@id/header" layout="@layout/header" />
+    <GridView android:id="@id/grid_view" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginTop="0.6600001dip" android:listSelector="@drawable/btn_menu_icon" android:horizontalSpacing="0.6600001dip" android:verticalSpacing="0.6600001dip" android:columnWidth="150.0dip" android:numColumns="auto_fit" android:layout_below="@id/header" />
+    <RelativeLayout android:id="@id/rl_motion_bottom_bar" android:background="@color/gallery_bottom_bar_green" android:visibility="invisible" android:layout_width="fill_parent" android:layout_height="50.0dip" android:layout_alignParentBottom="true">
+        <ImageButton android:id="@id/btn_motion_share" android:background="@drawable/btn_menu_icon" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/ic_share_white" android:layout_centerInParent="true" android:onClick="clickedShare" />
+    </RelativeLayout>
+</RelativeLayout>

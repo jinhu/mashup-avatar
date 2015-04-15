@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 18.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="content" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="500px" height="500px" viewBox="0 0 500 500" enable-background="new 0 0 500 500" xml:space="preserve">
+<rect id="position" x="0.5" y="0.5" display="none" fill="none" stroke="#000000" width="499" height="499"/>
+<g>
+	<g>
+		<g>
+			<g>
+				<path fill="#3D5789" d="M78.1,275.5v-79.7c0-13.6,11.1-22.3,24.7-22.3l0,0c13.7,0,24.7,8.7,24.7,22.3v79.7H78.1z"/>
+			</g>
+			<g>
+				<path fill="#5F78A1" d="M91.7,176v99.4H78.1v-79.7C78.1,186.1,81.1,180.7,91.7,176z"/>
+			</g>
+			<g>
+				<path fill="#314262" d="M125.1,185H80.6c4-8.2,12.5-11.6,22.3-11.6C112.6,173.4,121.1,176.8,125.1,185z"/>
+			</g>
+			<g>
+				<g>
+					<path fill="#5F78A1" d="M127.6,195.7v79.7H114v-100C123.6,179,127.6,186.1,127.6,195.7z"/>
+				</g>
+				<g>
+					<g>
+						<rect x="78.1" y="201.3" fill="#314262" width="49.5" height="13.9"/>
+					</g>
+					<g>
+						<rect x="78.1" y="231.5" fill="#314262" width="49.5" height="13.9"/>
+					</g>
+					<g>
+						<rect x="78.1" y="261.6" fill="#314262" width="49.5" height="13.9"/>
+					</g>
+				</g>
+				<g>
+					<g>
+						<g>
+							<path fill="#3E5176" d="M125.1,185H114v-9.5C118.8,177.9,122.7,180.1,125.1,185z"/>
+						</g>
+						<g>
+							<rect x="114" y="201.3" fill="#3E5176" width="13.6" height="13.9"/>
+						</g>
+						<g>
+							<rect x="114" y="231.5" fill="#3E5176" width="13.6" height="13.9"/>
+						</g>
+						<g>
+							<rect x="114" y="261.6" fill="#3E5176" width="13.6" height="13.9"/>
+						</g>
+					</g>
+					<g>
+						<g>
+							<path fill="#3E5176" d="M91.7,175.5v9.5H80.6C83,180.1,86.9,177.9,91.7,175.5z"/>
+						</g>
+						<g>
+							<rect x="78.1" y="201.3" fill="#3E5176" width="13.6" height="13.9"/>
+						</g>
+						<g>
+							<rect x="78.1" y="231.5" fill="#3E5176" width="13.6" height="13.9"/>
+						</g>
+						<g>
+							<rect x="78.1" y="261.6" fill="#3E5176" width="13.6" height="13.9"/>
+						</g>
+					</g>
+				</g>
+			</g>
+		</g>
+	</g>
+	<g>
+		<path fill="#5F78A1" d="M78.3,281.1h49c3.6,0,6.6-3,6.6-6.6l0,0c-2-3.5-2-7.7,0-11.2l0,0c0-3.6-3-6.6-6.6-6.6h-49
+			c-3.6,0-6.6,3-6.6,6.6l0,0c2,3.5,2,7.7,0,11.2l0,0C71.7,278.1,74.7,281.1,78.3,281.1z"/>
+	</g>
+	<g>
+		<path fill="#566D90" d="M132.5,268.9c0-1.9,0.5-3.9,1.5-5.6l0,0c0-3.6-3-6.6-6.6-6.6h-49c-3.6,0-6.6,3-6.6,6.6l0,0
+			c1,1.7,1.5,3.7,1.5,5.6H132.5z"/>
+	</g>
+</g>
+</svg>

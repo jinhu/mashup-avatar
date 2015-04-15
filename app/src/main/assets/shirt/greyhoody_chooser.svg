@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 18.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="content" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="500px" height="500px" viewBox="0 0 500 500" enable-background="new 0 0 500 500" xml:space="preserve">
+<g id="bounds" display="none">
+	<rect x="0.2" y="80.7" display="inline" fill="none" stroke="#EAEAEA" stroke-miterlimit="10" width="499.5" height="499.5"/>
+</g>
+<rect id="position" x="0.5" y="0.5" display="none" fill="none" stroke="#000000" width="499" height="499"/>
+<g>
+	<polygon fill="#D0D3D6" points="374.4,179 355.8,164.7 280.4,164.7 259.1,231.1 248.6,231.2 219.2,164.7 144.2,164.7 125.6,179 
+		69.9,250 69.9,431 131.1,431 131.1,268.1 147.3,262.7 147.3,461.7 352.7,461.7 352.7,262.7 368.9,268.1 368.9,431 430.1,431 
+		430.1,250 	"/>
+	<rect x="69.9" y="409.6" fill="#989898" width="61.3" height="21.4"/>
+	<g>
+		<path fill="#D0D3D6" d="M148.1,461.6v-297h60.5c32.1,0,41.7,49.4,41.7,49.4s9.6-49.4,41.7-49.4h59.9v295L148.1,461.6z"/>
+	</g>
+	<g>
+		<rect x="147.3" y="443.4" fill="#989898" width="205.4" height="18.3"/>
+	</g>
+	<g>
+		<rect x="248.8" y="212.2" fill="#FFFFFF" width="2.5" height="249.5"/>
+	</g>
+	<g>
+		<g>
+			<path fill="#989898" d="M250,214.1c0,0,26.4-43.3,58.3-49.4h-33.5C274.8,164.7,250,170.8,250,214.1z"/>
+		</g>
+		<g>
+			<path fill="#989898" d="M250,214.1c0,0-26.4-43.3-58.3-49.4h33.5C225.2,164.7,250,170.8,250,214.1z"/>
+		</g>
+	</g>
+	<g>
+		<g>
+			<path fill="#989898" d="M170.1,356.9v-11.7c19.2,0,34.8-15.6,34.8-34.8h11.7C216.5,336,195.7,356.9,170.1,356.9z"/>
+		</g>
+		<g>
+			<path fill="#989898" d="M329.9,356.9c-25.6,0-46.5-20.9-46.5-46.5h11.7c0,19.2,15.6,34.8,34.8,34.8V356.9z"/>
+		</g>
+	</g>
+	<g>
+		<rect x="246.4" y="209.4" fill="#FFFFFF" width="7.1" height="17.9"/>
+	</g>
+	<rect x="368.9" y="409.6" fill="#989898" width="61.3" height="21.4"/>
+</g>
+</svg>

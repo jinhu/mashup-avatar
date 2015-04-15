@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 18.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1 Basic//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11-basic.dtd">
+<svg version="1.1" baseProfile="basic" id="content"
+	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 1920 1080"
+	 xml:space="preserve">
+<g id="bounds">
+	<rect x="420.2" y="174.5" fill="none" stroke="#EAEAEA" stroke-miterlimit="10" width="1078.9" height="1078.9"/>
+</g>
+<path fill="#A197C9" d="M1074,352.9c0,0-13.2,97-114.5,97s-114.5-97-114.5-97H736.4v459.2h445.2V352.9H1074z"/>
+<rect id="position" x="420" display="none" fill="none" stroke="#000000" width="1080" height="1080"/>
+<g id="top">
+	<polyline fill="#A197C9" points="736.2,793.6 695.4,1080 1222.7,1080 1181.6,793.6 	"/>
+	<polygon fill="#8079A8" points="791.7,1079.1 812,816.7 804.7,1079.1 	"/>
+	<polygon fill="#8079A8" points="897.8,1079.1 909,816.7 910.8,1079.1 	"/>
+	<polygon fill="#8079A8" points="1003.8,1079.1 1006,816.7 1016.8,1079.1 	"/>
+	<polygon fill="#8079A8" points="1109.9,1079.1 1103,816.7 1123.1,1079.1 	"/>
+	<polyline fill="#8079A8" points="736.2,797.7 736.2,788.8 1181.6,788.8 1181.6,797.7 	"/>
+</g>
+</svg>

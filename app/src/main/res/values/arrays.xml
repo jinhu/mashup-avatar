@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="wallpaper_source_names">
+        <item>@string/wallpaper_saved_androids</item>
+        <item>@string/wallpaper_random_androids</item>
+    </string-array>
+    <string-array name="wallpaper_sources">
+        <item>saved</item>
+        <item>random</item>
+    </string-array>
+</resources>

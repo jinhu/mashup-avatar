@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="content" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="500px" height="500px" viewBox="0 0 500 500" enable-background="new 0 0 500 500" xml:space="preserve">
+<g id="bounds">
+	<rect x="-0.1" y="80.3" fill="none" stroke="#EAEAEA" stroke-miterlimit="10" width="499.5" height="499.5"/>
+</g>
+<rect id="position" x="0.5" y="0.5" display="none" fill="none" stroke="#000000" width="499" height="499"/>
+<g>
+	<path fill="#FFD626" d="M162.508,275.572c-0.067,2.395-0.912,7.109-0.912,7.109l-62.101-34.578l7.701-3.659L162.508,275.572z"/>
+	<path fill="#FFD626" d="M336.527,275.572c0.066,2.395,0.912,7.109,0.912,7.109l62.101-34.578l-7.701-3.659L336.527,275.572z"/>
+	<g>
+		<g>
+			<polygon fill="#E8393B" points="345.95,332.079 249.694,332.079 153.173,335.611 143.548,418.445 355.752,418.445 			"/>
+			<polygon fill="#FFD626" points="356.635,426.305 355.752,418.445 143.548,418.445 142.665,426.305 			"/>
+			<polygon fill="#FFD626" points="140.987,441.229 249.694,441.229 358.313,441.229 357.431,433.457 141.87,433.457 			"/>
+			<polygon fill="#006838" points="141.87,433.457 357.431,433.457 356.635,426.305 142.665,426.305 			"/>
+			<g>
+				<polygon opacity="0.33" fill="#8C2D2B" enable-background="new    " points="172.425,441.229 179.401,366.961 181.432,441.229 
+									"/>
+				<polygon opacity="0.33" fill="#8C2D2B" enable-background="new    " points="221.701,441.229 223.731,366.961 229.472,441.229 
+									"/>
+				<polygon opacity="0.33" fill="#8C2D2B" enable-background="new    " points="270.446,441.229 276.187,366.961 278.218,441.229 
+									"/>
+				<polygon opacity="0.33" fill="#8C2D2B" enable-background="new    " points="318.485,441.229 320.518,366.961 327.493,441.229 
+									"/>
+			</g>
+		</g>
+		<g>
+			<path fill="#E8393B" d="M345.95,217.896h-0.089H316.19h-36.384c-2.825,14.129-15.276,24.815-30.289,24.815
+				c-15.012,0-27.464-10.686-30.29-24.815h-66.143l-45.889,26.549l45.889,26.747v21.396l-0.618,0.283l-1.236,44.506l100.182-36.029
+				h94.448v-30.113l45.978-26.79L345.95,217.896z"/>
+			<polygon fill="#FFD626" points="288.727,217.896 273.625,217.896 153.085,271.234 152.909,278.918 			"/>
+			<polygon fill="#FFD626" points="301.09,217.896 152.732,285.188 152.467,292.871 316.19,217.896 			"/>
+			<polygon fill="#006838" points="152.909,278.918 152.732,285.188 301.09,217.896 288.727,217.896 			"/>
+			<polygon fill="#FFD626" points="151.231,337.377 150.966,345.061 345.95,274.855 345.95,267.349 			"/>
+			<polygon fill="#FFD626" points="150.789,351.33 150.436,359.102 345.95,288.543 345.95,281.037 			"/>
+			<polygon fill="#006838" points="150.966,345.061 150.789,351.33 345.95,281.037 345.95,274.855 			"/>
+		</g>
+		<polygon opacity="0.33" fill="#8C2D2B" enable-background="new    " points="152.29,298.875 284.399,248.362 152.025,307.706 		
+			"/>
+		<polygon opacity="0.33" fill="#8C2D2B" enable-background="new    " points="151.672,319.98 219.935,295.166 151.407,328.9 		"/>
+		<polygon opacity="0.33" fill="#8C2D2B" enable-background="new    " points="345.95,242.004 254.374,280.506 345.95,248.627 		"/>
+	</g>
+</g>
+</svg>

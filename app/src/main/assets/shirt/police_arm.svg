@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="content" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="500px" height="500px" viewBox="0 0 500 500" enable-background="new 0 0 500 500" xml:space="preserve">
+<rect id="position" x="0.5" y="0.5" display="none" fill="none" stroke="#000000" width="499" height="499"/>
+<g id="arm_3_">
+	<path fill="#2C2F3D" d="M75.1,242.8v-43.4c0-14.2,12.1-25.7,27-25.7l0,0c14.9,0,27,11.5,27,25.7v43.4H75.1z"/>
+</g>
+<polyline fill="none" stroke="#595E7A" stroke-width="3" stroke-miterlimit="10" points="110.657,226.571 102.496,218.41 
+	94.335,226.571 "/>
+<polyline fill="none" stroke="#595E7A" stroke-width="3" stroke-miterlimit="10" points="110.657,233.856 102.496,225.695 
+	94.335,233.856 "/>
+<path opacity="0.5" fill="#1B1E26" d="M109.833,176.621c0-1.104-0.896-2-2-2H97.159c-1.104,0-2,0.896-2,2v26.1c0,1.104,0.896,2,2,2
+	h10.675c1.104,0,2-0.896,2-2V176.621z"/>
+<path fill="#3F4357" d="M109.833,173.7c0-1.104-0.896-2-2-2H97.159c-1.104,0-2,0.896-2,2v26.1c0,1.104,0.896,2,2,2h10.675
+	c1.104,0,2-0.896,2-2V173.7z"/>
+<g>
+	<circle opacity="0.5" fill="#1B1E26" cx="102.496" cy="179.45" r="3.197"/>
+	<circle fill="#C6C5C5" cx="102.496" cy="178.379" r="3.197"/>
+</g>
+</svg>

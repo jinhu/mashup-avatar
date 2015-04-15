@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 18.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1 Basic//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11-basic.dtd">
+<svg version="1.1" baseProfile="basic" id="content"
+	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 500 500"
+	 xml:space="preserve">
+<rect id="position" x="0.5" y="0.5" display="none" fill="none" stroke="#000000" width="499" height="499"/>
+<g id="bounds" display="none">
+	<rect x="-0.2" y="80.4" display="inline" fill="none" stroke="#EAEAEA" stroke-miterlimit="10" width="499.5" height="499.5"/>
+</g>
+<g>
+	<g>
+		<polygon fill="#F7F7F7" points="352.3,273.2 368.5,278.6 368.5,371.5 429.8,371.5 429.8,260.5 374.1,189.5 355.4,175.2 
+			352.3,175.2 		"/>
+		<rect x="367.8" y="293.2" fill="#2F3975" width="61.3" height="6.6"/>
+		<rect x="367.8" y="315.8" fill="#2F3975" width="61.3" height="6.6"/>
+		<rect x="367.8" y="338.4" fill="#2F3975" width="61.3" height="6.6"/>
+	</g>
+	<g>
+		<path fill="#F7F7F7" d="M290.7,175.2c0.1,0.6,0.1,1.2,0.1,1.8c0,14.6-18.5,26.4-41.2,26.4s-41.2-11.8-41.2-26.4
+			c0-0.6,0-1.2,0.1-1.8h-61v314.4h204.9V175.2H290.7z"/>
+		<rect x="147.4" y="225.5" fill="#2F3975" width="204.9" height="6.6"/>
+		<rect x="147.4" y="248.1" fill="#2F3975" width="204.9" height="6.6"/>
+		<rect x="147.4" y="270.7" fill="#2F3975" width="204.9" height="6.6"/>
+		<rect x="147.4" y="293.2" fill="#2F3975" width="204.9" height="6.6"/>
+		<rect x="147.4" y="315.8" fill="#2F3975" width="204.9" height="6.6"/>
+		<rect x="147.4" y="338.4" fill="#2F3975" width="204.9" height="6.6"/>
+		<rect x="147.4" y="361" fill="#2F3975" width="204.9" height="6.6"/>
+		<rect x="147.4" y="383.6" fill="#2F3975" width="204.9" height="6.6"/>
+		<rect x="147.4" y="406.1" fill="#2F3975" width="204.9" height="6.6"/>
+		<rect x="147.4" y="428.7" fill="#2F3975" width="204.9" height="6.6"/>
+		<rect x="147.4" y="451.3" fill="#2F3975" width="204.9" height="6.6"/>
+		<rect x="147.4" y="473.9" fill="#2F3975" width="204.9" height="6.6"/>
+	</g>
+	<g>
+		<polygon fill="#F7F7F7" points="147.4,175.2 144.3,175.2 125.7,189.5 70,260.5 70,371.5 131.2,371.5 131.2,278.6 147.4,273.2 		
+			"/>
+		<rect x="70" y="293.2" fill="#2F3975" width="61.3" height="6.6"/>
+		<rect x="70" y="315.8" fill="#2F3975" width="61.3" height="6.6"/>
+		<rect x="70" y="338.4" fill="#2F3975" width="61.3" height="6.6"/>
+	</g>
+</g>
+</svg>

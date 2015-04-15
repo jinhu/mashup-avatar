@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="menu_text_centering_adj_doubleline">15.0dip</dimen>
+</resources>

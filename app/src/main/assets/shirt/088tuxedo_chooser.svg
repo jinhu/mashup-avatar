@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="content" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="500px" height="500px" viewBox="0 0 500 500" enable-background="new 0 0 500 500" xml:space="preserve">
+<g id="bounds">
+	<rect x="0.178" y="0.25" fill="none" stroke="#EAEAEA" stroke-miterlimit="10" width="499.5" height="499.5"/>
+</g>
+<rect x="147.206" y="97.132" fill="#D2D7DB" width="205.38" height="102.001"/>
+<polygon opacity="0.3" fill="#111111" enable-background="new    " points="250.322,97.132 277.297,137.373 280.131,131.039 
+	254.881,97.132 "/>
+<polygon opacity="0.3" fill="#111111" enable-background="new    " points="250.322,97.132 223.346,137.373 220.512,131.039 
+	245.762,97.132 "/>
+<polygon fill="#171819" points="374.338,111.473 355.666,97.132 352.586,97.132 295.926,97.132 250.322,194.817 204.716,97.132 
+	147.206,97.132 144.127,97.132 125.455,111.473 69.767,182.474 69.767,346.738 131.024,346.738 131.024,200.571 147.206,195.175 
+	147.206,402.866 267.262,402.866 352.586,402.866 352.586,195.175 368.768,200.571 368.768,346.939 430.024,346.939 
+	430.024,182.474 "/>
+<polygon fill="#E8E9EA" points="247.676,97.132 221.429,132.873 204.256,97.132 "/>
+<rect x="289.625" y="179.505" fill="none" stroke="#292A2B" stroke-width="0.9613" width="50.813" height="14.297"/>
+<rect x="289.625" y="193.802" fill="none" stroke="#292A2B" stroke-width="0.9613" width="50.813" height="35.104"/>
+<polygon fill="#E8E9EA" points="251.955,97.132 279.227,132.956 295.926,97.132 "/>
+<line fill="none" stroke="#292A2B" stroke-width="0.9613" x1="250.323" y1="194.827" x2="250.323" y2="402.4"/>
+<rect x="69.767" y="346.038" fill="#D2D7DB" width="61.257" height="17.412"/>
+<rect x="368.768" y="346.038" fill="#D2D7DB" width="61.322" height="17.412"/>
+<rect id="position" x="0.5" y="1.677" display="none" fill="none" stroke="#000000" width="499" height="499"/>
+<g>
+	
+		<radialGradient id="SVGID_1_" cx="251.1025" cy="393.7207" r="34.0733" gradientTransform="matrix(1 0 0 -1 0 501)" gradientUnits="userSpaceOnUse">
+		<stop  offset="0" style="stop-color:#8F0C27"/>
+		<stop  offset="1" style="stop-color:#6F1225"/>
+	</radialGradient>
+	<path fill="url(#SVGID_1_)" d="M282.803,94.19c-9.569-0.904-23.146,8.891-30.617,11.277c0,0-0.599,0.182-1.196,0.555
+		c-0.6-0.373-1.199-0.555-1.199-0.555c-7.471-2.389-25.063-9.998-31.391-9.848c-1.277,3.918-3.142,22.121-1.004,24.792
+		c6.27,0.361,27.383-6.459,32.536-9.9c0.421-0.281,0.767-0.549,1.058-0.805c0.291,0.256,0.635,0.523,1.057,0.805
+		c5.152,3.441,25.742,10.262,32.013,9.9C286.196,117.743,284.972,98.69,282.803,94.19z"/>
+	
+		<radialGradient id="SVGID_2_" cx="278.1719" cy="393.4971" r="20.5633" gradientTransform="matrix(1 0 0 -1 0 501)" gradientUnits="userSpaceOnUse">
+		<stop  offset="0" style="stop-color:#8F0C27"/>
+		<stop  offset="1" style="stop-color:#6F1225"/>
+	</radialGradient>
+	<path fill="url(#SVGID_2_)" d="M257.196,108.19c9.956-0.123,19.204-7.812,20.111-1.183c0.969,7.085-12.387,2.33-19.75,2.216"/>
+	
+		<radialGradient id="SVGID_3_" cx="225.9526" cy="392.3203" r="19.4732" gradientTransform="matrix(1 0 0 -1 0 501)" gradientUnits="userSpaceOnUse">
+		<stop  offset="0" style="stop-color:#8F0C27"/>
+		<stop  offset="1" style="stop-color:#6F1225"/>
+	</radialGradient>
+	<path fill="url(#SVGID_3_)" d="M247.013,108.19c-9.957-0.123-19.27-5.57-20.479-0.164c-1.658,7.418,16.885,1.322,20.116,1.197"/>
+	
+		<radialGradient id="SVGID_4_" cx="555.375" cy="325.4512" r="9.4349" gradientTransform="matrix(0.8013 0 0 -0.6706 -192.8439 324.5571)" gradientUnits="userSpaceOnUse">
+		<stop  offset="0" style="stop-color:#8F0C27"/>
+		<stop  offset="1" style="stop-color:#6F1225"/>
+	</radialGradient>
+	<path fill="url(#SVGID_4_)" d="M259.491,108.665c0,3.404-0.766,6.168-7.445,6.168s-7.444-2.764-7.444-6.168
+		c0-3.406,0.966-6.167,7.444-6.167C258.523,102.497,259.491,105.257,259.491,108.665z"/>
+</g>
+<rect x="69.767" y="182.679" width="6.733" height="163.359"/>
+<rect x="423.291" y="182.679" width="6.733" height="163.359"/>
+<polygon points="76.5,182.679 131.024,115.044 150.5,97.132 144.127,97.132 125.455,111.473 69.767,182.679 "/>
+<polygon points="423.357,182.679 368.834,115.044 349.357,97.132 355.73,97.132 374.402,111.473 430.09,182.679 "/>
+</svg>

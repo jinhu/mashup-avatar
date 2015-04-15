@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 18.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="content" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="500px" height="500px" viewBox="0 0 500 500" enable-background="new 0 0 500 500" xml:space="preserve">
+<rect x="0.5" y="0.5" display="none" fill="none" stroke="#000000" width="499" height="499"/>
+<g id="arm">
+	<g>
+		<path fill="#3E3B3E" d="M77.3,299.6V199.5c0-13.7,11.1-24.7,24.7-24.7l0,0c13.7,0,24.7,11.1,24.7,24.7v100.1H77.3z"/>
+		<rect x="77.3" y="283.5" fill="#645D64" width="49.5" height="16"/>
+		<rect x="77.3" y="248.5" fill="#645D64" width="49.5" height="16"/>
+		<rect x="77.3" y="213.4" fill="#645D64" width="49.5" height="16"/>
+		<path fill="#645D64" d="M77.8,194.5h48.5c-1.4-6.8-5.5-12.5-11.3-16H89.1C83.3,182,79.2,187.7,77.8,194.5z"/>
+		<polygon fill="#E8E9F0" points="76.3,292.6 127.8,292.6 127.8,300.2 76.3,300.2 		"/>
+	</g>
+</g>
+</svg>

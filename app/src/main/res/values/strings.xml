@@ -1,9 +1,98 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="about_body1">Androidify was born out of the spirit of the Android operating system - a system that let’s anyone make, build, offer or buy all sorts of things, but in a way that helps all those things work together. Even the Android mascot is open source… so, go ahead… use Androidify to turn the little green mascot into your own creation.</string>
+    <string name="about_character_gallery">Check out what other people from around the world have created.</string>
+    <string name="about_suggestion">While there are more than 1,490,248,844,407,008,000 clothing and accessory combinations (thats a quintillion, btw), there’s a good chance weve forgotten something. Let us know - were always working to make androidify better!</string>
+    <string name="about_suggestion_button">send a suggestion</string>
+    <string name="about_view_character_gallery">view character gallery</string>
+    <string name="about_visit_android">Learn more about all the stuff that’s being created using the Android operating system (phones, tablets, cars, TVs and more).</string>
+    <string name="about_visit_android_button">visit android.com</string>
+    <string name="about_visit_faq">Still have a question? Check out our Androidify FAQ page or &lt;a href=com.google.android.apps.androidify://licenses>tap here to learn about licensing&lt;/>.</string>
+    <string name="about_visit_faq_button">visit FAQ</string>
+    <string name="about_visit_github">Androidify is a collaboration between Google Creative Lab and Larva Labs. If you want to geek out, check out the open source code behind Androidify.</string>
+    <string name="about_visit_github_button">go to GitHub</string>
+    <string name="app_name">Androidify</string>
+    <string name="check_out_your_entrance" />
+    <string name="custom_share_message_facebook">Check out this Android character. Make your own at Androidify.com or get the free app on Google Play</string>
+    <string name="custom_share_message_gplus">Check out this Android character</string>
+    <string name="custom_share_message_nba_facebook">Create your own Android character in your favorite NBA team gear at Androidify.com or get the app on Google Play #androidifyNBA</string>
+    <string name="custom_share_message_nba_gplus">Design your own Android character in your favorite NBA team jerseys at Androidify.com or get the app on Google Play #androidifyNBA</string>
+    <string name="custom_share_message_nba_twitter">NBA jerseys are now in the new Androidify! Go to Androidify.com or get the app on Google Play #androidifyNBA</string>
+    <string name="custom_share_message_twitter">Check out this Android character. Make your own at Androidify.com</string>
+    <string name="default_droid_name">My Android</string>
+    <string name="dialog_button_accept">Accept</string>
+    <string name="dialog_button_back">Back</string>
+    <string name="dialog_msg_discard_droid">Are you sure you want to discard this Android?</string>
+    <string name="dialog_nok_discard_droid">Cancel</string>
+    <string name="dialog_ok_discard_droid">Discard</string>
+    <string name="dialog_submit_cancel">Cancel</string>
+    <string name="dialog_submit_error_body">Something went wrong submitting your droid.</string>
+    <string name="dialog_submit_error_title">Sorry!</string>
+    <string name="dialog_submit_try_again">Try Again</string>
+    <string name="dialog_terms_title">Androidify</string>
+    <string name="dialog_title_discard_droid">Discard Android?</string>
+    <string name="droid_option_delete">Delete</string>
+    <string name="droid_option_load">Load</string>
+    <string name="error_load_droid_failed">Failed to load this Android!</string>
+    <string name="error_no_saved_droids">No Androids saved!</string>
+    <string name="error_save_droid_failed">Failed to save this Android!</string>
+    <string name="gif_name">GIF</string>
+    <string name="info_license">"Androidify uses open source libraries including the following:
 
-    <string name="action_settings">Settings</string>
-    <string name="create_your_android">Create your Android</string>
-    <string name="app_name">Innovation Baker</string>
-    <string name="wallpaper_description">An Androidify wallpaper!</string>
-
+Copyright (C) 2008 ZXing authors
+Licensed under the Apache License, Version 2.0 (the License); you may not use this file except in compliance with the License. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0 Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an AS IS BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License. 
+"</string>
+    <string name="menu_about">about</string>
+    <string name="menu_create_new">create new</string>
+    <string name="menu_make_famous">"make your
+android famous"</string>
+    <string name="menu_my_androids">my androids</string>
+    <string name="menu_share">share</string>
+    <string name="msg_droid_loaded">Android loaded!</string>
+    <string name="msg_droid_saved">Android saved!</string>
+    <string name="no_name">name me</string>
+    <string name="pose_name">Androidify</string>
+    <string name="qr_code">qr code</string>
+    <string name="save_gallery_name">Gallery Photo</string>
+    <string name="saving">saving...</string>
+    <string name="sending">sending...</string>
+    <string name="set_as_title">Set as:</string>
+    <string name="share_billboard">"i'm on a billboard!"</string>
+    <string name="share_billboard_subtext">Your Android could be seen by the world on a giant billboard.</string>
+    <string name="share_gallery">"i'm in a gallery!"</string>
+    <string name="share_gallery_subtext">Your Android will get to hang out with others from around the world at Androidify.com.</string>
+    <string name="share_headline">"make your
+android famous!"</string>
+    <string name="share_title">Share with:</string>
+    <string name="share_to_androidify_share_item">Androidify.com Gallery</string>
+    <string name="share_to_qr_code">Androidify QR Ticket</string>
+    <string name="share_tv">"i'm on tv!"</string>
+    <string name="share_tv_subtext">Your Android might appear in the new Android advertising campaign on TV or on YouTube.</string>
+    <string name="share_your_android">pick a move</string>
+    <string name="submit_androidify">submit to androidify.com</string>
+    <string name="submit_for_qr_code">submit for QR ticket</string>
+    <string name="submitform_headline">fill out some info</string>
+    <string name="submitform_hometown">hometown</string>
+    <string name="submitform_name">name</string>
+    <string name="tc_text">I am 13+ years old, and from planet Earth. I am cool with my Android character, its name and a location of my choosing being displayed publicly in the Gallery at Androidify.com and possibly in the new Android advertising campaign. I accept the &lt;a href=https://www.google.com/intl/en/policies/privacy/>privacy policy&lt;/> and the &lt;a href=https://www.google.com/intl/en/policies/terms/>terms of service&lt;/>.</string>
+    <string name="tc_title">Terms and conditions</string>
+    <string name="toast_droid_saved">Android saved to image gallery.</string>
+    <string name="toast_please_insertsd_tosave">Please insert an SD card to save this Droid.</string>
+    <string name="tutorial_1">drag</string>
+    <string name="tutorial_2">choose</string>
+    <string name="tutorial_3">add</string>
+    <string name="tutorial_4">tap for next shirt</string>
+    <string name="tutorial_5">you get the idea...</string>
+    <string name="tutorial_6">save, animate and share</string>
+    <string name="visit_androidify">visit androidify.com</string>
+    <string name="wallpaper_description">A wallpaper featuring your saved Androids!</string>
+    <string name="wallpaper_random_androids">Random Androids</string>
+    <string name="wallpaper_saved_androids">My Androids</string>
+    <string name="wallpaper_settings">Settings</string>
+    <string name="wallpaper_source_summary">Where to get the androids to display in the wallpaper.</string>
+    <string name="wallpaper_source_title">Show Androids</string>
+    <string name="welcome_to_party">welcome to the party</string>
+    <string name="widget_name">Androidify</string>
+    <string name="your_character_in_code">"here's your character,
+in code"</string>
 </resources>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 18.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1 Basic//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11-basic.dtd">
+<svg version="1.1" baseProfile="basic" id="content"
+	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 500 500"
+	 xml:space="preserve">
+<rect id="position" display="none" fill="none" stroke="#000000" width="500" height="500"/>
+<g id="bounds" display="none">
+	<rect x="-18.8" y="191" display="inline" fill="none" stroke="#000000" stroke-width="0.716" width="166.9" height="176.1"/>
+</g>
+<g>
+	<g>
+		<path fill="#202020" d="M116.4,309l-39.6,28.6c-3.6,2.5-8.4,1.7-11.1-1.8L11,260c-2.5-3.6-1.7-8.4,1.8-11.1l39.6-28.6
+			c3.6-2.5,8.4-1.7,11.1,1.8l54.7,75.7C120.7,301.5,119.9,306.5,116.4,309z"/>
+	</g>
+	
+		<rect x="36.4" y="233.4" transform="matrix(-0.8112 0.5848 -0.5848 -0.8112 279.3347 466.9956)" fill="#FFFFFF" width="55.7" height="90.4"/>
+	
+		<rect x="12.6" y="241.1" transform="matrix(-0.8112 0.5848 -0.5848 -0.8112 216.8965 421.2282)" fill="#FADD60" width="55.7" height="9.1"/>
+	
+		<rect x="53.9" y="294.4" transform="matrix(-0.8112 0.5848 -0.5848 -0.8112 325.2445 500.8606)" fill="#E9407A" width="55.7" height="17"/>
+	
+		<rect x="32.1" y="243.9" transform="matrix(-0.8112 0.5848 -0.5848 -0.8112 268.0438 458.8785)" fill="#F7AB51" width="55.7" height="57.7"/>
+	<circle fill="#FADD60" cx="92.3" cy="284.9" r="4.7"/>
+</g>
+</svg>

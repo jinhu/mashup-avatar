@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/drawer_container" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <it.sephiroth.android.library.widget.HListView android:id="@id/main_drawer" android:focusableInTouchMode="true" android:visibility="visible" android:layout_width="fill_parent" android:layout_height="@dimen/main_drawer_height" android:listSelector="@drawable/drawer_selector" android:layout_alignParentBottom="true" android:contentDescription="Clothing types" />
+    <RelativeLayout android:id="@id/item_drawer_parent" android:visibility="invisible" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_alignParentBottom="true">
+        <it.sephiroth.android.library.widget.HListView android:id="@id/item_drawer" android:background="@color/tray_border" android:paddingTop="0.66700006dip" android:focusableInTouchMode="true" android:layout_width="fill_parent" android:layout_height="@dimen/main_drawer_height" android:listSelector="@drawable/drawer_selector" android:contentDescription="Clothing" />
+        <ImageView android:background="@color/tray_down_button" android:layout_width="fill_parent" android:layout_height="@dimen/main_drawer_back_button_height" android:src="@drawable/arrow_down" android:scaleType="center" android:layout_below="@id/item_drawer" android:onClick="closeDrawerClicked" android:contentDescription="Close drawer" />
+    </RelativeLayout>
+</RelativeLayout>

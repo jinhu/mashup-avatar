@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 18.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="content" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="500px" height="500px" viewBox="0 0 500 500" enable-background="new 0 0 500 500" xml:space="preserve">
+<rect id="position" display="none" fill="none" stroke="#000000" width="500" height="500"/>
+<g id="bounds" display="none">
+	<rect x="0.2" y="80.2" display="inline" fill="none" stroke="#EAEAEA" stroke-miterlimit="10" width="499.5" height="499.5"/>
+</g>
+<g id="shoes">
+	<path fill="#CC3030" d="M119.8,459h261.8v-75.8c0,0-16.1,0-138.9,0C119.8,383.1,119.8,400.7,119.8,459z"/>
+	<path fill="#C10606" d="M126.3,409.4c-6.5,11.6-9,26.5-7.6,49.6h162.6c0-75.4,100.3-56.8,100.3-56.8v-44.8H255.9
+		C239.5,427.7,129.9,433.8,126.3,409.4z"/>
+	<path fill="#FFFFFF" d="M352.7,430.1c0-5.9-4.7-10.6-10.5-10.6c-5.9,0-10.6,4.7-10.6,10.6c0,5.8,4.7,10.6,10.6,10.6
+		C348,440.7,352.7,436,352.7,430.1z"/>
+	<path fill="#FFFFFF" d="M236.9,383.2l11,16.9c0.7,1.1,1.9,1.7,3.1,1.7c0.7,0,1.4-0.2,2-0.6c1.7-1.1,2.2-3.4,1.1-5l-8.9-13.7
+		C242.6,381.7,239.2,382.4,236.9,383.2z"/>
+	<path fill="#FFFFFF" d="M227,400.6c0.4,1.7,1.9,2.9,3.6,2.9c0.2,0,0.5,0,0.7-0.1c2-0.4,3.2-2.3,2.8-4.3l-3.3-15.9
+		c-2.8-1.7-5-1.4-7.4,0.1L227,400.6z"/>
+	<path fill="#FFFFFF" d="M212.9,403.7c2,0,3.6-1.6,3.6-3.6v-16.6c-2.2-1.6-5.8-1.4-7.3,0.2v16.4
+		C209.2,402.1,210.8,403.7,212.9,403.7z"/>
+	<path fill="#FFFFFF" d="M269.1,381.5l-17.3-11.6c-1.9,0.8-3.7,4-3.3,6.5l16.5,11.1c0.6,0.4,1.3,0.6,2,0.6c1.2,0,2.3-0.6,3-1.6
+		C271.2,384.9,270.8,382.6,269.1,381.5z"/>
+	<path fill="#FFFFFF" d="M197.3,403.7c2,0,3.6-1.6,3.6-3.6v-16c-1.9-1.3-5.8-1.1-7.3,0.4v15.6C193.7,402.1,195.3,403.7,197.3,403.7z
+		"/>
+	<rect x="118.7" y="459" fill="#FFFFFF" width="262.9" height="15.8"/>
+	<rect x="118.7" y="474.7" fill="#C10606" width="262.9" height="5.8"/>
+</g>
+</svg>

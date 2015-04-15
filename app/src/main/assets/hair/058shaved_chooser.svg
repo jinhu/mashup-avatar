@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 18.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="content" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="500px" height="500px" viewBox="0 0 500 500" enable-background="new 0 0 500 500" xml:space="preserve">
+<rect id="position" display="none" fill="none" stroke="#000000" width="500" height="500"/>
+<g id="bounds" display="none">
+	<rect x="0.2" y="80.2" display="inline" fill="none" stroke="#EAEAEA" stroke-miterlimit="10" width="499.5" height="499.5"/>
+</g>
+<g>
+	<g>
+		<path fill="#C9C8CE" d="M322.9,300.4l28.4-41.3c1.7-2.5,1.3-5.7-0.9-7.2c-2.2-1.5-5.4-0.8-7,1.7l-29.5,42.9
+			c-19.5-7.7-41.1-11.9-63.8-11.9c-22.8,0-44.4,4.3-63.8,11.9l-29.5-42.9c-1.7-2.5-4.8-3.2-7.1-1.7c-2.2,1.5-2.6,4.7-0.9,7.2
+			l28.4,41.3c-45.2,21-76.9,61-80.9,107.6h307.7C399.8,361.4,368.1,321.4,322.9,300.4"/>
+		<g>
+			<path fill="#FFFFFF" d="M185.7,365.4c-9.4,0-17-7.6-17-17c0-9.4,7.6-17,17-17c9.4,0,17,7.6,17,17
+				C202.7,357.8,195.1,365.4,185.7,365.4"/>
+			<path fill="#FFFFFF" d="M314.3,365.4c-9.4,0-17-7.6-17-17c0-9.4,7.6-17,17-17c9.4,0,17,7.6,17,17
+				C331.3,357.8,323.7,365.4,314.3,365.4"/>
+		</g>
+	</g>
+	<g id="hair">
+		<path opacity="0.15" fill="#382800" enable-background="new    " d="M177.1,300.4c-16.9,7.9-32,18.4-44.4,31
+			c0,0,54.2-28.5,116.7-28.5c62.4,0,116.7,28.5,116.7,28.5c0-0.4,0-0.9,0-1.3c-12.1-12-26.7-22.1-43.1-29.7l-9.1-3.9
+			c-19.5-7.7-41.1-11.9-63.8-11.9c-22.8,0-44.4,4.3-63.8,11.9L177.1,300.4z"/>
+	</g>
+</g>
+</svg>

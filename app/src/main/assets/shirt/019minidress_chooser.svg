@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 18.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1 Basic//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11-basic.dtd">
+<svg version="1.1" baseProfile="basic" id="content"
+	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 500 500"
+	 xml:space="preserve">
+<g id="bounds" display="none">
+	<rect y="54.2" display="inline" fill="none" stroke="#EAEAEA" stroke-miterlimit="10" width="499.5" height="499.5"/>
+</g>
+<rect id="position" x="0.5" y="0.5" display="none" fill="none" stroke="#000000" width="499" height="499"/>
+<g id="chooser">
+	<g id="Layer_1_1_">
+		<path fill="#E1E1E1" d="M365.3,286.8v-7.2c0,0-29.2-85.3-63.7-109.2c0,0-36.5,20.2-47.5,68c-4.2,0-4.2,0-4.2,0s0,0-4.2,0
+			c-11.1-47.9-47.5-68-47.5-68c-34.5,23.7-63.7,109.2-63.7,109.2v7.2h-12.9v154h12.9h115.5h115.5h12.9v-154H365.3z"/>
+		<path fill="#C0C0C0" d="M230,157.6c0,0-54.1,29-95.6,129.4c0-13.3,0-9,0-9s19.8-85.6,64-120.4C223.2,157.6,230,157.6,230,157.6z"
+			/>
+		<path fill="#C0C0C0" d="M269.6,157.6c0,0,54.1,29,95.6,129.4c0-13.3,0-9,0-9s-19.8-85.6-64-120.4
+			C276.4,157.6,269.6,157.6,269.6,157.6z"/>
+		<path fill="#B1B1B1" d="M378.9,286.8c0,0-66.2-39.3-129.1-36l9.6-0.4c-1,0-11.6,0.4-12.5,0.4c0,0,0,0-0.1,0l0,0
+			c-68.1,1-126,36-126,36c0,21.9,0,22,0,22s58-35,126.1-36.1c69.3,0,132.1,36.1,132.1,36.1S378.9,308.8,378.9,286.8z"/>
+		<path fill="none" stroke="#9B9B9B" stroke-width="3.9967" stroke-miterlimit="10" d="M262.3,278.6c0,2.1-1,3.6-2.5,3.6h-20.2
+			c-1.3,0-2.5-1.7-2.5-3.6v-25.9c0-2.1,1-3.6,2.5-3.6h20.2c1.3,0,2.5,1.7,2.5,3.6V278.6z"/>
+		<path fill="none" stroke="#FFFFFF" stroke-width="3.9967" stroke-miterlimit="10" d="M262.3,275.1c0,2.1-1,3.6-2.5,3.6h-20.2
+			c-1.3,0-2.5-1.7-2.5-3.6v-25.9c0-2.1,1-3.6,2.5-3.6h20.2c1.3,0,2.5,1.7,2.5,3.6V275.1z"/>
+		<path fill="#E1E1E1" d="M378,352c0,0,0.1,1.8-3,37.4c-3.1,35.8-18.6,36.9-18.6,36.9H143.1c0,0-15.5-1-18.6-36.9
+			c-3-35.6-2.7-37.4-2.7-37.4l-30.6,91.6c0,0,6,6.8,26.6,6.8s25.3-6.8,37.8-6.8c12.5,0,24.9,6.8,45.3,6.8c20.6,0,29.3-6.8,49-6.8
+			s28.5,6.8,49,6.8c20.6,0,32.8-6.8,45.3-6.8c12.5,0,17.2,6.8,37.8,6.8c20.6,0,26.6-6.8,26.6-6.8L378,352z"/>
+	</g>
+</g>
+</svg>

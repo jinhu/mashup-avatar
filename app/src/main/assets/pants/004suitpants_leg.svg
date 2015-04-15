@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Generator: Adobe Illustrator 14.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 43363)  -->
+<!-- Generator: Adobe Illustrator 17.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg version="1.1" id="content" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 width="500px" height="500px" viewBox="0 0 500 500" enable-background="new 0 0 500 500" xml:space="preserve">
-<rect id="position" x="0" y="0" display="none" fill="none" stroke="#000000" width="500" height="500"/>
-<g id="leg">
-	<rect x="205.813" y="372.537" fill="#1F2021" width="25.946" height="55.94"/>
-	<rect x="181.25" y="372.537" fill="#2A2C2D" width="25.757" height="55.94"/>
+<rect id="position" display="none" fill="none" stroke="#000000" width="500" height="500"/>
+<g>
+	<circle fill="#1B1B1B" cx="206.5" cy="368.9" r="24.4"/>
+	<rect x="182.2" y="369.8" fill="#1B1B1B" width="48.7" height="57.4"/>
+	<path fill="#272727" d="M206.6,344.6v48.7v33.9h24.3V369C230.9,355.5,220,344.6,206.6,344.6z"/>
 </g>
 </svg>

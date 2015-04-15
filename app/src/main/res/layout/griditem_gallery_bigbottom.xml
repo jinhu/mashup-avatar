@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="360.0dip" android:layout_margin="0.33000004dip"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="120.0dip" android:layout_marginBottom="0.33000004dip">
+        <com.google.android.apps.androidify.DrawView android:id="@id/dv_android1" android:layout_width="1.0dip" android:layout_height="fill_parent" android:layout_marginRight="0.33000004dip" android:layout_weight="0.5" />
+        <com.google.android.apps.androidify.DrawView android:id="@id/dv_android2" android:layout_width="1.0dip" android:layout_height="fill_parent" android:layout_marginLeft="0.33000004dip" android:layout_weight="0.5" />
+    </LinearLayout>
+    <com.google.android.apps.androidify.DrawView android:id="@id/dv_android3" android:tag="big" android:layout_width="fill_parent" android:layout_height="240.0dip" android:layout_marginTop="0.33000004dip" />
+</LinearLayout>

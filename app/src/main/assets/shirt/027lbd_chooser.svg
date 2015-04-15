@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 14.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 43363)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="content" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="500px" height="500px" viewBox="0 0 500 500" enable-background="new 0 0 500 500" xml:space="preserve">
+<g id="bounds" display="none">
+	<rect x="0.07" y="72.956" fill="none" stroke="#EAEAEA" stroke-miterlimit="10" width="499.5" height="499.5"/>
+</g>
+<g id="chooser">
+	<path fill="#161616" d="M344.971,368.907h-0.04V182.416h-46.154c-6.59,29.09-26.026,50.175-48.984,50.175
+		c-22.957,0-42.395-21.085-48.983-50.175H154.68v186.491h-0.01l-20.522,73.315c0,0,12.729,19.22,40.809,9.045
+		c15.105,15.647,45.815,5.731,47.479,2.972c11.808,6.394,20.733,8.631,27.384,8.757c6.65-0.126,15.575-2.363,27.384-8.757
+		c1.664,2.757,29.006,10.897,47.479-2.972c28.079,10.175,40.809-9.045,40.809-9.045L344.971,368.907z"/>
+</g>
+<rect id="position" x="0" y="0" display="none" fill="none" stroke="#000000" width="500" height="500"/>
+</svg>

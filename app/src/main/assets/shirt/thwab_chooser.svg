@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="content" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="500px" height="500px" viewBox="0 0 500 500" enable-background="new 0 0 500 500" xml:space="preserve">
+<g id="bounds" display="none">
+	<rect x="-0.1" y="80.3" display="inline" fill="none" stroke="#EAEAEA" stroke-miterlimit="10" width="499.5" height="499.5"/>
+</g>
+<rect id="position" x="0.5" y="0.5" display="none" fill="none" stroke="#000000" width="499" height="499"/>
+<g id="clothes">
+	<polygon fill="#F2EFE3" points="373.9,192 355.199,177.7 353.3,177.7 353.3,260.756 146.8,260.756 146.8,177.7 144.6,177.7 
+		126,192 70.3,263 70.3,331 131.6,331 131.6,281.1 146.8,276 146.8,472.6 353.3,472.6 353.3,276.1 368.4,281.1 368.4,331 
+		429.699,331 429.699,263 	"/>
+	<path fill="#F2EFE3" d="M253.333,177.692V240.5c0,1.841-1.492,3.333-3.333,3.333s-3.333-1.492-3.333-3.333v-62.809H146.8V470.08
+		h102.755H353.3V177.692H253.333z"/>
+	<polygon fill="#D4CE64" points="234.283,177.692 146.8,177.692 146.8,195.564 235.07,195.564 	"/>
+	<polygon fill="#D4CE64" points="266.688,177.692 265.145,195.564 353.3,195.564 353.3,177.692 	"/>
+	
+		<rect x="212.272" y="180.144" transform="matrix(-0.7071 0.7071 -0.7071 -0.7071 505.4445 163.9168)" fill="#F2EFE3" width="13.001" height="12.999"/>
+	
+		<rect x="273.817" y="180.135" transform="matrix(0.7071 0.7071 -0.7071 0.7071 214.0738 -143.5503)" fill="#F2EFE3" width="13.001" height="12.999"/>
+	
+		<rect x="175.502" y="180.142" transform="matrix(-0.7071 0.7071 -0.7071 -0.7071 442.6731 189.9147)" fill="#F2EFE3" width="13.001" height="12.999"/>
+	
+		<rect x="157.117" y="180.141" transform="matrix(-0.7071 0.7071 -0.7071 -0.7071 411.2863 202.9204)" fill="#F2EFE3" width="13.001" height="12.999"/>
+	
+		<rect x="193.888" y="180.143" transform="matrix(-0.7071 0.7071 -0.7071 -0.7071 474.0593 176.9219)" fill="#F2EFE3" width="13.001" height="12.999"/>
+	
+		<rect x="310.586" y="180.137" transform="matrix(0.7071 0.7071 -0.7071 0.7071 224.854 -169.5518)" fill="#F2EFE3" width="13" height="12.999"/>
+	
+		<rect x="328.97" y="180.138" transform="matrix(0.7071 0.7071 -0.7071 0.7071 230.2199 -182.546)" fill="#F2EFE3" width="13.001" height="12.999"/>
+	
+		<rect x="292.202" y="180.136" transform="matrix(0.7071 0.7071 -0.7071 0.7071 219.4499 -156.5479)" fill="#F2EFE3" width="13.001" height="12.999"/>
+	<path fill="#D4CE64" d="M264.066,177.692v76.414c0,1.848-1.502,3.351-3.35,3.351h-21.434c-1.847,0-3.35-1.503-3.35-3.351v-76.414
+		h-3.301v76.414c0,3.668,2.983,6.65,6.65,6.65h21.434c3.667,0,6.65-2.982,6.65-6.65v-76.414H264.066L264.066,177.692z"/>
+	<path fill="#E6E4CF" d="M146.8,278.236v22.008c21.274,6.545,44.315,20.863,102.755,20.863s82.471-14.318,103.745-20.863v-22.008
+		c-21.273,6.545-45.306,20.865-103.745,20.865S168.074,284.781,146.8,278.236z"/>
+	<rect x="70.3" y="317.5" fill="#D4CE64" width="61.3" height="5.667"/>
+	<rect x="368.401" y="317.5" fill="#D4CE64" width="61.3" height="5.667"/>
+</g>
+</svg>

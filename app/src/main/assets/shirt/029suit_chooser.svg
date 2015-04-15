@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 18.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="content" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="500px" height="500px" viewBox="0 0 500 500" enable-background="new 0 0 500 500" xml:space="preserve">
+<g id="bounds" display="none">
+	<rect x="0.2" y="79.4" display="inline" fill="none" stroke="#EAEAEA" stroke-miterlimit="10" width="499.5" height="499.5"/>
+</g>
+<rect id="position" x="0.5" y="1.7" display="none" fill="none" stroke="#000000" width="499" height="499"/>
+<g>
+	<g>
+		<rect x="202.3" y="176.3" fill="#F5F5F5" width="92.2" height="129.2"/>
+		<path fill="#1A237E" d="M230.5,302.9h35.8c0-90.9-17.9-108.4-17.9-108.4S230.5,212,230.5,302.9z"/>
+		<path fill="#1A237E" d="M230.5,176.3h35.8c0,9.9-17.9,27.3-17.9,27.3S230.5,186.2,230.5,176.3z"/>
+		<path opacity="0.2" d="M248.4,176.3c0,0-19.1,14.6-19.1,31.4c0,0-23.3-11.5-33.8-28.3L248.4,176.3z"/>
+		<path fill="#F5F5F5" d="M248.4,176.3c0,0-22.3,9.6-22.3,26.4c0,0-21.9-9.7-32.4-26.4L248.4,176.3z"/>
+		<path opacity="0.2" d="M248.4,176.3c0,0,19.1,14.6,19.1,31.4c0,0,23.3-11.5,33.8-28.3L248.4,176.3z"/>
+		<path fill="#F5F5F5" d="M248.4,176.3c0,0,22.3,9.6,22.3,26.4c0,0,21.9-9.7,32.4-26.4L248.4,176.3z"/>
+		<path opacity="0.2" d="M248.4,197.3c1.2,0,2.2,0.8,2.6,1.8c0.1-0.3,0.2-0.6,0.2-0.9c0-1.5-1.2-2.7-2.7-2.7c-1.5,0-2.7,1.2-2.7,2.7
+			c0,0.3,0.1,0.6,0.2,0.9C246.2,198,247.2,197.3,248.4,197.3z"/>
+	</g>
+	<rect x="69.8" y="425.2" fill="#FFFFFF" width="61.3" height="17.4"/>
+	<rect x="368.8" y="425.2" fill="#FFFFFF" width="61.3" height="17.4"/>
+	<path d="M374.3,190.6l-18.7-14.3h-3.1H310l0,0l-15.7,0c0,74.1-46.6,121.5-46.6,121.5s-43.5-47.4-43.5-121.5H192h-44.8h-3.1
+		l-18.7,14.3l-55.7,71v164.3H131V279.7l16.2-5.4V482h120.1h85.3V274.3l16.2,5.4v146.4H430V261.6L374.3,190.6z"/>
+	<g>
+		<circle fill="#333333" cx="80.7" cy="414" r="4.5"/>
+		<circle fill="#333333" cx="419.3" cy="414" r="4.5"/>
+	</g>
+	<g>
+		<path fill="#333333" d="M206.6,176.3c0,67.7,41.1,121.5,41.1,121.5s-38.6-30.1-58-74.5l8.5-7.1l-12.8-3.9c0,0-5.7-17.7-5.7-36
+			L206.6,176.3z"/>
+		<path fill="#333333" d="M288.8,176.3c0,67.7-41.1,121.5-41.1,121.5s38.6-30.1,58-74.5l-8.5-7.1l12.8-3.9c0,0,5.7-17.7,5.7-36
+			L288.8,176.3z"/>
+		<polygon fill="#F5F5F5" points="313.2,228.1 327.3,214 341.4,228.1 		"/>
+	</g>
+</g>
+</svg>

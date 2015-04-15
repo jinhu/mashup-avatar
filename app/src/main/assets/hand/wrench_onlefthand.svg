@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 18.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="content" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="500px" height="500px" viewBox="0 0 500 500" enable-background="new 0 0 500 500" xml:space="preserve">
+<rect id="position" display="none" fill="none" stroke="#000000" width="500" height="500"/>
+<g id="bounds" display="none">
+	<rect x="20" y="200.4" display="inline" fill="none" stroke="#000000" stroke-width="0.7531" width="147.7" height="160.7"/>
+</g>
+<g>
+	<g>
+		<path fill="#BABABA" d="M139.1,316.8L139.1,316.8C139,316.8,139.1,316.8,139.1,316.8c3.8,3.8,3.8,9.9,0,13.6
+			c-3.8,3.8-9.8,3.8-13.6,0c0,0,0,0,0,0l0,0l-52.1-55.6l10.1-10.1L139.1,316.8z M128.8,320.1c-1.7,1.7-1.7,4.4,0,6.1
+			c1.7,1.7,4.4,1.7,6.1,0c1.7-1.7,1.7-4.4,0-6.1C133.2,318.5,130.5,318.5,128.8,320.1z"/>
+		<path fill="#BABABA" d="M78.4,274.1c8.4-8.4,8.4-22.1,0-30.5c-6.3-6.3-15.6-7.9-23.4-4.7l13.2,13.2l-16.8,16.8
+			c0,0,5.1,5.6,11.4,4.9s9-0.4,10.5,1C74.8,276.3,78.4,274.1,78.4,274.1z"/>
+		<polygon fill="#BABABA" points="50.5,248.4 50.7,260.3 55.6,265.6 61.7,259.6 		"/>
+	</g>
+	<g>
+		
+			<rect x="64.6" y="262.4" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -169.1746 124.969)" fill="#DFDFDF" width="3.3" height="8.7"/>
+		
+			<rect x="67.6" y="259.3" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -166.145 126.2239)" fill="#DFDFDF" width="3.3" height="8.7"/>
+		
+			<rect x="70.7" y="256.3" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -163.1153 127.4788)" fill="#DFDFDF" width="3.3" height="8.7"/>
+		
+			<rect x="73.7" y="253.3" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -160.0857 128.7337)" fill="#DFDFDF" width="3.3" height="8.7"/>
+	</g>
+</g>
+</svg>

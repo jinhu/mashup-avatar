@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="content" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="500px" height="500px" viewBox="0 0 500 500" enable-background="new 0 0 500 500" xml:space="preserve">
+<rect id="position" x="0.5" y="0.5" display="none" fill="none" stroke="#000000" width="499" height="499"/>
+<g>
+	<rect x="116.617" y="174.735" fill="#F2F2F2" width="265.875" height="305.344"/>
+	<rect x="305.855" y="174.735" fill="#3A3E42" width="10.084" height="305.344"/>
+	<rect x="184.061" y="174.735" fill="#3A3E42" width="10.084" height="305.344"/>
+	<rect x="305.855" y="201.851" fill="#26292B" width="10.084" height="15.263"/>
+	<path fill="#CFAC44" d="M317.596,213.032c0,0.734-0.595,1.328-1.328,1.328h-10.74c-0.73,0-1.325-0.594-1.325-1.328v-12.399
+		c0-0.733,0.595-1.327,1.325-1.327h10.74c0.733,0,1.328,0.594,1.328,1.327V213.032z"/>
+	<rect x="184.061" y="201.851" fill="#22344A" width="10.084" height="15.263"/>
+	<path fill="#CFAC44" d="M182.404,213.032c0,0.734,0.595,1.328,1.328,1.328h10.74c0.732,0,1.327-0.594,1.327-1.328v-12.399
+		c0-0.733-0.595-1.327-1.327-1.327h-10.74c-0.733,0-1.328,0.594-1.328,1.327V213.032z"/>
+	<rect x="267.167" y="174.735" fill="#D1D1D1" width="3.333" height="305.344"/>
+	<rect x="229.5" y="174.735" fill="#D1D1D1" width="3.333" height="305.344"/>
+	<circle fill="#C4C4C4" cx="249.956" cy="234.659" r="4.74"/>
+	<circle fill="#C4C4C4" cx="249.956" cy="209.483" r="4.74"/>
+	<circle fill="#C4C4C4" cx="249.956" cy="259.836" r="4.74"/>
+	<circle fill="#C4C4C4" cx="249.956" cy="285.013" r="4.74"/>
+	<path fill="#B81E52" d="M250,181.499l-19.75,20.352c0,0-16.917-12.017-14.167-27.115c26.417,0,33.917,0,33.917,0V181.499z"/>
+	<path fill="#B81E52" d="M250,181.499l19.75,20.352c0,0,16.916-12.017,14.166-27.115c-26.416,0-33.916,0-33.916,0V181.499
+		L250,181.499z"/>
+	<polyline fill="#941942" points="243.622,177.796 231.63,184.906 245.216,180.504 243.622,178.22 	"/>
+	<polyline fill="#941942" points="256.378,177.796 268.369,184.906 254.784,180.504 256.378,178.22 	"/>
+	<path fill="#DE2463" d="M256.432,175.886c0-0.552-0.447-1-1-1h-10.81c-0.552,0-1,0.448-1,1v7.649c0,0.552,0.448,1,1,1h10.81
+		c0.553,0,1-0.448,1-1V175.886z"/>
+</g>
+</svg>

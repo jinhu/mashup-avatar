@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 14.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 43363)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="content" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="500px" height="500px" viewBox="0 0 500 500" enable-background="new 0 0 500 500" xml:space="preserve">
+<g id="bounds" display="none">
+	
+		<rect x="134.087" y="0" display="inline" fill="none" stroke="#000000" stroke-width="1.2012" stroke-miterlimit="10" width="230.407" height="230.408"/>
+</g>
+<rect id="position" x="0" y="0" display="none" fill="none" stroke="#000000" width="500" height="500"/>
+<g id="glasses">
+	<path fill="#231F20" d="M167.144,109.836l1.313,26.789c0,4.923,3.988,8.912,8.912,8.912h51.619
+		c10.717,0,11.066-17.685,20.298-17.685c9.23,0,9.581,17.685,20.298,17.685h51.618c4.923,0,8.912-3.989,8.912-8.912l1.356-27.629"/>
+	<polygon fill="#414042" points="207.338,143.537 187.5,143.537 201.735,112.121 221.573,112.121 	"/>
+	<polygon fill="#414042" points="296.838,143.537 277,143.537 291.234,112.121 311.073,112.121 	"/>
+	<polygon fill="#E6E7E8" points="166.265,93.491 332.191,93.491 332.191,91.126 166.265,91.126 	"/>
+	<polygon fill="#BCBEC0" points="167.17,110.379 331.403,110.379 332.191,93.346 166.265,93.346 	"/>
+</g>
+</svg>

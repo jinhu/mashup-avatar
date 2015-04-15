@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@android:color/white" android:clipChildren="false" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <include android:id="@id/header" layout="@layout/header" />
+    <com.google.android.apps.androidify.TextViewCompat android:textSize="@dimen/resolve_qr_topheader_size" android:textColor="@color/menu_green" android:gravity="center_horizontal" android:id="@id/tv_share_headline" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="-10.0dip" android:text="@string/your_character_in_code" android:layout_below="@id/header" android:layout_centerHorizontal="true" android:lineSpacingMultiplier="0.8" app:custom_font="and-black" />
+    <com.google.android.apps.androidify.DrawView android:layout_gravity="center" android:id="@id/dv_qr_droid" android:layout_width="150.0dip" android:layout_height="150.0dip" android:layout_marginTop="-30.0dip" android:layout_below="@id/tv_share_headline" android:layout_centerHorizontal="true" />
+    <FrameLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_below="@id/dv_qr_droid" android:layout_centerHorizontal="true">
+        <ImageView android:layout_gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/qr_ticket" />
+        <ImageView android:layout_gravity="center" android:id="@id/qr_view" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_margin="5.0dip" />
+    </FrameLayout>
+</RelativeLayout>

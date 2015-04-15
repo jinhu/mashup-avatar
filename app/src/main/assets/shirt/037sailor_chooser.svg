@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 14.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 43363)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="content" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="500px" height="500px" viewBox="0 0 500 500" enable-background="new 0 0 500 500" xml:space="preserve">
+<g id="bounds" display="none">
+	<rect x="-0.088" y="82.464" fill="none" stroke="#EAEAEA" stroke-miterlimit="10" width="499.5" height="499.5"/>
+</g>
+<g id="chooser">
+	<g>
+		<polygon fill="#EAEAEA" points="373.605,189.113 354.933,174.77 352.852,174.77 351.853,174.77 147.472,174.77 144.393,174.77 
+			125.721,189.113 70.033,260.113 70.033,441.091 131.29,441.091 131.29,278.211 147.472,272.813 147.472,480.536 352.852,480.536 
+			352.852,273.146 368.034,278.211 368.034,441.091 429.29,441.091 429.29,260.113 		"/>
+		<rect x="368.034" y="288.99" fill="#344068" width="61.256" height="19.108"/>
+		<rect x="368.034" y="327.653" fill="#344068" width="61.256" height="19.108"/>
+		<rect x="368.034" y="366.316" fill="#344068" width="61.256" height="19.108"/>
+		<rect x="368.034" y="404.979" fill="#344068" width="61.256" height="19.108"/>
+		<rect x="70.033" y="288.99" fill="#344068" width="61.257" height="19.108"/>
+		<rect x="70.033" y="327.653" fill="#344068" width="61.257" height="19.108"/>
+		<rect x="70.033" y="366.316" fill="#344068" width="61.257" height="19.108"/>
+		<rect x="70.033" y="404.979" fill="#344068" width="61.257" height="19.108"/>
+		<polygon fill="#344068" points="113.861,204.104 385.363,204.104 373.605,189.113 354.933,174.77 144.393,174.77 125.721,189.113 
+					"/>
+		<polygon fill="#344068" points="70.033,260.113 70.033,261.215 429.29,261.215 429.29,260.113 407.148,231.881 92.177,231.881 		
+			"/>
+		<rect x="147.472" y="288.991" fill="#344068" width="205.38" height="29.334"/>
+		<rect x="147.472" y="346.101" fill="#344068" width="205.38" height="29.334"/>
+		<rect x="147.472" y="403.212" fill="#344068" width="205.38" height="29.334"/>
+		<rect x="147.472" y="460.322" fill="#344068" width="205.38" height="29.334"/>
+	</g>
+</g>
+<rect id="position" x="0.5" y="0.5" display="none" fill="none" stroke="#000000" width="499" height="499"/>
+</svg>

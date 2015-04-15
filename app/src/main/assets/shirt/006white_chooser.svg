@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 18.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="500px" height="500px" viewBox="0 0 500 500" enable-background="new 0 0 500 500" xml:space="preserve">
+<g id="bounds" display="none">
+	<rect x="-0.1" y="79.7" display="inline" fill="none" stroke="#EAEAEA" stroke-miterlimit="10" width="499.5" height="499.5"/>
+</g>
+<g id="chooser">
+	<g>
+		<polygon fill="#E8E8E8" points="374.6,190.8 355.9,176.7 352.9,176.7 309.9,176.7 271.4,205.8 249.9,273.6 227.6,205.8 
+			189.9,176.7 146.4,176.7 143.4,176.7 124.7,190.8 69,261.8 69,442.8 130.3,442.8 130.3,279.9 146.4,274.5 146.4,482.3 
+			352.9,482.3 352.9,274.5 369,279.9 369,442.8 430.3,442.8 430.3,261.8 		"/>
+		<polygon fill="#D3D3D3" points="227.6,205.8 179.4,218.1 180.5,176.7 190.9,176.7 		"/>
+		<polygon fill="#D3D3D3" points="249.9,273.6 227.6,205.8 218.2,208.2 245.5,290.3 		"/>
+		<polygon opacity="0.5" fill="#A5A6AA" enable-background="new    " points="229.5,211.7 184.3,224.7 184.1,216.9 227.6,205.8 		
+			"/>
+		<polygon fill="#D3D3D3" points="271.4,205.8 320.5,218.1 319.4,176.7 309,176.7 		"/>
+		<polygon fill="#D3D3D3" points="249.9,273.6 271.4,205.8 281.6,208.2 254.4,290.3 		"/>
+		<polygon opacity="0.5" fill="#A5A6AA" enable-background="new    " points="269.6,211.6 315.5,224.7 315.7,216.9 271.4,205.8 		
+			"/>
+		<rect x="245.6" y="273.8" fill="#D3D3D3" width="8.7" height="208.5"/>
+		<circle fill="#FFFFFF" cx="249.9" cy="283.3" r="1.9"/>
+		<circle fill="#FFFFFF" cx="249.9" cy="314.6" r="1.9"/>
+		<circle fill="#FFFFFF" cx="249.9" cy="345.9" r="1.9"/>
+		<circle fill="#FFFFFF" cx="249.9" cy="377.2" r="1.9"/>
+		<circle fill="#FFFFFF" cx="249.9" cy="408.4" r="1.9"/>
+		<circle fill="#FFFFFF" cx="249.9" cy="439.7" r="1.9"/>
+		<circle fill="#FFFFFF" cx="249.9" cy="471" r="1.9"/>
+	</g>
+</g>
+<rect id="position" x="0.5" display="none" fill="none" stroke="#000000" stroke-width="1.0015" width="499.5" height="500"/>
+<rect x="69" y="431.7" fill="#D3D3D3" width="61.3" height="12.2"/>
+<rect x="369" y="431.7" fill="#D3D3D3" width="61.3" height="12.2"/>
+</svg>

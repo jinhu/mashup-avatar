@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 18.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="content" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="500px" height="500px" viewBox="0 0 500 500" enable-background="new 0 0 500 500" xml:space="preserve">
+<rect id="position" display="none" fill="none" stroke="#000000" width="500" height="500"/>
+<g id="bounds" display="none">
+	<rect x="101.8" y="-110.2" display="inline" fill="none" stroke="#000000" stroke-width="0.9205" width="295.5" height="311.7"/>
+</g>
+<g>
+	<path fill="#263238" d="M313,68.3l-6.1-3.6c-16.5-9.2-35.9-14.1-56.5-14.1c-20.7,0-40.2,5-56.7,14.4l-6.1,3.6
+		C159.5,87.1,141,119,141,160.5c4.7,0,12.1,0,12.1,0s18-47,21.4-53.8c3.3-6.9,8.5-12.4,16.1-12.4h119.3c7.6,0,12.4,3.1,16.2,12.5
+		c4.5,11,19.3,53.7,19.3,53.7s8.2,0,14,0C360.2,118.7,341.5,86.7,313,68.3z"/>
+	<rect x="229" y="78.2" fill="#7C7C7C" width="42.8" height="13.8"/>
+	<g>
+		<path d="M155.8,160.5h-8.7c0.1-0.3,15.2-38.2,20.7-52s11.3-16.6,21.4-16.6h123.4c10.2,0,15.7,3,21.4,16.6s19.9,51.6,19.9,51.9
+			h-8.3c-0.1-0.3-18-45.5-19.9-49.9s-6.9-10.2-13.1-10.2H189.2c-6.2,0-9.4,2.3-13.1,10.1S155.9,160.3,155.8,160.5z"/>
+	</g>
+	
+		<rect x="212.6" y="34.1" transform="matrix(-1 0 0 -1 501.0811 111.3986)" fill="#CECECE" width="75.7" height="44"/>
+	<g>
+		<g>
+			<circle cx="237.7" cy="56" r="15.9"/>
+			<path d="M237.8,74c-9.9,0-18-8-18.1-18s8-18,18-18.1c9.9,0,18,8,18.1,18C255.8,65.9,247.7,74,237.8,74z"/>
+		</g>
+		<g>
+			<circle cx="237.7" cy="56" r="10.1"/>
+		</g>
+		<circle fill="#EEEEEE" cx="223.6" cy="56" r="1.6"/>
+		<circle fill="#EEEEEE" cx="235.1" cy="54.4" r="3"/>
+		<circle fill="#EEEEEE" cx="252.1" cy="56" r="1.6"/>
+		<circle fill="#EEEEEE" cx="230.6" cy="43.9" r="1.6"/>
+		<circle fill="#EEEEEE" cx="245.1" cy="43.9" r="1.6"/>
+		<circle fill="#EEEEEE" cx="230.6" cy="68.3" r="1.6"/>
+		<circle fill="#EEEEEE" cx="245.1" cy="68.3" r="1.6"/>
+		<g>
+			<g>
+				<path fill="#7F7F7F" d="M237.7,48.9c3.9,0,7.1,3.2,7.1,7.1s-3.2,7.1-7.1,7.1s-7.1-3.2-7.1-7.1C230.6,52.1,233.7,48.9,237.7,48.9
+					 M237.7,45.9c-5.6,0-10.1,4.5-10.1,10.1s4.5,10.1,10.1,10.1s10.1-4.5,10.1-10.1C247.8,50.5,243.2,45.9,237.7,45.9L237.7,45.9z"
+					/>
+			</g>
+		</g>
+	</g>
+	<rect x="265.7" y="40.1" fill="#F2F2F2" width="12.2" height="15.9"/>
+	<circle fill="#F2F2F2" cx="263.7" cy="66.6" r="4.5"/>
+	<rect x="236.7" y="26.1" fill="#545454" width="28.6" height="7.8"/>
+	<rect x="236.7" y="78.2" fill="#545454" width="28.6" height="7.8"/>
+</g>
+</svg>

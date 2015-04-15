@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 14.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 43363)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="content" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="500px" height="500px" viewBox="0 0 500 500" enable-background="new 0 0 500 500" xml:space="preserve">
+<rect id="position" x="0.5" y="0.5" display="none" fill="none" stroke="#000000" width="499" height="499"/>
+<g id="body">
+	<rect id="shirt_39_" x="116.631" y="175.969" fill="#006CB0" width="265.853" height="304.405"/>
+	<rect x="116.631" y="454.375" fill="#003651" width="265.853" height="26"/>
+	<rect id="shirt_38_" x="246.631" y="175.969" fill="#FFFFFF" width="5.853" height="304.403"/>
+	<polygon fill="#FFFFFF" points="214.45,185.622 204.999,181.365 116.631,181.365 116.631,187.219 212.654,187.219 	"/>
+	<polygon fill="#003651" points="212.725,185.147 116.631,270.491 116.631,274.504 215.964,186.283 	"/>
+	<polygon fill="#FFFFFF" points="284.861,185.797 293.833,181.365 382.483,181.365 382.483,187.219 286.46,187.219 	"/>
+	<polygon fill="#003651" points="286.277,185.048 382.483,270.491 382.483,274.503 283.05,186.193 	"/>
+	<path fill="#003651" d="M301.069,175.969c-10.467,8.78-29.64,13.947-51.566,13.947c-21.932,0-41.104-5.166-51.569-13.947h-4.667
+		h2.739c11.47,9.623,31.469,16.946,53.498,16.946c22.026,0,42.024-7.323,53.495-16.946h2.739H301.069z"/>
+	<path fill="#939598" d="M249.5,175.969c-2.624,0-4.75,2.323-4.75,4.947v15.75c0,2.624,2.126,4.75,4.75,4.75
+		c2.623,0,4.75-2.126,4.75-4.75v-15.75C254.25,178.293,252.123,175.969,249.5,175.969z M249.5,183.917c-1.657,0-3-1.343-3-3
+		c0-1.654,1.343-4.947,3-4.947c1.654,0,3,3.292,3,4.947C252.5,182.574,251.156,183.917,249.5,183.917z"/>
+</g>
+</svg>

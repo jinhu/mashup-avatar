@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 18.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="content" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="500px" height="500px" viewBox="0 0 500 500" enable-background="new 0 0 500 500" xml:space="preserve">
+<rect id="position" display="none" fill="none" stroke="#000000" width="500" height="500"/>
+<g id="bounds" display="none">
+	<rect x="0.2" y="80.2" display="inline" fill="none" stroke="#EAEAEA" stroke-miterlimit="10" width="499.5" height="499.5"/>
+</g>
+<g>
+	<path fill="#E8E8E8" d="M369.3,268.5c-41.2-8.3-74.1-42.1-119.1-42.1l0,0l0,0c-45,0-77.9,33.7-119.1,42.1
+		c-39.6,7.9-30.2,107.6,34.6,107.6s84.5,0,84.5,0s0,0,0.2,0c0,0,19.8,0,84.5,0S409,276.4,369.3,268.5z"/>
+	<g>
+		<path fill="#616161" d="M149.8,396c0,20.8,44.8,37.5,100.1,37.5S350,416.6,350,396H149.8z"/>
+		<path fill="#1B1B1B" d="M234.8,433c48.1-2.7,85-18.3,85-37.1h-170C149.8,414.7,186.7,430.3,234.8,433z"/>
+	</g>
+	<path d="M347.6,361c-0.4-7.1-6.5-12.5-13.3-12.5h-83.9h-84.5c-7.1,0-12.9,5.4-13.3,12.5l-2.7,35h200.3L347.6,361z"/>
+	<path fill="#FFEB3B" d="M348.2,378.3H151.9c-2.9,0-5.2-2.3-5.2-5.2v-0.2c0-2.9,2.3-5.2,5.2-5.2h196.3c2.9,0,5.2,2.3,5.2,5.2v0.2
+		C353.6,375.8,351.2,378.3,348.2,378.3z"/>
+	<path d="M281,337.5h-61.8c-8.3,0-15-6.7-15-15v-48.3c0-8.3,6.7-15,15-15H281c8.3,0,15,6.7,15,15v48.1
+		C296,330.6,289.3,337.5,281,337.5z"/>
+	
+		<circle fill="none" stroke="#FFEB3B" stroke-width="2.5746" stroke-linecap="round" stroke-miterlimit="10" cx="250.2" cy="276.4" r="5.8"/>
+	
+		<path fill="none" stroke="#FFEB3B" stroke-width="2.5746" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+		M227.7,305.6c0,0,1.7,17.9,22.5,17.9s22.5-17.9,22.5-17.9"/>
+	<line fill="none" stroke="#FFEB3B" stroke-width="2.5746" stroke-miterlimit="10" x1="235.8" y1="292.3" x2="264.3" y2="292.3"/>
+	
+		<line fill="none" stroke="#FFEB3B" stroke-width="2.5746" stroke-linecap="round" stroke-miterlimit="10" x1="250.2" y1="283.1" x2="250.2" y2="323.5"/>
+	<path fill="#EEEEEE" d="M192.7,242.5c-20.4,10-40,21.7-61.8,26c-12.7,2.5-20.4,14.6-22.7,29.6C145,293.7,179,252.7,192.7,242.5z"/>
+	<path fill="#EEEEEE" d="M369.3,268.5c-22.1-4.4-41.6-16-62-26c-0.2,0-0.4,0-0.4,0c13.7,10.2,48.1,51.4,85.2,55.6
+		C389.7,283.1,382,271,369.3,268.5z"/>
+	<circle fill="#FFEB3B" cx="171.9" cy="372.9" r="12.1"/>
+</g>
+</svg>

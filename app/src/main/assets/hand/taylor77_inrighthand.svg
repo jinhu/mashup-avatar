@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 18.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="content" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="500px" height="500px" viewBox="0 0 500 500" enable-background="new 0 0 500 500" xml:space="preserve">
+<g id="bounds" display="none">
+	<rect x="11.3" y="204.8" display="inline" fill="none" stroke="#000000" stroke-width="1.0144" width="133.3" height="145"/>
+</g>
+<rect id="position" display="none" fill="none" stroke="#000000" width="500" height="500"/>
+<g>
+	<g>
+		<path fill="#BABABA" d="M113.8,299.9L113.8,299.9L113.8,299.9c3.3,2.8,3.6,7.7,0.8,10.9c-2.8,3.3-7.6,3.6-10.9,0.8l0,0l0,0
+			l-45.1-41.2l7.5-8.7L113.8,299.9z M105.8,303.1c-1.3,1.5-1.1,3.6,0.4,4.9s3.6,1.1,4.9-0.4s1.1-3.6-0.4-4.9
+			C109.2,301.6,107.1,301.8,105.8,303.1z"/>
+		<path fill="#BABABA" d="M62.7,269.5c6.2-7.2,5.4-18.2-1.9-24.4c-5.4-4.6-13-5.4-19-2.3l11.4,9.7L40.8,267c0,0,4.4,4.2,9.4,3.2
+			c5-0.9,7.2-0.9,8.5,0.2C59.9,271.5,62.7,269.5,62.7,269.5z"/>
+		<polygon fill="#BABABA" points="38.8,250.6 39.7,260.1 43.9,264.1 48.4,258.9 		"/>
+	</g>
+	<g>
+		
+			<rect x="51.2" y="260.8" transform="matrix(0.6507 -0.7593 0.7593 0.6507 -182.3197 132.1935)" fill="#DFDFDF" width="2.6" height="7"/>
+		
+			<rect x="53.4" y="258.2" transform="matrix(0.6507 -0.7593 0.7593 0.6507 -179.5994 132.9825)" fill="#DFDFDF" width="2.6" height="7"/>
+		
+			<rect x="55.7" y="255.6" transform="matrix(0.6507 -0.7593 0.7593 0.6507 -176.7975 133.7699)" fill="#DFDFDF" width="2.6" height="7"/>
+		
+			<rect x="58" y="253" transform="matrix(0.6507 -0.7593 0.7593 0.6507 -174.0358 134.5988)" fill="#DFDFDF" width="2.6" height="7"/>
+	</g>
+</g>
+</svg>

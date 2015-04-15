@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 18.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="content" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="500px" height="500px" viewBox="0 0 500 500" enable-background="new 0 0 500 500" xml:space="preserve">
+<rect id="position" display="none" fill="none" stroke="#000000" width="500" height="500"/>
+<g id="bounds" display="none">
+	<rect x="0.2" y="80.2" display="inline" fill="none" stroke="#EAEAEA" stroke-miterlimit="10" width="499.5" height="499.5"/>
+</g>
+<g id="shoes">
+	<path fill="#231F20" d="M119.6,470.9h262.3v-77.1c0,0-12.6,0-137.4,0C119.6,393.8,119.6,411.7,119.6,470.9z"/>
+	<path fill="#FFFFFF" d="M118.7,454.5c-1.5,7.4,0.1,16.4,0.1,16.4h263v-16.4H118.7z"/>
+	<path fill="#FFFFFF" d="M356.3,427.4c0-7.8-6.3-14.2-14.2-14.2c-7.8,0-14.2,6.3-14.2,14.2c0,7.8,6.4,14.2,14.2,14.2
+		C350,441.6,356.3,435.2,356.3,427.4z"/>
+	<path fill="#FFFFFF" d="M249.7,392.6v17.2c0,2,1.7,3.7,3.7,3.7c2,0,3.7-1.7,3.7-3.7v-17.2C254.7,392.6,252.2,392.6,249.7,392.6z"/>
+	<path fill="#FFFFFF" d="M240.2,413.5c2,0,3.7-1.7,3.7-3.7v-17.2c-2.5,0-5,0-7.4,0v17.2C236.5,411.8,238.1,413.5,240.2,413.5z"/>
+	<path fill="#FFFFFF" d="M213.7,413.5c2,0,3.7-1.7,3.7-3.7v-16.9c-2.5,0.1-5,0.2-7.4,0.3v16.6C210,411.8,211.7,413.5,213.7,413.5z"
+		/>
+	<path fill="#FFFFFF" d="M226.9,413.5c2,0,3.7-1.7,3.7-3.7v-17.1c-2.5,0-5,0.1-7.4,0.1v17C223.2,411.8,224.9,413.5,226.9,413.5z"/>
+	<path fill="#FFFFFF" d="M200.5,413.5c2,0,3.7-1.7,3.7-3.7v-16.4c-2.5,0.1-5,0.3-7.4,0.4v16C196.8,411.8,198.4,413.5,200.5,413.5z"
+		/>
+	<rect x="118.9" y="466.8" fill="#231F20" width="263" height="12.3"/>
+</g>
+</svg>

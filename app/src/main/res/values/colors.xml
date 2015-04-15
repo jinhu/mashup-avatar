@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="about_grey_text">#ffababab</color>
+    <color name="android_green">#ffaec74b</color>
+    <color name="bg_about_screen_section_grey">#ffececec</color>
+    <color name="bg_droidview_progress">#ffd3d3d3</color>
+    <color name="bg_grey">#fff3f3f3</color>
+    <color name="dark_grey">#ffb0b0b0</color>
+    <color name="dark_grey_partialalpha">#88b0b0b0</color>
+    <color name="drawer_not_pressed">#ffffffff</color>
+    <color name="drawer_pressed">@android:color/transparent</color>
+    <color name="gallery_bottom_bar_green">#ff78c556</color>
+    <color name="gray_android">#ff929292</color>
+    <color name="gray_arm_android">#ff8d8d8d</color>
+    <color name="menu_divider">#ffd3cfcb</color>
+    <color name="menu_green">#ff78c556</color>
+    <color name="menu_text">#ff949494</color>
+    <color name="near_white">#fff3f3f3</color>
+    <color name="pager_indicator_selected">#ffb1b1b1</color>
+    <color name="pager_indicator_unselected">#ffd8d8d8</color>
+    <color name="qr_green">#ff79c256</color>
+    <color name="share_subheading">#ffb1b1b1</color>
+    <color name="share_subheading_subtext">#ffacacac</color>
+    <color name="test">#8000ffff</color>
+    <color name="test2">#80ff00ff</color>
+    <color name="test3">#80ffff00</color>
+    <color name="touch_grey">#ffe1e1e1</color>
+    <color name="tray_border">#ffdedede</color>
+    <color name="tray_down_button">#ffb0b0b0</color>
+</resources>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 18.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="content" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="500px" height="500px" viewBox="0 0 500 500" enable-background="new 0 0 500 500" xml:space="preserve">
+<g id="bounds" display="none">
+	<rect x="0.1" y="63.6" display="inline" fill="none" stroke="#EAEAEA" stroke-miterlimit="10" width="499.5" height="499.5"/>
+</g>
+<g id="chooser">
+	<g>
+		<path fill="#E8E8E8" d="M382.7,158.3h-90.3c-1.7,22.1-20.1,39.6-42.7,39.6s-41-17.4-42.7-39.6h-90.2v0.1L39,181.1l25.9,76.6
+			l51.9-8.3V468h265.9V249.3l52.2,8.4l25.9-76.6L382.7,158.3z"/>
+		<path fill="#D15454" d="M275.4,218c-8.1-13.1-25.6-1.6-25.6-1.6s-17.5-11.6-25.6,1.6s5.3,31.7,25.6,43.9
+			C270.2,249.7,283.5,231.1,275.4,218z"/>
+		<path fill="#EDEDED" d="M249.7,202.3c-24.6,0-45.3-19.2-47.2-43.7l9-0.7c1.5,19.8,18.3,35.4,38.2,35.4s36.7-15.5,38.2-35.4l9,0.7
+			C295,183.1,274.3,202.3,249.7,202.3z"/>
+	</g>
+</g>
+<rect id="position" x="0.5" y="0.5" display="none" fill="none" stroke="#000000" width="499.5" height="500"/>
+</svg>

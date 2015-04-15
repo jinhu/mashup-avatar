@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 14.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 43363)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="content" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="500px" height="500px" viewBox="0 0 500 500" enable-background="new 0 0 500 500" xml:space="preserve">
+<g id="bounds" display="none">
+	<rect x="-0.088" y="80.374" fill="none" stroke="#EAEAEA" stroke-miterlimit="10" width="499.5" height="499.5"/>
+</g>
+<g id="chooser">
+	<polygon fill="#686737" points="233.418,177.623 250.161,206.922 250.161,299.22 192.464,299.22 192.464,177.623 	"/>
+	<polygon fill="#686737" points="266.906,177.623 250.161,206.922 250.161,299.22 307.86,299.22 307.86,177.623 	"/>
+	
+		<line fill="none" stroke="#444225" stroke-linecap="round" stroke-linejoin="round" x1="250.161" y1="206.922" x2="250.161" y2="271.103"/>
+	<path fill="#271F3A" d="M374.605,191.996l-18.672-14.373h-55.852c0,0-3.266,62.078-49.937,87.093
+		c-46.673-25.015-49.937-87.093-49.937-87.093h-56.864l-18.672,14.373l-55.688,71v180.979h61.256V281.095l16.183-5.396v206.926
+		h206.431V275.697l16.184,5.396v162.879h61.256V262.996L374.605,191.996z"/>
+	<polygon fill="#8F8E4C" points="244.236,196.551 228.673,208.648 214.872,177.623 233.418,177.623 	"/>
+	<polygon fill="#8F8E4C" points="256.053,196.551 271.615,208.648 285.417,177.623 266.87,177.623 	"/>
+	<circle fill="#D4D270" cx="269.83" cy="199.201" r="2.51"/>
+	<circle fill="#D4D270" cx="230.196" cy="199.201" r="2.51"/>
+	<polygon fill="#444225" points="251.251,205.017 271.615,208.648 256.053,196.551 	"/>
+	<polygon fill="#444225" points="249.073,205.017 228.709,208.648 244.272,196.551 	"/>
+	<path fill="#3F365B" d="M300.115,177.623c0,0-3.265,62.078-49.938,87.093h-0.019h-0.018
+		c-46.673-25.015-49.937-87.093-49.937-87.093h-9.917c0,0,0.926,80.146,59.871,98.515c58.943-18.369,59.871-98.515,59.871-98.515
+		H300.115z"/>
+	<rect x="68.984" y="429.029" fill="#3F365B" width="61.255" height="14.252"/>
+	<rect x="369.085" y="429.029" fill="#3F365B" width="61.256" height="14.252"/>
+</g>
+<rect id="position" x="0.5" y="0.5" display="none" fill="none" stroke="#000000" width="499" height="499"/>
+</svg>

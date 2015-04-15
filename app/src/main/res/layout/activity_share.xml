@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@android:color/white" android:clipChildren="false" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.google.android.apps.androidify.DrawView android:id="@id/draw_view" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginTop="100.0dip" android:layout_marginBottom="150.0dip" android:onClick="previewClicked" />
+    <include android:id="@id/header" layout="@layout/header" />
+    <FrameLayout android:layout_width="fill_parent" android:layout_height="100.0dip" android:layout_above="@id/rl_motion_bottom_bar">
+        <View android:background="@color/tray_border" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+        <it.sephiroth.android.library.widget.HListView android:id="@id/main_drawer" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginTop="0.66700006dip" android:listSelector="@drawable/drawer_selector" />
+    </FrameLayout>
+    <com.google.android.apps.androidify.ProgressRelativeLayout android:id="@id/rl_motion_bottom_bar" android:background="@color/gallery_bottom_bar_green" android:visibility="visible" android:layout_width="fill_parent" android:layout_height="50.0dip" android:layout_alignParentBottom="true">
+        <com.google.android.apps.androidify.TextViewCompat android:textSize="@dimen/share_button_font_size" android:textColor="@color/btn_share_text" android:gravity="center" android:layout_gravity="center" android:id="@id/btn_motion_share" android:paddingTop="@dimen/share_button_top_padding" android:clickable="true" android:layout_width="wrap_content" android:layout_height="fill_parent" android:text="@string/menu_share" android:layout_centerInParent="true" android:onClick="clickedShare" app:custom_font="and-black" />
+    </com.google.android.apps.androidify.ProgressRelativeLayout>
+</RelativeLayout>

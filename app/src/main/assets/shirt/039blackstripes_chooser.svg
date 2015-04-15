@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 14.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 43363)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="content" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="500px" height="500px" viewBox="0 0 500 500" enable-background="new 0 0 500 500" xml:space="preserve">
+<g id="bounds" display="none">
+	<rect x="0.162" y="79.994" fill="none" stroke="#EAEAEA" stroke-miterlimit="10" width="499.5" height="499.5"/>
+</g>
+<g id="chooser">
+	<g>
+		<polygon fill="#020202" points="374.355,191.582 355.683,177.24 144.143,177.24 125.471,191.582 69.783,262.582 69.783,443.56 
+			131.04,443.56 131.04,280.679 147.093,275.326 147.093,482.25 352.73,482.25 352.731,482.25 352.731,275.326 368.784,280.679 
+			368.784,443.56 430.04,443.56 430.04,262.582 		"/>
+		<polygon fill="#212121" points="78.28,251.75 421.545,251.75 394.184,216.865 105.642,216.865 		"/>
+		<rect x="147.093" y="293.697" fill="#212121" width="205.637" height="34.887"/>
+		<rect x="368.784" y="293.697" fill="#212121" width="61.256" height="34.887"/>
+		<rect x="69.783" y="293.697" fill="#212121" width="61.257" height="34.887"/>
+		<rect x="147.093" y="370.531" fill="#212121" width="205.637" height="34.887"/>
+		<rect x="69.783" y="370.531" fill="#212121" width="61.257" height="34.887"/>
+		<rect x="368.784" y="370.531" fill="#212121" width="61.256" height="34.887"/>
+		<rect x="147.093" y="447.365" fill="#212121" width="205.638" height="34.885"/>
+	</g>
+</g>
+<rect id="position" x="0.5" y="0.5" display="none" fill="none" stroke="#000000" width="499" height="499"/>
+</svg>

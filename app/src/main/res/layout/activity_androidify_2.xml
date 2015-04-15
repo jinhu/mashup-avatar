@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.apps.androidify.RelativeTouchRecordingLayout android:id="@id/main_layout" android:focusable="true" android:focusableInTouchMode="true" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <View android:background="@color/bg_grey" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+    <com.google.android.apps.androidify.DroidView android:id="@id/main_droid_view" android:layout_width="fill_parent" android:layout_height="fill_parent" android:contentDescription="Your Android" />
+    <include android:id="@id/header" layout="@layout/header" />
+    <EditText android:textSize="24.0dip" android:textColor="@color/dark_grey" android:textColorHint="@color/dark_grey_partialalpha" android:gravity="center" android:id="@id/et_droid_name" android:background="@android:color/transparent" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="12.0dip" android:hint="@string/no_name" android:singleLine="true" android:maxLength="20" android:layout_alignParentTop="true" android:layout_centerHorizontal="true" android:inputType="textNoSuggestions" android:contentDescription="Name your android" android:textCursorDrawable="@drawable/android_name_cursor" />
+    <com.google.android.apps.androidify.TutorialView android:id="@id/tutorial" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+    <include android:id="@id/drawer" layout="@layout/drawer" />
+    <SurfaceView android:id="@id/intro_video" android:visibility="invisible" android:layout_width="fill_parent" android:layout_height="520.0dip" android:layout_centerInParent="true" />
+</com.google.android.apps.androidify.RelativeTouchRecordingLayout>

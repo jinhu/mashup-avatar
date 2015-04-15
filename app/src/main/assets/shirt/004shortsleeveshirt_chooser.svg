@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 14.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 43363)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="content" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="500px" height="500px" viewBox="0 0 500 500" enable-background="new 0 0 500 500" xml:space="preserve">
+<g id="bounds" display="none">
+	<rect x="0.423" y="80.617" fill="none" stroke="#EAEAEA" stroke-miterlimit="10" width="499.5" height="499.5"/>
+</g>
+<g id="chooser">
+	<g>
+		<polygon fill="#E5E5E5" points="465.646,200.714 388.577,178.133 388.577,177.84 288.55,177.84 258.47,197.463 249.742,218.089 
+			241.114,197.56 210.931,177.84 112.771,177.84 34.701,200.698 60.596,277.248 112.771,268.869 112.771,482.893 388.577,482.893 
+			388.577,269.045 439.752,277.263 		"/>
+		<polygon fill="#D3D3D3" points="259.239,205.853 300.559,223.441 306.354,177.84 288.647,177.84 258.47,197.463 256.022,203.284 
+			256.022,203.284 249.879,216.371 243.638,203.284 243.638,203.284 241.211,197.463 211.032,177.84 193.326,177.84 201.12,225.441 
+			240.392,206.074 248.723,222.342 248.723,482.795 250.955,482.795 250.955,222.393 		"/>
+		<polygon fill="#EFEFEF" points="258.563,197.371 296.246,214.371 301.091,177.84 288.647,177.84 		"/>
+		<polygon fill="#EFEFEF" points="211.032,177.84 198.395,177.84 205.239,216.371 241.211,197.463 		"/>
+		<circle fill="#BCBCBC" cx="264.577" cy="235.383" r="4"/>
+		<circle fill="#BCBCBC" cx="264.577" cy="282.821" r="4"/>
+		<circle fill="#BCBCBC" cx="264.577" cy="330.257" r="4"/>
+		<circle fill="#BCBCBC" cx="264.577" cy="377.694" r="4"/>
+		<circle fill="#BCBCBC" cx="264.577" cy="425.131" r="4"/>
+		<circle fill="#BCBCBC" cx="264.577" cy="472.568" r="4"/>
+		<path fill="#EFEFEF" d="M158.4,271.772c0,1.654,1.344,3,3,3h29.326c1.657,0,3-1.346,3-3v-29.328c0-1.657-1.343-3-3-3H161.4
+			c-1.656,0-3,1.343-3,3V271.772z"/>
+		<path fill="#EFEFEF" d="M339.047,271.772c0,1.654-1.343,3-3,3h-29.325c-1.656,0-3-1.346-3-3v-29.328c0-1.657,1.344-3,3-3h29.325
+			c1.657,0,3,1.343,3,3V271.772z"/>
+	</g>
+</g>
+<rect id="position" x="0" y="0" display="none" fill="none" stroke="#000000" width="500" height="500"/>
+</svg>

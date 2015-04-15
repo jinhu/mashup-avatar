@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <include android:id="@id/header" layout="@layout/header" />
+        <com.google.android.apps.androidify.TextViewCompat android:textSize="@dimen/about_font_size" android:textColor="@color/about_grey_text" android:gravity="left" android:layout_gravity="center" android:layout_width="@dimen/about_button_width" android:layout_height="wrap_content" android:layout_marginTop="@dimen/about_internal_seperator" android:text="@string/info_license" />
+        <View android:layout_width="fill_parent" android:layout_height="38.0dip" />
+    </LinearLayout>
+</ScrollView>
