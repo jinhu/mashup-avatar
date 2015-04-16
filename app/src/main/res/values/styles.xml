@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <style name="AppTheme" parent="@android:style/Theme.Black" />
     <style name="Androidify" parent="@android:style/Theme.NoTitleBar.Fullscreen" />
     <style name="Text" parent="@android:style/Widget.TextView" />
     <style name="Text.MenuItem" parent="@style/Text">
