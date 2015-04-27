@@ -164,7 +164,7 @@ public class Util {
         //C0176a.m1106c(str);
     }
 
-    public static Object[] m1913a(Class cls, Object... objArr) {
+    public static Object[] collect(Class cls, Object... objArr) {
         int i = 0;
         int i2 = 0;
         for (Object obj : objArr) {
@@ -181,6 +181,7 @@ public class Util {
         }
         return objArr2;
     }
+
 
 
 }

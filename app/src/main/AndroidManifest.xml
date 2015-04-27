@@ -27,9 +27,27 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity-->
-        <activity
+         <activity
             android:name="com.google.android.apps.androidify.Androidify"
             android:label="Hackify" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.google.android.apps.androidify.PoseActivity"
+            android:label="Hackify pose" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.google.android.apps.androidify.GalleryActivity"
+            android:label="Hackify gallery" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
