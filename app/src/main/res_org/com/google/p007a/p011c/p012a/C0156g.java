@@ -1,0 +1,377 @@
+package com.google.p007a.p011c.p012a;
+
+import com.google.android.apps.androidify.cm;
+import com.google.p007a.C0175h;
+import java.math.BigInteger;
+import java.util.Arrays;
+
+/* renamed from: com.google.a.c.a.g */
+final class C0156g {
+    private static final byte[] f553a;
+    private static final byte[] f554b;
+    private static final byte[] f555c;
+    private static final byte[] f556d;
+
+    static {
+        byte b;
+        byte b2 = (byte) 0;
+        f553a = new byte[]{(byte) 48, (byte) 49, (byte) 50, (byte) 51, (byte) 52, (byte) 53, (byte) 54, (byte) 55, (byte) 56, (byte) 57, (byte) 38, (byte) 13, (byte) 9, (byte) 44, (byte) 58, (byte) 35, (byte) 45, (byte) 46, (byte) 36, (byte) 47, (byte) 43, (byte) 37, (byte) 42, (byte) 61, (byte) 94, (byte) 0, (byte) 32, (byte) 0, (byte) 0, (byte) 0};
+        f554b = new byte[]{(byte) 59, (byte) 60, (byte) 62, (byte) 64, (byte) 91, (byte) 92, (byte) 93, (byte) 95, (byte) 96, (byte) 126, (byte) 33, (byte) 13, (byte) 9, (byte) 44, (byte) 58, (byte) 10, (byte) 45, (byte) 46, (byte) 36, (byte) 47, (byte) 34, (byte) 124, (byte) 42, (byte) 40, (byte) 41, (byte) 63, (byte) 123, (byte) 125, (byte) 39, (byte) 0};
+        f555c = new byte[128];
+        f556d = new byte[128];
+        Arrays.fill(f555c, (byte) -1);
+        for (b = (byte) 0; b < f553a.length; b = (byte) (b + 1)) {
+            byte b3 = f553a[b];
+            if (b3 > null) {
+                f555c[b3] = b;
+            }
+        }
+        Arrays.fill(f556d, (byte) -1);
+        while (b2 < f554b.length) {
+            b = f554b[b2];
+            if (b > null) {
+                f556d[b] = b2;
+            }
+            b2 = (byte) (b2 + 1);
+        }
+    }
+
+    private static int m997a(CharSequence charSequence, int i) {
+        int i2 = 0;
+        int length = charSequence.length();
+        if (i < length) {
+            char charAt = charSequence.charAt(i);
+            while (C0156g.m1003a(charAt) && i < length) {
+                i2++;
+                i++;
+                if (i < length) {
+                    charAt = charSequence.charAt(i);
+                }
+            }
+        }
+        return i2;
+    }
+
+    /* JADX WARNING: inconsistent code. */
+    /* Code decompiled incorrectly, please refer to instructions dump. */
+    private static int m998a(CharSequence charSequence, int i, int i2, StringBuilder stringBuilder, int i3) {
+        StringBuilder stringBuilder2 = new StringBuilder(i2);
+        int i4 = 0;
+        while (true) {
+            char charAt = charSequence.charAt(i + i4);
+            switch (i3) {
+                case cm.HListView_android_entries /*0*/:
+                    if (C0156g.m1006b(charAt)) {
+                        if (charAt == ' ') {
+                            stringBuilder2.append('\u001a');
+                        } else {
+                            stringBuilder2.append((char) (charAt - 65));
+                        }
+                    } else if (C0156g.m1007c(charAt)) {
+                        stringBuilder2.append('\u001b');
+                        i3 = 1;
+                        break;
+                    } else if (C0156g.m1008d(charAt)) {
+                        i3 = 2;
+                        stringBuilder2.append('\u001c');
+                        break;
+                    } else {
+                        stringBuilder2.append('\u001d');
+                        stringBuilder2.append((char) f556d[charAt]);
+                    }
+                case cm.HListView_android_divider /*1*/:
+                    if (C0156g.m1007c(charAt)) {
+                        if (charAt == ' ') {
+                            stringBuilder2.append('\u001a');
+                        } else {
+                            stringBuilder2.append((char) (charAt - 97));
+                        }
+                    } else if (C0156g.m1006b(charAt)) {
+                        stringBuilder2.append('\u001b');
+                        stringBuilder2.append((char) (charAt - 65));
+                    } else if (C0156g.m1008d(charAt)) {
+                        i3 = 2;
+                        stringBuilder2.append('\u001c');
+                        break;
+                    } else {
+                        stringBuilder2.append('\u001d');
+                        stringBuilder2.append((char) f556d[charAt]);
+                    }
+                case cm.HListView_hlv_dividerWidth /*2*/:
+                    if (!C0156g.m1008d(charAt)) {
+                        if (!C0156g.m1006b(charAt)) {
+                            if (!C0156g.m1007c(charAt)) {
+                                if ((i + i4) + 1 < i2 && C0156g.m1009e(charSequence.charAt((i + i4) + 1))) {
+                                    i3 = 3;
+                                    stringBuilder2.append('\u0019');
+                                    break;
+                                }
+                                stringBuilder2.append('\u001d');
+                                stringBuilder2.append((char) f556d[charAt]);
+                            } else {
+                                stringBuilder2.append('\u001b');
+                                i3 = 1;
+                                break;
+                            }
+                        }
+                        stringBuilder2.append('\u001c');
+                        i3 = 0;
+                        break;
+                    }
+                    stringBuilder2.append((char) f555c[charAt]);
+                    break;
+                default:
+                    if (!C0156g.m1009e(charAt)) {
+                        stringBuilder2.append('\u001d');
+                        i3 = 0;
+                        break;
+                    }
+                    stringBuilder2.append((char) f556d[charAt]);
+                    i4++;
+                    if (i4 < i2) {
+                        break;
+                    }
+                    int length = stringBuilder2.length();
+                    int i5 = 0;
+                    int i6 = 0;
+                    while (i5 < length) {
+                        char charAt2;
+                        if ((i5 % 2 != 0 ? 1 : null) != null) {
+                            charAt2 = (char) ((i6 * 30) + stringBuilder2.charAt(i5));
+                            stringBuilder.append(charAt2);
+                        } else {
+                            charAt2 = stringBuilder2.charAt(i5);
+                        }
+                        i5++;
+                        char c = charAt2;
+                    }
+                    if (length % 2 != 0) {
+                        stringBuilder.append((char) ((i6 * 30) + 29));
+                    }
+                    return i3;
+            }
+        }
+    }
+
+    private static int m999a(CharSequence charSequence, byte[] bArr, int i) {
+        int length = charSequence.length();
+        int i2 = i;
+        while (i2 < length) {
+            char charAt = charSequence.charAt(i2);
+            int i3 = 0;
+            while (i3 < 13 && C0156g.m1003a(charAt)) {
+                i3++;
+                int i4 = i2 + i3;
+                if (i4 >= length) {
+                    break;
+                }
+                charAt = charSequence.charAt(i4);
+            }
+            if (i3 >= 13) {
+                return i2 - i;
+            }
+            char c = charAt;
+            int i5 = 0;
+            while (i5 < 5 && C0156g.m1010f(r2)) {
+                i5++;
+                i3 = i2 + i5;
+                if (i3 >= length) {
+                    break;
+                }
+                c = charSequence.charAt(i3);
+            }
+            if (i5 >= 5) {
+                return i2 - i;
+            }
+            charAt = charSequence.charAt(i2);
+            if (bArr[i2] != (byte) 63 || charAt == '?') {
+                i2++;
+            } else {
+                throw new C0175h("Non-encodable character detected: " + charAt + " (Unicode: " + charAt + ')');
+            }
+        }
+        return i2 - i;
+    }
+
+    static String m1000a(String str, C0152c c0152c) {
+        byte[] bArr = null;
+        StringBuilder stringBuilder = new StringBuilder(str.length());
+        int length = str.length();
+        if (c0152c == C0152c.TEXT) {
+            C0156g.m998a((CharSequence) str, 0, length, stringBuilder, 0);
+        } else if (c0152c == C0152c.BYTE) {
+            bArr = C0156g.m1004a(str);
+            C0156g.m1002a(bArr, 0, bArr.length, 1, stringBuilder);
+        } else if (c0152c == C0152c.NUMERIC) {
+            stringBuilder.append('\u0386');
+            C0156g.m1001a(str, 0, length, stringBuilder);
+        } else {
+            int i = 0;
+            int i2 = 0;
+            int i3 = 0;
+            while (i3 < length) {
+                byte[] bArr2;
+                int i4;
+                int i5;
+                int a = C0156g.m997a((CharSequence) str, i3);
+                if (a >= 13) {
+                    stringBuilder.append('\u0386');
+                    i = 2;
+                    C0156g.m1001a(str, i3, a, stringBuilder);
+                    i2 = i3 + a;
+                    bArr2 = bArr;
+                    i4 = i2;
+                    i2 = 0;
+                } else {
+                    int b = C0156g.m1005b(str, i3);
+                    if (b >= 5 || a == length) {
+                        if (i != 0) {
+                            stringBuilder.append('\u0384');
+                            i = 0;
+                            i2 = 0;
+                        }
+                        i2 = C0156g.m998a((CharSequence) str, i3, b, stringBuilder, i2);
+                        i5 = i3 + b;
+                        bArr2 = bArr;
+                        i4 = i5;
+                    } else {
+                        if (bArr == null) {
+                            bArr = C0156g.m1004a(str);
+                        }
+                        a = C0156g.m999a(str, bArr, i3);
+                        if (a == 0) {
+                            a = 1;
+                        }
+                        if (a == 1 && i == 0) {
+                            C0156g.m1002a(bArr, i3, 1, 0, stringBuilder);
+                        } else {
+                            C0156g.m1002a(bArr, i3, a, i, stringBuilder);
+                            i = 1;
+                            i2 = 0;
+                        }
+                        i5 = i3 + a;
+                        bArr2 = bArr;
+                        i4 = i5;
+                    }
+                }
+                i5 = i4;
+                bArr = bArr2;
+                i3 = i5;
+            }
+        }
+        return stringBuilder.toString();
+    }
+
+    private static void m1001a(String str, int i, int i2, StringBuilder stringBuilder) {
+        StringBuilder stringBuilder2 = new StringBuilder((i2 / 3) + 1);
+        BigInteger valueOf = BigInteger.valueOf(900);
+        BigInteger valueOf2 = BigInteger.valueOf(0);
+        int i3 = 0;
+        while (i3 < i2 - 1) {
+            stringBuilder2.setLength(0);
+            int min = Math.min(44, i2 - i3);
+            BigInteger bigInteger = new BigInteger('1' + str.substring(i + i3, (i + i3) + min));
+            do {
+                stringBuilder2.append((char) bigInteger.mod(valueOf).intValue());
+                bigInteger = bigInteger.divide(valueOf);
+            } while (!bigInteger.equals(valueOf2));
+            for (int length = stringBuilder2.length() - 1; length >= 0; length--) {
+                stringBuilder.append(stringBuilder2.charAt(length));
+            }
+            i3 += min;
+        }
+    }
+
+    private static void m1002a(byte[] bArr, int i, int i2, int i3, StringBuilder stringBuilder) {
+        int i4;
+        if (i2 == 1 && i3 == 0) {
+            stringBuilder.append('\u0391');
+        }
+        if (i2 >= 6) {
+            stringBuilder.append('\u039c');
+            char[] cArr = new char[5];
+            i4 = i;
+            while ((i + i2) - i4 >= 6) {
+                int i5;
+                long j = 0;
+                for (i5 = 0; i5 < 6; i5++) {
+                    j = (j << 8) + ((long) (bArr[i4 + i5] & 255));
+                }
+                for (i5 = 0; i5 < 5; i5++) {
+                    cArr[i5] = (char) ((int) (j % 900));
+                    j /= 900;
+                }
+                for (i5 = cArr.length - 1; i5 >= 0; i5--) {
+                    stringBuilder.append(cArr[i5]);
+                }
+                i4 += 6;
+            }
+        } else {
+            i4 = i;
+        }
+        if (i4 < i + i2) {
+            stringBuilder.append('\u0385');
+        }
+        while (i4 < i + i2) {
+            stringBuilder.append((char) (bArr[i4] & 255));
+            i4++;
+        }
+    }
+
+    private static boolean m1003a(char c) {
+        return c >= '0' && c <= '9';
+    }
+
+    private static byte[] m1004a(String str) {
+        return str.getBytes();
+    }
+
+    private static int m1005b(CharSequence charSequence, int i) {
+        int length = charSequence.length();
+        int i2 = i;
+        while (i2 < length) {
+            char charAt = charSequence.charAt(i2);
+            int i3 = 0;
+            while (i3 < 13 && C0156g.m1003a(r2) && i2 < length) {
+                i3++;
+                int i4 = i2 + 1;
+                if (i4 < length) {
+                    charAt = charSequence.charAt(i4);
+                    i2 = i4;
+                } else {
+                    i2 = i4;
+                }
+            }
+            if (i3 >= 13) {
+                return (i2 - i) - i3;
+            }
+            if (i3 <= 0) {
+                if (!C0156g.m1010f(charSequence.charAt(i2))) {
+                    break;
+                }
+                i2++;
+            }
+        }
+        return i2 - i;
+    }
+
+    private static boolean m1006b(char c) {
+        return c == ' ' || (c >= 'A' && c <= 'Z');
+    }
+
+    private static boolean m1007c(char c) {
+        return c == ' ' || (c >= 'a' && c <= 'z');
+    }
+
+    private static boolean m1008d(char c) {
+        return f555c[c] != -1;
+    }
+
+    private static boolean m1009e(char c) {
+        return f556d[c] != -1;
+    }
+
+    private static boolean m1010f(char c) {
+        return c == '\t' || c == '\n' || c == '\r' || (c >= ' ' && c <= '~');
+    }
+}
