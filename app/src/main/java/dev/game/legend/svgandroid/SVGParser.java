@@ -2,21 +2,29 @@ package dev.game.legend.svgandroid;
 
 import android.content.res.AssetManager;
 import android.content.res.Resources;
-import android.graphics.*;
-import android.util.Log;
+import android.graphics.Canvas;
+import android.graphics.Matrix;
+import android.graphics.Paint;
+import android.graphics.Path;
+import android.graphics.Picture;
+import android.graphics.RectF;
+import android.graphics.Shader;
+
+import com.google.android.Util;
+
 import org.xml.sax.Attributes;
 import org.xml.sax.InputSource;
-import org.xml.sax.SAXException;
 import org.xml.sax.XMLReader;
 import org.xml.sax.helpers.DefaultHandler;
 
-import javax.xml.parsers.SAXParser;
-import javax.xml.parsers.SAXParserFactory;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
+
+import javax.xml.parsers.SAXParser;
+import javax.xml.parsers.SAXParserFactory;
 
 /*
 
@@ -172,31 +180,42 @@ public class SVGParser {
         return doPath(pathString);
     }
 
-    private static SVG parse(InputStream in, Integer searchColor, Integer replaceColor, boolean whiteMode) throws SVGParseException {
-//        Util.debug("Parsing SVG...");
+    public static SVG parse(InputStream inputStream, Integer aSearchColor, Integer aReplaceColor, boolean aWhiteMode) {
+        return SVGParser.parse(inputStream, aSearchColor, aReplaceColor, null, null, aWhiteMode);
+    }
+
+    public static SVG parse(InputStream inputStream, Integer searchColor, Integer replaceColor, Integer aSecondarySearchColor, Integer aSecondaryReplaceColor, boolean whiteMode) throws SVGParseException {
+        Util.debug("Parsing SVG...");
         try {
             long start = System.currentTimeMillis();
             SAXParserFactory spf = SAXParserFactory.newInstance();
             SAXParser sp = spf.newSAXParser();
-            XMLReader xr = sp.getXMLReader();
+            XMLReader xMLReader = sp.getXMLReader();
             final Picture picture = new Picture();
             SVGHandler handler = new SVGHandler(picture);
-            handler.setColorSwap(searchColor, replaceColor);
+            if (!(searchColor == null || replaceColor == null)) {
+                handler.swapPrimaryColor(searchColor, replaceColor);
+            }
+            if (!(aSecondarySearchColor == null || aSecondaryReplaceColor == null)) {
+                handler.swapSecondaryColor(aSecondarySearchColor, aSecondaryReplaceColor);
+            }
             handler.setWhiteMode(whiteMode);
-            xr.setContentHandler(handler);
-            xr.parse(new InputSource(in));
-//        Util.debug("Parsing complete in " + (System.currentTimeMillis() - start) + " millis.");
-            SVG result = new SVG(picture, handler.bounds);
+            xMLReader.setContentHandler(handler);
+            xMLReader.parse(new InputSource(inputStream));
+
+            
+        Util.debug("Parsing complete in " + (System.currentTimeMillis() - start) + " millis.");
+            SVG result = new SVG(picture, handler.mBounds);
             // Skip bounds if it was an empty pic
-            if (!Float.isInfinite(handler.limits.top)) {
-                result.setLimits(handler.limits);
+            if (!Float.isInfinite(handler.mLimits.top)) {
+                result.setLimits(handler.mLimits);
             }
             return result;
         } catch (Exception e) {
             throw new SVGParseException(e);
         }
     }
-
+   
     private static NumberParse parseNumbers(String s) {
         //Util.debug("Parsing numbers from: '" + s + "'");
         int n = s.length();
@@ -619,7 +638,7 @@ public class SVGParser {
             }
         }
     }
-
+    
     private static class NumberParse {
         private ArrayList<Float> numbers;
         private int nextCmd;
@@ -759,491 +778,380 @@ public class SVGParser {
         }
     }
 
-    private static class SVGHandler extends DefaultHandler {
-
-        Picture picture;
-        Canvas canvas;
-        Paint paint;
-        // Scratch rect (so we aren't constantly making new ones)
-        RectF rect = new RectF();
-        RectF bounds = null;
-        RectF limits = new RectF(Float.POSITIVE_INFINITY, Float.POSITIVE_INFINITY, Float.NEGATIVE_INFINITY, Float.NEGATIVE_INFINITY);
-
-        Integer searchColor = null;
-        Integer replaceColor = null;
-
-        boolean whiteMode = false;
-
-        boolean pushed = false;
-
+    /* renamed from: com.google.android.apps.b.f */
+    static class SVGHandler extends DefaultHandler {
+        Picture mPicture;
+        Canvas mCanvas;
+        Paint mPaint;
+        RectF mRect = new RectF();
+        RectF mBounds;
+        RectF mLimits= new RectF(Float.POSITIVE_INFINITY, Float.POSITIVE_INFINITY, Float.NEGATIVE_INFINITY, Float.NEGATIVE_INFINITY);
+        Integer mPrimarySearchColor;
+        Integer mPrimaryReplaceColor;
+        Integer mSecondarySearchColor;
+        Integer mSecondaryReplaceColor;
+        private boolean mHidden = false;
+        private int mHideLevel= 0;
+        private boolean mBoundsMode = false;
+        private Float f1727o;
+        private boolean mPushed;
+        boolean mWhiteMode = false;
         HashMap<String, Shader> gradientMap = new HashMap<String, Shader>();
         HashMap<String, Gradient> gradientRefMap = new HashMap<String, Gradient>();
         Gradient gradient = null;
-
+        
         private SVGHandler(Picture picture) {
-            this.picture = picture;
-            paint = new Paint();
-            paint.setAntiAlias(true);
+            this.mRect = new RectF();
+            this.mBounds = null;
+            this.mLimits = new RectF(Float.POSITIVE_INFINITY, Float.POSITIVE_INFINITY, Float.NEGATIVE_INFINITY, Float.NEGATIVE_INFINITY);
+            this.mPrimarySearchColor = null;
+            this.mPrimaryReplaceColor = null;
+            this.mSecondarySearchColor = null;
+            this.mSecondaryReplaceColor = null;
+            this.mWhiteMode = false;
+            this.mHidden = false;
+            this.mHideLevel = 0;
+            this.mBoundsMode = false;
+            this.f1727o = null;
+            this.mPushed = false;
+            this.mPicture = picture;
+            this.mPaint = new Paint();
+            this.mPaint.setAntiAlias(true);
         }
 
-        public void setColorSwap(Integer searchColor, Integer replaceColor) {
-            this.searchColor = searchColor;
-            this.replaceColor = replaceColor;
-        }
-
-        public void setWhiteMode(boolean whiteMode) {
-            this.whiteMode = whiteMode;
-        }
-
-        @Override
-        public void startDocument() throws SAXException {
-            // Set up prior to parsing a doc
-        }
-
-        @Override
-        public void endDocument() throws SAXException {
-            // Clean up after parsing a doc
-        }
-
-        private boolean doFill(Properties atts, HashMap<String, Shader> gradients) {
-            if ("none".equals(atts.getString("display"))) {
-                return false;
-            }
-            if (whiteMode) {
-                paint.setStyle(Paint.Style.FILL);
-                paint.setColor(0xFFFFFFFF);
-                return true;
-            }
-            String fillString = atts.getString("fill");
-            if (fillString != null && fillString.startsWith("url(#")) {
-                // It's a gradient fill, look it up in our map
-                String id = fillString.substring("url(#".length(), fillString.length() - 1);
-                Shader shader = gradients.get(id);
-                if (shader != null) {
-                    //Util.debug("Found shader!");
-                    paint.setShader(shader);
-                    paint.setStyle(Paint.Style.FILL);
-                    return true;
-                } else {
-                    //Util.debug("Didn't find shader!");
-                    return false;
-                }
-            } else {
-                paint.setShader(null);
-                Integer color = atts.getHex("fill");
-                if (color != null) {
-                    doColor(atts, color, true);
-                    paint.setStyle(Paint.Style.FILL);
-                    return true;
-                } else if (atts.getString("fill") == null && atts.getString("stroke") == null) {
-                    // Default is black fill
-                    paint.setStyle(Paint.Style.FILL);
-                    paint.setColor(0xFF000000);
-                    return true;
-                }
-            }
-            return false;
-        }
-
-        private boolean doStroke(Properties atts) {
-            if (whiteMode) {
-                // Never stroke in white mode
-                return false;
-            }
-            if ("none".equals(atts.getString("display"))) {
-                return false;
-            }
-            Integer color = atts.getHex("stroke");
-            if (color != null) {
-                doColor(atts, color, false);
-                // Check for other stroke attributes
-                Float width = atts.getFloat("stroke-width");
-                // Set defaults
-
-                if (width != null) {
-                    paint.setStrokeWidth(width);
-                }
-                String linecap = atts.getString("stroke-linecap");
-                if ("round".equals(linecap)) {
-                    paint.setStrokeCap(Paint.Cap.ROUND);
-                } else if ("square".equals(linecap)) {
-                    paint.setStrokeCap(Paint.Cap.SQUARE);
-                } else if ("butt".equals(linecap)) {
-                    paint.setStrokeCap(Paint.Cap.BUTT);
-                }
-                String linejoin = atts.getString("stroke-linejoin");
-                if ("miter".equals(linejoin)) {
-                    paint.setStrokeJoin(Paint.Join.MITER);
-                } else if ("round".equals(linejoin)) {
-                    paint.setStrokeJoin(Paint.Join.ROUND);
-                } else if ("bevel".equals(linejoin)) {
-                    paint.setStrokeJoin(Paint.Join.BEVEL);
-                }
-                paint.setStyle(Paint.Style.STROKE);
-                return true;
-            }
-            return false;
-        }
-
-        private Gradient doGradient(boolean isLinear, Attributes atts) {
-            Gradient gradient = new Gradient();
-            gradient.id = getStringAttr("id", atts);
-            gradient.isLinear = isLinear;
-            if (isLinear) {
-                gradient.x1 = getFloatAttr("x1", atts, 0f);
-                gradient.x2 = getFloatAttr("x2", atts, 0f);
-                gradient.y1 = getFloatAttr("y1", atts, 0f);
-                gradient.y2 = getFloatAttr("y2", atts, 0f);
-            } else {
-                gradient.x = getFloatAttr("cx", atts, 0f);
-                gradient.y = getFloatAttr("cy", atts, 0f);
-                gradient.radius = getFloatAttr("r", atts, 0f);
-            }
-            String transform = getStringAttr("gradientTransform", atts);
-            if (transform != null) {
-                gradient.matrix = parseTransform(transform);
-            }
-            String xlink = getStringAttr("href", atts);
-            if (xlink != null) {
-                if (xlink.startsWith("#")) {
-                    xlink = xlink.substring(1);
-                }
-                gradient.xlink = xlink;
-            }
-            return gradient;
-        }
-
-        private void doColor(Properties atts, Integer color, boolean fillMode) {
-            int c = (0xFFFFFF & color) | 0xFF000000;
-            if (searchColor != null && searchColor.intValue() == c) {
-                c = replaceColor;
-            }
-            paint.setColor(c);
-            Float opacity = atts.getFloat("opacity");
-            if (opacity == null) {
-                opacity = atts.getFloat(fillMode ? "fill-opacity" : "stroke-opacity");
-            }
-            if (opacity == null) {
-                paint.setAlpha(255);
-            } else {
-                paint.setAlpha((int) (255 * opacity));
+        private void popTransition() {
+            if (this.mPushed) {
+                this.mCanvas.restore();
             }
         }
-
-        private boolean hidden = false;
-        private int hiddenLevel = 0;
-        private boolean boundsMode = false;
 
         private void doLimits(float x, float y) {
-            if (x < limits.left) {
-                limits.left = x;
+            if (x < this.mLimits.left) {
+                this.mLimits.left = x;
             }
-            if (x > limits.right) {
-                limits.right = x;
+            if (x > this.mLimits.right) {
+                this.mLimits.right = x;
             }
-            if (y < limits.top) {
-                limits.top = y;
+            if (y < this.mLimits.top) {
+                this.mLimits.top = y;
             }
-            if (y > limits.bottom) {
-                limits.bottom = y;
+            if (y > this.mLimits.bottom) {
+                this.mLimits.bottom = y;
             }
         }
 
-        private void doLimits(float x, float y, float width, float height) {
-            doLimits(x, y);
-            doLimits(x + width, y + height);
+        private void doLimits(float left, float top, float right, float bottom) {
+            doLimits(left, top);
+            doLimits(left + right, top + bottom);
         }
 
         private void doLimits(Path path) {
-            path.computeBounds(rect, false);
-            doLimits(rect.left, rect.top);
-            doLimits(rect.right, rect.bottom);
+            path.computeBounds(this.mRect, false);
+            doLimits(this.mRect.left, this.mRect.top);
+            doLimits(this.mRect.right, this.mRect.bottom);
         }
 
-        private void pushTransform(Attributes atts) {
-            final String transform = getStringAttr("transform", atts);
-            pushed = transform != null;
-            if (pushed) {
-                final Matrix matrix = parseTransform(transform);
-                canvas.save();
-                canvas.concat(matrix);
+        private void doAlpha(Float f) {
+            if (f == null) {
+                this.mPaint.setAlpha(255);
+            } else {
+                this.mPaint.setAlpha((int) (255.0f * f.floatValue()));
             }
         }
 
-        private void popTransform() {
-            if (pushed) {
-                canvas.restore();
+        private void doColor(Attributes attributes, Integer num, boolean aFillMode) {
+            int intValue = (16777215 & num.intValue()) | -16777216;
+            if (this.mPrimarySearchColor != null && this.mPrimaryReplaceColor != null && this.mPrimarySearchColor.intValue() == intValue) {
+                intValue = this.mPrimaryReplaceColor.intValue();
+            } else if (!(this.mSecondarySearchColor == null || this.mSecondaryReplaceColor == null || this.mSecondarySearchColor.intValue() != intValue)) {
+                intValue = this.mSecondaryReplaceColor.intValue();
+            }
+            this.mPaint.setColor(intValue);
+            Float opacity =getFloatAttr("opacity",attributes);
+            if (opacity == null) {
+                opacity = getFloatAttr(aFillMode ? "fill-opacity" : "stroke-opacity", attributes );
+            }
+            if (opacity == null) {
+                mPaint.setAlpha(255);
+            } else {
+                mPaint.setAlpha((int) (255 * opacity));
             }
         }
 
-        @Override
-        public void startElement(String namespaceURI, String localName, String qName, Attributes atts) throws SAXException {
-            // Reset paint opacity
-            paint.setAlpha(255);
-            // Ignore everything but rectangles in bounds mode
-            if (boundsMode) {
-                if (localName.equals("rect")) {
-                    Float x = getFloatAttr("x", atts);
+        private boolean doFill(Attributes attributes) {
+            boolean z = true;
+            if ("none".equals(getStringAttr("display", attributes))) {
+                return false;
+            }
+            if (this.mWhiteMode) {
+                this.mPaint.setStyle(Paint.Style.FILL);
+                this.mPaint.setColor(-1);
+                return true;
+            }
+            Integer b = getHexAttr("fill", attributes);
+            if (b != null) {
+                doColor(attributes, b, true);
+                this.mPaint.setStyle(Paint.Style.FILL);
+            } else if (getStringAttr("fill", attributes) == null && getStringAttr("stroke", attributes) == null) {
+                this.mPaint.setStyle(Paint.Style.FILL);
+                this.mPaint.setColor(-16777216);
+            } else {
+                z = false;
+            }
+            Float c = getFloatAttr("opacity", attributes);
+            if (c != null) {
+                doAlpha(c);
+                return z;
+            } else if (this.f1727o == null) {
+                return z;
+            } else {
+                doAlpha(this.f1727o);
+                return z;
+            }
+        }
+
+        private boolean doStroke(Attributes attributes) {
+            if (this.mWhiteMode || "none".equals(getStringAttr("display", attributes))) {
+                return false;
+            }
+            Integer b = getHexAttr("stroke", attributes);
+            if (b == null) {
+                return false;
+            }
+            doColor(attributes, b, false);
+            Float c = getFloatAttr("stroke-width", attributes);
+            if (c != null) {
+                this.mPaint.setStrokeWidth(c.floatValue());
+            }
+            String a = getStringAttr("stroke-linecap", attributes);
+            if ("round".equals(a)) {
+                this.mPaint.setStrokeCap(Paint.Cap.ROUND);
+            } else if ("square".equals(a)) {
+                this.mPaint.setStrokeCap(Paint.Cap.SQUARE);
+            } else if ("butt".equals(a)) {
+                this.mPaint.setStrokeCap(Paint.Cap.BUTT);
+            }
+            a = getStringAttr("stroke-linejoin", attributes);
+            if ("miter".equals(a)) {
+                this.mPaint.setStrokeJoin(Paint.Join.MITER);
+            } else if ("round".equals(a)) {
+                this.mPaint.setStrokeJoin(Paint.Join.ROUND);
+            } else if ("bevel".equals(a)) {
+                this.mPaint.setStrokeJoin(Paint.Join.BEVEL);
+            }
+            this.mPaint.setStyle(Paint.Style.STROKE);
+            return true;
+        }
+
+        private void pushTransform(Attributes attributes) {
+            String stringAttr = getStringAttr("transform", attributes);
+            this.mPushed = stringAttr != null;
+            if (this.mPushed) {
+                Matrix matrix = parseTransform(stringAttr);
+                this.mCanvas.save();
+                this.mCanvas.concat(matrix);
+            }
+        }
+
+        public void swapPrimaryColor(Integer num, Integer num2) {
+            this.mPrimarySearchColor = num;
+            this.mPrimaryReplaceColor = num2;
+        }
+
+        public void setWhiteMode(boolean z) {
+            this.mWhiteMode = z;
+        }
+
+        public void swapSecondaryColor(Integer num, Integer num2) {
+            this.mSecondarySearchColor = num;
+            this.mSecondaryReplaceColor = num2;
+        }
+
+        public void characters(char[] cArr, int i, int i2) {
+        }
+
+        public void endDocument() {
+        }
+
+        public void endElement(String str, String str2, String str3) {
+            if (str2.equals("svg")) {
+                this.mPicture.endRecording();
+            } else if (str2.equals("g")) {
+                if (this.mBoundsMode) {
+                    this.mBoundsMode = false;
+                }
+                if (this.mHidden) {
+                    this.mHideLevel--;
+                    if (this.mHideLevel == 0) {
+                        this.mHidden = false;
+                    }
+                }
+                this.f1727o = null;
+            }
+        }
+
+        public void startDocument() {
+        }
+
+        public void startElement(String str, String elementName, String str3, Attributes attributes) {
+            int i = 2;
+            int i2 = 0;
+            Float x;
+            Float y;
+            Float width;
+            Float height;
+            if (this.mBoundsMode) {
+                if (elementName.equals("rect")) {
+                    x = getFloatAttr("x", attributes);
                     if (x == null) {
-                        x = 0f;
+                        x = Float.valueOf(0.0f);
                     }
-                    Float y = getFloatAttr("y", atts);
+                    y = getFloatAttr("y", attributes);
                     if (y == null) {
-                        y = 0f;
+                        y = Float.valueOf(0.0f);
                     }
-                    Float width = getFloatAttr("width", atts);
-                    Float height = getFloatAttr("height", atts);
-                    bounds = new RectF(x, y, x + width, y + width);
+                    width = getFloatAttr("width", attributes);
+                    height =getFloatAttr("height", attributes);
+                    this.mBounds = new RectF(x.floatValue(), y.floatValue(), x.floatValue() + width.floatValue(), y.floatValue() + width.floatValue());
                 }
-                return;
-            }
-            if (localName.equals("svg")) {
-                int width = (int) Math.ceil(getFloatAttr("width", atts));
-                int height = (int) Math.ceil(getFloatAttr("height", atts));
-                canvas = picture.beginRecording(width, height);
-            } else if (localName.equals("defs")) {
-                // Ignore
-            } else if (localName.equals("linearGradient")) {
-                gradient = doGradient(true, atts);
-            } else if (localName.equals("radialGradient")) {
-                gradient = doGradient(false, atts);
-            } else if (localName.equals("stop")) {
-                if (gradient != null) {
-                    float offset = getFloatAttr("offset", atts);
-                    String styles = getStringAttr("style", atts);
-                    StyleSet styleSet = new StyleSet(styles);
-                    String colorStyle = styleSet.getStyle("stop-color");
-                    int color = Color.BLACK;
-                    if (colorStyle != null) {
-                        if (colorStyle.startsWith("#")) {
-                            color = Integer.parseInt(colorStyle.substring(1), 16);
-                        } else {
-                            color = Integer.parseInt(colorStyle, 16);
+            } else if (elementName.equals("svg")) {
+                width = getFloatAttr("width", attributes);
+                height = getFloatAttr("height", attributes);
+                if (width == null || height == null) {
+                    String viewBox = getStringAttr("viewBox", attributes);
+                    if (viewBox != null) {
+                        String[] split = viewBox.split("\\s+");
+                        if (split.length == 4) {
+                            i = (int) Float.parseFloat(split[2]);
+                            i2 = (int) Float.parseFloat(split[3]);
                         }
                     }
-                    String opacityStyle = styleSet.getStyle("stop-opacity");
-                    if (opacityStyle != null) {
-                        float alpha = Float.parseFloat(opacityStyle);
-                        int alphaInt = Math.round(255 * alpha);
-                        color |= (alphaInt << 24);
-                    } else {
-                        color |= 0xFF000000;
+                    i = 0;
+                } else {
+                    i = (int) Math.ceil((double) width.floatValue());
+                    i2 = (int) Math.ceil((double) height.floatValue());
+                }
+                this.mCanvas = this.mPicture.beginRecording(i, i2);
+            } else if (!elementName.equals("defs")) {
+                if (elementName.equals("g")) {
+                    String a2 = getStringAttr("id", attributes);
+                    if (a2 != null && a2.toLowerCase().startsWith("bounds")) {
+                        this.mBoundsMode = true;
                     }
-                    gradient.positions.add(offset);
-                    gradient.colors.add(color);
-                }
-            } else if (localName.equals("g")) {
-                // Check to see if this is the "bounds" layer
-                if ("bounds".equalsIgnoreCase(getStringAttr("id", atts))) {
-                    boundsMode = true;
-                }
-                if (hidden) {
-                    hiddenLevel++;
-                    //Util.debug("Hidden up: " + hiddenLevel);
-                }
-                // Go in to hidden mode if display is "none"
-                if ("none".equals(getStringAttr("display", atts))) {
-                    if (!hidden) {
-                        hidden = true;
-                        hiddenLevel = 1;
-                        //Util.debug("Hidden up: " + hiddenLevel);
+                    if (this.mHidden) {
+                        this.mHideLevel++;
                     }
-                }
-            } else if (!hidden && localName.equals("rect")) {
-                Float x = getFloatAttr("x", atts);
-                if (x == null) {
-                    x = 0f;
-                }
-                Float y = getFloatAttr("y", atts);
-                if (y == null) {
-                    y = 0f;
-                }
-                Float width = getFloatAttr("width", atts);
-                Float height = getFloatAttr("height", atts);
-                pushTransform(atts);
-                Properties props = new Properties(atts);
-                if (doFill(props, gradientMap)) {
-                    doLimits(x, y, width, height);
-                    canvas.drawRect(x, y, x + width, y + height, paint);
-                }
-                if (doStroke(props)) {
-                    canvas.drawRect(x, y, x + width, y + height, paint);
-                }
-                popTransform();
-            } else if (!hidden && localName.equals("line")) {
-                Float x1 = getFloatAttr("x1", atts);
-                Float x2 = getFloatAttr("x2", atts);
-                Float y1 = getFloatAttr("y1", atts);
-                Float y2 = getFloatAttr("y2", atts);
-                Properties props = new Properties(atts);
-                if (doStroke(props)) {
-                    pushTransform(atts);
-                    doLimits(x1, y1);
-                    doLimits(x2, y2);
-                    canvas.drawLine(x1, y1, x2, y2, paint);
-                    popTransform();
-                }
-            } else if (!hidden && localName.equals("circle")) {
-                Float centerX = getFloatAttr("cx", atts);
-                Float centerY = getFloatAttr("cy", atts);
-                Float radius = getFloatAttr("r", atts);
-                if (centerX != null && centerY != null && radius != null) {
-                    pushTransform(atts);
-                    Properties props = new Properties(atts);
-                    if (doFill(props, gradientMap)) {
-                        doLimits(centerX - radius, centerY - radius);
-                        doLimits(centerX + radius, centerY + radius);
-                        canvas.drawCircle(centerX, centerY, radius, paint);
+                    if ("none".equals(getStringAttr("display", attributes)) && !this.mHidden) {
+                        this.mHidden = true;
+                        this.mHideLevel = 1;
                     }
-                    if (doStroke(props)) {
-                        canvas.drawCircle(centerX, centerY, radius, paint);
+                    x = getFloatAttr("opacity", attributes);
+                    if (x != null) {
+                        this.f1727o = x;
                     }
-                    popTransform();
-                }
-            } else if (!hidden && localName.equals("ellipse")) {
-                Float centerX = getFloatAttr("cx", atts);
-                Float centerY = getFloatAttr("cy", atts);
-                Float radiusX = getFloatAttr("rx", atts);
-                Float radiusY = getFloatAttr("ry", atts);
-                if (centerX != null && centerY != null && radiusX != null && radiusY != null) {
-                    pushTransform(atts);
-                    Properties props = new Properties(atts);
-                    rect.set(centerX - radiusX, centerY - radiusY, centerX + radiusX, centerY + radiusY);
-                    if (doFill(props, gradientMap)) {
-                        doLimits(centerX - radiusX, centerY - radiusY);
-                        doLimits(centerX + radiusX, centerY + radiusY);
-                        canvas.drawOval(rect, paint);
+                } else if (!this.mHidden && elementName.equals("rect")) {
+                    x = getFloatAttr("x", attributes);
+                    Float valueOf = x == null ? Float.valueOf(0.0f) : x;
+                    x = getFloatAttr("y", attributes);
+                    Float valueOf2 = x == null ? Float.valueOf(0.0f) : x;
+                    Float c4 = getFloatAttr("width", attributes);
+                    Float c5 = getFloatAttr("height", attributes);
+                    pushTransform(attributes);
+                    if (doFill(attributes)) {
+                        doLimits(valueOf.floatValue(), valueOf2.floatValue(), c4.floatValue(), c5.floatValue());
+                        this.mCanvas.drawRect(valueOf.floatValue(), valueOf2.floatValue(), valueOf.floatValue() + c4.floatValue(), valueOf2.floatValue() + c5.floatValue(), this.mPaint);
                     }
-                    if (doStroke(props)) {
-                        canvas.drawOval(rect, paint);
+                    if (doStroke(attributes)) {
+                        this.mCanvas.drawRect(valueOf.floatValue(), valueOf2.floatValue(), valueOf.floatValue() + c4.floatValue(), valueOf2.floatValue() + c5.floatValue(), this.mPaint);
                     }
-                    popTransform();
-                }
-            } else if (!hidden && (localName.equals("polygon") || localName.equals("polyline"))) {
-                NumberParse numbers = getNumberParseAttr("points", atts);
-                if (numbers != null) {
-                    Path p = new Path();
-                    ArrayList<Float> points = numbers.numbers;
-                    if (points.size() > 1) {
-                        pushTransform(atts);
-                        Properties props = new Properties(atts);
-                        p.moveTo(points.get(0), points.get(1));
-                        for (int i = 2; i < points.size(); i += 2) {
-                            float x = points.get(i);
-                            float y = points.get(i + 1);
-                            p.lineTo(x, y);
+                    popTransition();
+                } else if (!this.mHidden && elementName.equals("line")) {
+                    y = getFloatAttr("x1", attributes);
+                    height = getFloatAttr("x2", attributes);
+                    width = getFloatAttr("y1", attributes);
+                    Float c6 = getFloatAttr("y2", attributes);
+                    if (doStroke(attributes)) {
+                        pushTransform(attributes);
+                        doLimits(y.floatValue(), width.floatValue());
+                        doLimits(height.floatValue(), c6.floatValue());
+                        this.mCanvas.drawLine(y.floatValue(), width.floatValue(), height.floatValue(), c6.floatValue(), this.mPaint);
+                        popTransition();
+                    }
+                } else if (!this.mHidden && elementName.equals("circle")) {
+                    x = getFloatAttr("cx", attributes);
+                    y = getFloatAttr("cy", attributes);
+                    width = getFloatAttr("r", attributes);
+                    if (x != null && y != null && width != null) {
+                        pushTransform(attributes);
+                        if (doFill(attributes)) {
+                            doLimits(x.floatValue() - width.floatValue(), y.floatValue() - width.floatValue());
+                            doLimits(x.floatValue() + width.floatValue(), y.floatValue() + width.floatValue());
+                            this.mCanvas.drawCircle(x.floatValue(), y.floatValue(), width.floatValue(), this.mPaint);
                         }
-                        // Don't close a polyline
-                        if (localName.equals("polygon")) {
-                            p.close();
+                        if (doStroke(attributes)) {
+                            this.mCanvas.drawCircle(x.floatValue(), y.floatValue(), width.floatValue(), this.mPaint);
                         }
-                        if (doFill(props, gradientMap)) {
-                            doLimits(p);
-                            canvas.drawPath(p, paint);
-                        }
-                        if (doStroke(props)) {
-                            canvas.drawPath(p, paint);
-                        }
-                        popTransform();
+                        popTransition();
                     }
-                }
-            } else if (!hidden && localName.equals("path")) {
-                Path p = doPath(getStringAttr("d", atts));
-                pushTransform(atts);
-                Properties props = new Properties(atts);
-                if (doFill(props, gradientMap)) {
-                    doLimits(p);
-                    canvas.drawPath(p, paint);
-                }
-                if (doStroke(props)) {
-                    canvas.drawPath(p, paint);
-                }
-                popTransform();
-            } else if (!hidden) {
-                Log.d(TAG, "UNRECOGNIZED SVG COMMAND: " + localName);
-            }
-        }
-
-        @Override
-        public void characters(char ch[], int start, int length) {
-            // no-op
-        }
-
-        @Override
-        public void endElement(String namespaceURI, String localName, String qName)
-                throws SAXException {
-            if (localName.equals("svg")) {
-                picture.endRecording();
-            } else if (localName.equals("linearGradient")) {
-                if (gradient.id != null) {
-                    if (gradient.xlink != null) {
-                        Gradient parent = gradientRefMap.get(gradient.xlink);
-                        if (parent != null) {
-                            gradient = parent.createChild(gradient);
+                } else if (!this.mHidden && elementName.equals("ellipse")) {
+                    x = getFloatAttr("cx", attributes);
+                    y = getFloatAttr("cy", attributes);
+                    width = getFloatAttr("rx", attributes);
+                    height = getFloatAttr("ry", attributes);
+                    if (x != null && y != null && width != null && height != null) {
+                        pushTransform(attributes);
+                        this.mRect.set(x.floatValue() - width.floatValue(), y.floatValue() - height.floatValue(), x.floatValue() + width.floatValue(), y.floatValue() + height.floatValue());
+                        if (doFill(attributes)) {
+                            doLimits(x.floatValue() - width.floatValue(), y.floatValue() - height.floatValue());
+                            doLimits(x.floatValue() + width.floatValue(), y.floatValue() + height.floatValue());
+                            this.mCanvas.drawOval(this.mRect, this.mPaint);
+                        }
+                        if (doStroke(attributes)) {
+                            this.mCanvas.drawOval(this.mRect, this.mPaint);
+                        }
+                        popTransition();
+                    }
+                } else if (!this.mHidden && (elementName.equals("polygon") || elementName.equals("polyline"))) {
+                    NumberParse numberParse = getNumberParseAttr("points", attributes);
+                    if (numberParse != null) {
+                        Path path = new Path();
+                        ArrayList numbers = numberParse.numbers;
+                        if (numbers.size() > 1) {
+                            pushTransform(attributes);
+                            path.moveTo(((Float) numbers.get(0)).floatValue(), ((Float) numbers.get(1)).floatValue());
+                            while (i < numbers.size()) {
+                                path.lineTo(((Float) numbers.get(i)).floatValue(), ((Float) numbers.get(i + 1)).floatValue());
+                                i += 2;
+                            }
+                            if (elementName.equals("polygon")) {
+                                path.close();
+                            }
+                            if (doFill(attributes)) {
+                                doLimits(path);
+                                this.mCanvas.drawPath(path, this.mPaint);
+                            }
+                            if (doStroke(attributes)) {
+                                this.mCanvas.drawPath(path, this.mPaint);
+                            }
+                            popTransition();
                         }
                     }
-                    int[] colors = new int[gradient.colors.size()];
-                    for (int i = 0; i < colors.length; i++) {
-                        colors[i] = gradient.colors.get(i);
+                } else if (!this.mHidden && elementName.equals("path")) {
+                    Path path2 = parsePath(getStringAttr("d", attributes));
+                    pushTransform(attributes);
+                    if (doFill(attributes)) {
+                        doLimits(path2);
+                        this.mCanvas.drawPath(path2, this.mPaint);
                     }
-                    float[] positions = new float[gradient.positions.size()];
-                    for (int i = 0; i < positions.length; i++) {
-                        positions[i] = gradient.positions.get(i);
+                    if (doStroke(attributes)) {
+                        this.mCanvas.drawPath(path2, this.mPaint);
                     }
-                    if (colors.length == 0) {
-                        Log.d("BAD", "BAD");
-                    }
-                    LinearGradient g = new LinearGradient(gradient.x1, gradient.y1, gradient.x2, gradient.y2, colors, positions, Shader.TileMode.CLAMP);
-                    if (gradient.matrix != null) {
-                        g.setLocalMatrix(gradient.matrix);
-                    }
-                    gradientMap.put(gradient.id, g);
-                    gradientRefMap.put(gradient.id, gradient);
+                    popTransition();
+                } else if (!this.mHidden) {
+                    Util.debug("UNRECOGNIZED SVG COMMAND: " + elementName);
                 }
-            } else if (localName.equals("radialGradient")) {
-                if (gradient.id != null) {
-                    if (gradient.xlink != null) {
-                        Gradient parent = gradientRefMap.get(gradient.xlink);
-                        if (parent != null) {
-                            gradient = parent.createChild(gradient);
-                        }
-                    }
-                    int[] colors = new int[gradient.colors.size()];
-                    for (int i = 0; i < colors.length; i++) {
-                        colors[i] = gradient.colors.get(i);
-                    }
-                    float[] positions = new float[gradient.positions.size()];
-                    for (int i = 0; i < positions.length; i++) {
-                        positions[i] = gradient.positions.get(i);
-                    }
-                    if (gradient.xlink != null) {
-                        Gradient parent = gradientRefMap.get(gradient.xlink);
-                        if (parent != null) {
-                            gradient = parent.createChild(gradient);
-                        }
-                    }
-                    RadialGradient g = new RadialGradient(gradient.x, gradient.y, gradient.radius, colors, positions, Shader.TileMode.CLAMP);
-                    if (gradient.matrix != null) {
-                        g.setLocalMatrix(gradient.matrix);
-                    }
-                    gradientMap.put(gradient.id, g);
-                    gradientRefMap.put(gradient.id, gradient);
-                }
-            } else if (localName.equals("g")) {
-                if (boundsMode) {
-                    boundsMode = false;
-                }
-                // Break out of hidden mode
-                if (hidden) {
-                    hiddenLevel--;
-                    //Util.debug("Hidden down: " + hiddenLevel);
-                    if (hiddenLevel == 0) {
-                        hidden = false;
-                    }
-                }
-                // Clear gradient map
-                gradientMap.clear();
             }
         }
     }
+
 }

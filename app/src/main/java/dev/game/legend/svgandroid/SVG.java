@@ -39,20 +39,21 @@ public class SVG {
     /**
      * These are the bounds for the SVG specified as a hidden "bounds" layer in the SVG.
      */
-    private RectF bounds;
+    public RectF bounds;
 
     /**
      * These are the estimated bounds of the SVG computed from the SVG elements while parsing.
      * Note that this could be null if there was a failure to compute limits (ie. an empty SVG).
      */
     private RectF limits = null;
+    public RectF scale;
 
     /**
      * Construct a new SVG.
      * @param picture the parsed picture object.
      * @param bounds the bounds computed from the "bounds" layer in the SVG.
      */
-    SVG(Picture picture, RectF bounds) {
+    public SVG(Picture picture, RectF bounds) {
         this.picture = picture;
         this.bounds = bounds;
     }

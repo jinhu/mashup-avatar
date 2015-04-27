@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
 import android.view.SurfaceHolder;
-import android.view.SurfaceView;
 import android.view.View;
 
 import java.util.Random;
@@ -18,7 +17,7 @@ import dev.game.legend.androidify.wallpaper.AssetDatabase;
 import dev.game.legend.androidify.wallpaper.ZoomInfo;
 import dev.game.legend.avatar.R;
 
-public class AndroidifyActivity extends Activity implements SurfaceHolder.Callback {
+public class TutorialActivity extends Activity implements SurfaceHolder.Callback {
 
     private AndroidConfig mAndroidConfig;
 
@@ -26,22 +25,7 @@ public class AndroidifyActivity extends Activity implements SurfaceHolder.Callba
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_androidify_2);
-        SurfaceView view = (SurfaceView)findViewById(R.id.main_droid_view);
-        //SurfaceView view = (SurfaceView)findViewById(R.id.mainCanvas);
-        mSurfaceHolder=view.getHolder();
-        mSurfaceHolder.addCallback(this);
-        assetDatabase = new AssetDatabase(getAssets(), getResources());
-        mAndroid = new AndroidDrawer(assetDatabase);
-        nextAndroid = new AndroidDrawer(assetDatabase);
-        mAndroidConfig = assetDatabase.getRandomConfig();
-        mAndroid.setAndroidConfig(mAndroidConfig, assetDatabase);
-        mAndroid.setBackgroundColor(getNextColor());
-        mAndroid.setZoom(createRandomZoomInfo());
-        sceneTime = System.currentTimeMillis();
-        onVisibilityChanged(true);
-//        //postDraw();
-//        }
+        setContentView(R.layout.activity_tutorial);
 
     }
 

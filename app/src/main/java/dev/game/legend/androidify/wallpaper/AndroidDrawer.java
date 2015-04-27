@@ -10,6 +10,8 @@ import android.graphics.PointF;
 import android.graphics.RectF;
 import android.view.animation.LinearInterpolator;
 
+import com.google.android.apps.androidify.AndroidViewAdapter;
+
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -177,6 +179,7 @@ public class AndroidDrawer {
 
     private ZoomInfo zoom = null;
     private float driftAngle;
+    private AndroidViewAdapter mAdapter;
 
     /**
      * Sets the zoom information for this android drawer, which will also reset the drift animation.
@@ -447,8 +450,11 @@ public class AndroidDrawer {
         if (hairBottomLength > legsHeight) {
             legsHeight = hairBottomLength;
         }
+
         createArmPath();
+
         float height = headHeight + bodyHeight + legsHeight;
+
         droidBounds.set(POINT_CENTER_OF_BODY.x - droidWidth / 2, POINT_TOP_OF_BODY.y - headHeight, POINT_CENTER_OF_BODY.x + droidWidth / 2, POINT_TOP_OF_BODY.y + bodyHeight + legsHeight);
         droidCenter.set((droidBounds.left + droidBounds.right) / 2, (droidBounds.top + droidBounds.bottom) / 2);
         // Add in margins
@@ -491,7 +497,7 @@ public class AndroidDrawer {
         }
         //transform.preTranslate(0, -2 * (POINT_BOTTOM_OF_LEFT_LEG.y - POINT_CENTER_OF_LEFT_FOOT.y));
         transform.invert(reverseTransform);
-        // Set up scaling info
+        // Set up scaling debug
         float[] topCenter = {POINT_TOP_OF_BODY.x, POINT_TOP_OF_BODY.y};
         transform.mapPoints(topCenter);
         Util.debug("Scale factor: " + scaleFactor);
@@ -1091,4 +1097,19 @@ public class AndroidDrawer {
         drawLowerPart(aCanvas);
     }
 
+    public int m2191a(float v, float v1) {
+        return 0;
+    }
+
+    public void m2293d(int i) {
+
+    }
+
+    public void setAdapter(AndroidViewAdapter aAdapter) {
+        mAdapter = aAdapter;
+    }
+
+    public AndroidViewAdapter getAdapter() {
+        return mAdapter;
+    }
 }
