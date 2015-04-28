@@ -37,6 +37,7 @@ import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.EditText;
@@ -84,7 +85,7 @@ public class Androidify extends Activity implements Handler.Callback, Interactab
     private static AndroidConfig f745s;
     private static int f746t;
     private boolean f747C;
-    private ItemClickListener mOnItemClickListener;
+    private OnItemClickListener mOnItemClickListener;
     private DroidBaseAdapter mDroidBaseAdapter;
     private Gallery mGallery;
     private int f751G;
@@ -680,7 +681,25 @@ public class Androidify extends Activity implements Handler.Callback, Interactab
             this.mGallery.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
             this.mDroidBaseAdapter = new DroidBaseAdapter(this, a, this.mGallery, a2);
             this.mGallery.setAdapter(this.mDroidBaseAdapter);
-            this.mGallery.setOnItemClickListener(new ItemClickListener(this.mManiView, this));
+//            this.mGallery.setOnItemClickListener(new OnItemClickListener(){
+//                @Override
+//                public void onItemClick(AdapterView<?> c0273u, View view, int i, long j) {
+//                    m1392f();
+//                    this.f1236b.m1732a(mManiView.values()[i]);
+//                        this.f1235a.m1377a(av.values()[i].mString);
+//                    }parent, View view, int position, long id) {
+//
+//                }
+//                ao(an anVar, Androidify androidify) {
+//                    this.f1236b = anVar;
+//                    this.f1235a = androidify;
+//                }
+//
+//                public void m1738a
+//                }
+//
+//            });
+//            (this.mManiView, this));
             this.mGallery.setUnselectedAlpha(1.0f);
             this.mGallery.setCallbackDuringFling(false);
             this.mGallery.setCallbackDuringFling(false);
@@ -1017,7 +1036,7 @@ public class Androidify extends Activity implements Handler.Callback, Interactab
         this.f756Q = false;
     }
 
-    public ItemClickListener getClickListener() {
+    public OnItemClickListener getClickListener() {
         return this.mOnItemClickListener;
     }
 
@@ -1218,7 +1237,16 @@ public class Androidify extends Activity implements Handler.Callback, Interactab
             Picture arm = this.mAssetDatabase.getSvgFromResource((int) R.raw.android_legs).getPicture();
             com.google.android.Util.debug("Load initial SVG resources: " + (System.currentTimeMillis() - currentTimeMillis));
             long currentTimeMillis2 = System.currentTimeMillis();
-            this.mOnItemClickListener = new ItemClickListener(this);
+            this.mOnItemClickListener = new OnItemClickListener(){
+                @Override
+                public void onItemClick(AdapterView adapterView, View view, int i, long j) {
+                    try {
+                        m1355e((AndroidConfig) ((cn) adapterView.getAdapter()).getItem(i));
+                    } catch (Exception e) {
+                        Toast.makeText(getApplicationContext(), getString(R.string.error_load_droid_failed), Toast.LENGTH_SHORT).show();
+                    }
+                }
+            };
             setContentView(R.layout.activity_androidify_2);
             this.mDroidView = (DroidView) findViewById(R.id.main_droid_view);
             this.mDroidView.initDroid(this, body, head, antenna, arm, foot, leg);
@@ -1363,7 +1391,7 @@ public class Androidify extends Activity implements Handler.Callback, Interactab
         m1388d();
         com.google.android.Util.debug("Stopping antenna twitch.");
         if (this.mOnItemClickListener != null) {
-            this.mOnItemClickListener.last();
+            //this.mOnItemClickListener.last();
         }
         m1325T();
         if (this.f756Q) {
@@ -1403,7 +1431,7 @@ public class Androidify extends Activity implements Handler.Callback, Interactab
             this.mAnimatorThread = this.mDroidView.startAnAnimation();
         }
         if (this.f747C) {
-            this.mOnItemClickListener.next();
+            //this.mOnItemClickListener.next();
         }
         this.af.sendEmptyMessageDelayed(0, 200);
         com.google.android.Util.debug("onResume time: " + (System.currentTimeMillis() - currentTimeMillis));

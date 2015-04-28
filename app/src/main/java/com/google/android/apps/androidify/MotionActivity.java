@@ -28,7 +28,7 @@ import dev.game.legend.avatar.R;
 
 public class MotionActivity extends Activity {
     ViewGroup f884a;
-    private AndroidModelAdapter mAndroidModelAdapter;
+    public AndroidModelAdapter mAndroidModelAdapter;
     private ControlState mState;
     private GridView mGridView;
     private AssetDatabase mAssetDatabase;

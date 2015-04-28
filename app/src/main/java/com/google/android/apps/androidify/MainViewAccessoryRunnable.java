@@ -12,18 +12,18 @@ class MainViewAccessoryRunnable implements Runnable {
     /* JADX WARNING: inconsistent code. */
     /* Code decompiled incorrectly, please refer to instructions dump. */
     public void run() {
-        if (this.mManiView.f1229l == null || !this.mManiView.f1229l.f1265q) {
-            if (this.mAccessoriesContainer != null && this.mAccessoriesContainer.f1265q) {
+        if (this.mManiView.mAccessoryContainer == null || !this.mManiView.mAccessoryContainer.bool1) {
+            if (this.mAccessoriesContainer != null && this.mAccessoriesContainer.bool1) {
             }
         } else if (this.mAccessoriesContainer != null) {
         }
-        if (this.mAccessoriesContainer != null && this.mAccessoriesContainer.f1265q) {
+        if (this.mAccessoriesContainer != null && this.mAccessoriesContainer.bool1) {
             //this.mManiView.mAndroidify.getDroidView().setAccessoryType();
         }
-        this.mManiView.f1229l = this.mAccessoriesContainer;
-        if (this.mManiView.f1229l != null) {
-            this.mManiView.mAndroidDrawer.setAdapter(this.mManiView.f1229l.retrieveAdapterFromView(this.mManiView));
-            int c = this.mManiView.m1724d(this.mManiView.f1229l);
+        this.mManiView.mAccessoryContainer = this.mAccessoriesContainer;
+        if (this.mManiView.mAccessoryContainer != null) {
+            this.mManiView.mAndroidDrawer.setAdapter(this.mManiView.mAccessoryContainer.retrieveAdapterFromView(this.mManiView));
+            int c = this.mManiView.m1724d(this.mManiView.mAccessoryContainer);
             if (c >= 0) {
                 this.mManiView.mCategoryView.setSelection(c);
                 this.mManiView.m1728e();

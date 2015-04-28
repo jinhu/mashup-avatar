@@ -884,15 +884,15 @@ public class DroidView extends SurfaceView implements OnGestureListener, OnScale
     }
 
     public Bitmap getBitmapOfDroid() {
-        boolean a = this.mAndroidify.getClickListener().m1631a();
-        if (a) {
-            this.mAndroidify.getClickListener().last();
-        }
-        Bitmap a2 = com.google.android.Util.m1098a((View) this);
-        if (a) {
-            this.mAndroidify.getClickListener().next();
-        }
-        return a2;
+//        boolean a = this.mAndroidify.getClickListener().m1631a();
+//        if (a) {
+//            this.mAndroidify.getClickListener().last();
+//        }
+        Bitmap bitmap = com.google.android.Util.convertToBitmap((View) this);
+//        if (a) {
+//            this.mAndroidify.getClickListener().next();
+//        }
+        return bitmap;
     }
 
     public float getBottomOfShadow() {
@@ -1602,7 +1602,7 @@ public class DroidView extends SurfaceView implements OnGestureListener, OnScale
             e = ((float) this.mHairIcon.getWidth()) * this.aA;
             float width = (((float) getWidth()) - (3.0f * e)) / 4.0f;
             float f8 = width + e;
-            f3 = 0;//by.m1899a(this.f856n, 0.0f, 1.0f, ((float) (-this.mHairIcon.getHeight())) * this.aA, 0.0f, mAnimationCatalogue.f1218a);
+            f3 = 0;//by.m1899a(this.f856n, 0.0f, 1.0f, ((float) (-this.mHairIcon.getHeight())) * this.aA, 0.0f, mAnimationCatalogue.theInterpolator);
             f = width;
             for (int i4 = 0; i4 < 3; i4++) {
                 canvas.save();

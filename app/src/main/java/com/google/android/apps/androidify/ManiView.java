@@ -10,20 +10,21 @@ import android.view.animation.AccelerateInterpolator;
 import android.view.animation.DecelerateInterpolator;
 import android.view.animation.Interpolator;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import dev.game.legend.androidify.wallpaper.AndroidDrawer;
 import dev.game.legend.avatar.R;
 import dev.game.legend.svgandroid.SVG;
+import it.sephiroth.android.library.widget.AdapterView;
 import it.sephiroth.android.library.widget.HListView;
 
-import static com.google.android.apps.androidify.Constants.*;
+import static com.google.android.apps.androidify.Constants.ANDROID_COLOR;
 
 public class ManiView {
-    public static final Interpolator f1218a;
-    public static final Interpolator f1219b;
+    public static final Interpolator theInterpolator;
+    public static final Interpolator theOtherInterpolator;
     Androidify mAndroidify;
     boolean f1221d;
     ViewGroup f1222e;
@@ -33,15 +34,15 @@ public class ManiView {
     Context f1226i;
     LayoutInflater mLayoutInflater;
     final AssetDatabase mAssetDatabase;
-    AccessoriesContainer f1229l;
+    AccessoriesContainer mAccessoryContainer;
     public SVG f1230m;
     public SVG f1231n;
     public PictureDrawable f1233p;
     boolean f1234q;
 
     static {
-        f1218a = new DecelerateInterpolator();
-        f1219b = new AccelerateInterpolator();
+        theInterpolator = new DecelerateInterpolator();
+        theOtherInterpolator = new AccelerateInterpolator();
     }
 
     ManiView mManiViewVar;
@@ -50,7 +51,8 @@ public class ManiView {
 
     public ManiView(Androidify androidify, ViewGroup viewGroup, boolean z) {
         this.f1221d = false;
-        this.f1229l = null;
+        this.mAccessoryContainer = AccessoriesContainer.SKIN;
+        this.mAndroidDrawer = new AndroidDrawer(androidify);
         this.mAndroidify = androidify;
         this.f1222e = viewGroup;
         this.f1234q = z;
@@ -94,7 +96,7 @@ public class ManiView {
         arrayList.add(a8);
         arrayList2.add(Boolean.valueOf(false));
         arrayList.add(a2);
-        AccessoriesContainer.NBA.f1271w = true;
+        AccessoriesContainer.NBA.bool4 = true;
         arrayList2.add(Boolean.valueOf(true));
         arrayList.add(a9);
         arrayList2.add(Boolean.valueOf(false));
@@ -106,61 +108,91 @@ public class ManiView {
         arrayList2.add(Boolean.valueOf(false));
         arrayList.add(a13);
         arrayList2.add(Boolean.valueOf(false));
-        AccessoriesContainer.SKIN.m1745a(a);
-        AccessoriesContainer.NBA.m1745a(a2);
-        AccessoriesContainer.NBA.f1269u = "nba";
-        AccessoriesContainer.SHIRT.m1745a(a3);
-        AccessoriesContainer.PANTS.m1745a(a4);
-        AccessoriesContainer.SHOES.m1745a(a5);
-        AccessoriesContainer.SHOES.m1744a(new RectF(66.306f, 300.165f, 331.641f, 560.5f));
-        AccessoriesContainer.HAT.m1744a(new RectF(66.306f, 300.165f, 331.641f, 560.5f));
-        AccessoriesContainer.FACE.m1744a(new RectF(66.306f, 300.165f, 331.641f, 560.5f));
-        AccessoriesContainer.BODY.m1744a(new RectF(66.306f, 300.165f, 331.641f, 560.5f));
-        AccessoriesContainer.HAND.m1744a(new RectF(66.306f, 300.165f, 331.641f, 560.5f));
-        AccessoriesContainer.HAIR.m1745a(a6);
-        AccessoriesContainer.HAIR_COLOR.m1745a(a7);
-        AccessoriesContainer.BEARD.m1745a(a8);
-        AccessoriesContainer.GLASSES.m1745a(a9);
-        AccessoriesContainer.HAT.m1745a(a10);
-        AccessoriesContainer.FACE.m1745a(a11);
-        AccessoriesContainer.BODY.m1745a(a12);
-        AccessoriesContainer.HAND.m1745a(a13);
+        AccessoriesContainer.SKIN.setSvg(a);
+        AccessoriesContainer.NBA.setSvg(a2);
+        AccessoriesContainer.NBA.mString3 = "nba";
+        AccessoriesContainer.SHIRT.setSvg(a3);
+        AccessoriesContainer.PANTS.setSvg(a4);
+        AccessoriesContainer.SHOES.setSvg(a5);
+        AccessoriesContainer.SHOES.setRect(new RectF(66.306f, 300.165f, 331.641f, 560.5f));
+        AccessoriesContainer.HAT.setRect(new RectF(66.306f, 300.165f, 331.641f, 560.5f));
+        AccessoriesContainer.FACE.setRect(new RectF(66.306f, 300.165f, 331.641f, 560.5f));
+        AccessoriesContainer.BODY.setRect(new RectF(66.306f, 300.165f, 331.641f, 560.5f));
+        AccessoriesContainer.HAND.setRect(new RectF(66.306f, 300.165f, 331.641f, 560.5f));
+        AccessoriesContainer.HAIR.setSvg(a6);
+        AccessoriesContainer.HAIR_COLOR.setSvg(a7);
+        AccessoriesContainer.BEARD.setSvg(a8);
+        AccessoriesContainer.GLASSES.setSvg(a9);
+        AccessoriesContainer.HAT.setSvg(a10);
+        AccessoriesContainer.FACE.setSvg(a11);
+        AccessoriesContainer.BODY.setSvg(a12);
+        AccessoriesContainer.HAND.setSvg(a13);
         HListView hListView = this.mCategoryView;
         LayoutInflater layoutInflater = this.mLayoutInflater;
         HListView hListView2 = this.mCategoryView;
         if (!z) {
             arrayList2 = null;
         }
-        hListView.setAdapter(m1702a((List) arrayList, layoutInflater, hListView2, arrayList2));
-        this.mCategoryView.setOnItemClickListener(new ItemClickListener(this, androidify));
-        this.mAssetsView.setOnItemClickListener(new MainViewOnClickListener(this));
+        hListView.setAdapter(getAdapter((List) arrayList, layoutInflater, hListView2, arrayList2));
+        this.mCategoryView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> aAdapterView, View aView, int i, long l) {
+                mAndroidify.m1392f();
+                m1732a(AccessoriesContainer.values()[i]);
+                mAndroidify.m1377a(AccessoriesContainer.values()[i].mString);
+
+            }
+        });
+
+        this.mAssetsView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> aAdapterView, View aView, int i, long l) {
+                if (m1733a(i, true)) {
+                    int a = 0;//mAssetsView.sele.mCategoryView(mAndroidDrawer.getWidth() - 1, mAndroidDrawer.getHeight() / 2);
+                    com.google.android.Util.debug("[SELECT] Last index on screen=" + a);
+                    if (a != -1) {
+                        int width = (int) (mAndroidDrawer.getWidth() - aView.getRight());
+                        if (a == i || (a == i + 1 && width < aView.getWidth() / 2)) {
+                            mAndroidDrawer.m2293d(1);
+                        }
+                    }
+                }
+            }
+         });
     }
 
     AndroidViewAdapter getAdapter(AccessoriesContainer aAccessoriesContainerVar, List list, LayoutInflater layoutInflater, HListView hListView) {
         AndroidViewAdapter androidViewAdapterVar = new AndroidViewAdapter(mManiViewVar);
         androidViewAdapterVar.mAccessoryTypeContainer = aAccessoriesContainerVar;
-        androidViewAdapterVar.f1276e = list;
+        androidViewAdapterVar.mList3 = list;
         androidViewAdapterVar.f1273b = layoutInflater;
         androidViewAdapterVar.mHlistView = hListView;
         androidViewAdapterVar.f1278g = list.size();
         return androidViewAdapterVar;
     }
 
-    AndroidViewAdapter getAdapter(AccessoriesContainer aAccessoriesContainerVar, int[] iArr, LayoutInflater layoutInflater, HListView hListView) {
+    AndroidViewAdapter getAdapter(AccessoriesContainer aAccessoryContainer, int[] iArr, LayoutInflater layoutInflater, HListView hListView) {
         AndroidViewAdapter androidViewAdapterVar = new AndroidViewAdapter(this);
-        androidViewAdapterVar.mAccessoryTypeContainer = aAccessoriesContainerVar;
+        androidViewAdapterVar.mAccessoryTypeContainer = aAccessoryContainer;
         androidViewAdapterVar.f1273b = layoutInflater;
         androidViewAdapterVar.mHlistView = hListView;
         androidViewAdapterVar.f1278g = iArr.length;
+        AssetCatalogue catalogue = new AssetCatalogue();
+        try {
+            catalogue.initAssets(mAndroidify);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        androidViewAdapterVar.mList3 = catalogue.getAssets("face");
         return androidViewAdapterVar;
     }
 
-    AndroidViewAdapter m1702a(List list, LayoutInflater layoutInflater, HListView hListView, List list2) {
+    AndroidViewAdapter getAdapter(List list, LayoutInflater layoutInflater, HListView hListView, List list2) {
         AndroidViewAdapter androidViewAdapterVar = new AndroidViewAdapter(this);
-        androidViewAdapterVar.f1274c = list;
+        androidViewAdapterVar.mList1 = list;
         androidViewAdapterVar.f1273b = layoutInflater;
         androidViewAdapterVar.mHlistView = hListView;
-        androidViewAdapterVar.f1275d = list2;
+        androidViewAdapterVar.mList2 = list2;
         androidViewAdapterVar.f1278g = list.size();
         return androidViewAdapterVar;
     }
@@ -197,51 +229,51 @@ public class ManiView {
             float height = (float) (this.f1222e.getHeight() - view.getTop());
             view.setTranslationY(height);
             //view.setVisibility(0);
-            Util.print(height, 0.0f, 0, 200, f1218a, new MainViewTransitionRunner(this, view, runnable));
+            Util.print(height, 0.0f, 0, 200, theInterpolator, new MainViewTransitionRunner(this, view, runnable));
             return;
         }
         float height2 = (float) (this.f1222e.getHeight() - view.getTop());
         view.setTranslationY(0.0f);
-        Util.performance(0.0f, height2, 0, 200, f1219b, new MainViewHideRunner(this, view, runnable));
+        Util.performance(0.0f, height2, 0, 200, theOtherInterpolator, new MainViewHideRunner(this, view, runnable));
     }
 
     void m1708a(VectorView vectorView, AccessoriesContainer aAccessoriesContainerVar, List list, int i) {
         SVG svg;
         PartConfig partConfigVar= null;
         AndroidConfig config = this.mAndroidify.getCurrentConfig();
-        vectorView.setDefaultBounds(aAccessoriesContainerVar.f1264p);
+        vectorView.setDefaultBounds(aAccessoriesContainerVar.mRectF);
         if (list != null) {
-            partConfigVar = this.mAssetDatabase.m1655a(aAccessoriesContainerVar.f1263o, ((PartConfig) list.get(i)).name);
+            partConfigVar = this.mAssetDatabase.m1655a(aAccessoriesContainerVar.mString, ((PartConfig) list.get(i)).name);
             svg = this.mAssetDatabase.getSVG(partConfigVar, config);
         } else {
             svg = null;
             partConfigVar = null;
         }
         if (svg == null) {
-            if (!aAccessoriesContainerVar.f1267s) {
+            if (!aAccessoriesContainerVar.bool3) {
                 SVG a3;
                 SVG a4;
                 switch (AccessoryContainerIndex.theAccessoryContainerIndex[aAccessoriesContainerVar.ordinal()]) {
                     case cm.HListView_hlv_headerDividersEnabled /*3*/:
-                        svg = this.mAssetDatabase.getSVG(aAccessoriesContainerVar.f1263o, ((PartConfig) list.get(i)).name, null);
+                        svg = this.mAssetDatabase.getSVG(aAccessoriesContainerVar.mString, ((PartConfig) list.get(i)).name, null);
                         vectorView.setVectors( this.f1231n, svg);
                         break;
                     case cm.HListView_hlv_footerDividersEnabled /*4*/:
-                        a3 = this.mAssetDatabase.getSVG(aAccessoriesContainerVar.f1263o, ((PartConfig) list.get(i)).name, "back");
-                        a4 = this.mAssetDatabase.getSVG(aAccessoriesContainerVar.f1263o, ((PartConfig) list.get(i)).name, "front");
-                        SVG a5 = this.mAssetDatabase.getSVG(aAccessoriesContainerVar.f1263o, ((PartConfig) list.get(i)).name, "backextra");
-                        svg = this.mAssetDatabase.getSVG(aAccessoriesContainerVar.f1263o, ((PartConfig) list.get(i)).name, "frontextra");
+                        a3 = this.mAssetDatabase.getSVG(aAccessoriesContainerVar.mString, ((PartConfig) list.get(i)).name, "back");
+                        a4 = this.mAssetDatabase.getSVG(aAccessoriesContainerVar.mString, ((PartConfig) list.get(i)).name, "front");
+                        SVG a5 = this.mAssetDatabase.getSVG(aAccessoriesContainerVar.mString, ((PartConfig) list.get(i)).name, "backextra");
+                        svg = this.mAssetDatabase.getSVG(aAccessoriesContainerVar.mString, ((PartConfig) list.get(i)).name, "frontextra");
                         vectorView.setVectors((SVG[]) Util.collect(SVG.class, a3, a5, this.f1231n, a4, svg));
                         break;
                     case cm.HListView_hlv_overScrollHeader /*5*/:
-                        a3 = this.mAssetDatabase.getSVG(aAccessoriesContainerVar.f1263o, ((PartConfig) list.get(i)).name, "leg");
-                        a4 = this.mAssetDatabase.getSVG(aAccessoriesContainerVar.f1263o, ((PartConfig) list.get(i)).name, "top");
-                        svg = this.mAssetDatabase.getSVG(aAccessoriesContainerVar.f1263o, ((PartConfig) list.get(i)).name, "skirt");
+                        a3 = this.mAssetDatabase.getSVG(aAccessoriesContainerVar.mString, ((PartConfig) list.get(i)).name, "leg");
+                        a4 = this.mAssetDatabase.getSVG(aAccessoriesContainerVar.mString, ((PartConfig) list.get(i)).name, "top");
+                        svg = this.mAssetDatabase.getSVG(aAccessoriesContainerVar.mString, ((PartConfig) list.get(i)).name, "skirt");
                         vectorView.setVectors((SVG[]) Util.collect(SVG.class, a3, a4, svg));
                         break;
                     case cm.HListView_hlv_overScrollFooter /*6*/:
-                        a3 = this.mAssetDatabase.getSVG(aAccessoriesContainerVar.f1263o, ((PartConfig) list.get(i)).name, "body");
-                        svg = this.mAssetDatabase.getSVG(aAccessoriesContainerVar.f1263o, ((PartConfig) list.get(i)).name, "top");
+                        a3 = this.mAssetDatabase.getSVG(aAccessoriesContainerVar.mString, ((PartConfig) list.get(i)).name, "body");
+                        svg = this.mAssetDatabase.getSVG(aAccessoriesContainerVar.mString, ((PartConfig) list.get(i)).name, "top");
                         if (a3 != null) {
                             if (svg != null) {
                                 vectorView.setVectors(a3, svg);
@@ -278,15 +310,15 @@ public class ManiView {
     void m1712a(AccessoriesContainer aAccessoriesContainerVar, VectorView vectorView, List list, int i) {
         AndroidConfig e = this.mAndroidify.getCurrentConfig();
         SVG SVG = null;
-        vectorView.setDefaultBounds(aAccessoriesContainerVar.f1264p);
+        vectorView.setDefaultBounds(aAccessoriesContainerVar.mRectF);
         if (list != null) {
-            SVG = this.mAssetDatabase.getSVG(aAccessoriesContainerVar.f1263o);//, ((ag) list.get(i)).m1642a(), "chooser");
+            SVG = this.mAssetDatabase.getSVG(aAccessoriesContainerVar.mString);//, ((ag) list.get(i)).m1642a(), "chooser");
         }
         if (SVG != null) {
             vectorView.setVectors(SVG);
             return;
         }
-        PartConfig a = this.mAssetDatabase.m1655a(aAccessoriesContainerVar.f1263o, ((PartConfig) list.get(i)).m1642a());
+        PartConfig a = this.mAssetDatabase.m1655a(aAccessoriesContainerVar.mString, ((PartConfig) list.get(i)).m1642a());
         SVG b = this.mAssetDatabase.getSvg(a, e);
         vectorView.setVectors(b);
         if (this.f1234q && a.m1646e()) {
@@ -311,22 +343,22 @@ public class ManiView {
             z = true;
         }
         Androidify androidify = this.mAndroidify;
-        String str = aAccessoriesContainerVar.f1263o;
+        String str = aAccessoriesContainerVar.mString;
         if (i != 0) {
             z2 = false;
         }
         //androidify.m1379a(str, agVar, z2, z);
     }
 
-    boolean m1715a(AccessoriesContainer aAccessoriesContainerVar, int i) {
+    boolean selectCategory(AccessoriesContainer aAccessoriesContainer, int i) {
         boolean z = true;
         AndroidConfig e = this.mAndroidify.getCurrentConfig();
-        List a = aAccessoriesContainerVar.retrieveAdapterFromView(this).f1276e;
+        List a = aAccessoriesContainer.retrieveAdapterFromView(this).mList3;
         String str = null;
         if (a != null) {
             str = ((PartConfig) a.get(i)).name;
         }
-        switch (AccessoryContainerIndex.theAccessoryContainerIndex[aAccessoriesContainerVar.ordinal()]) {
+        switch (AccessoryContainerIndex.theAccessoryContainerIndex[aAccessoriesContainer.ordinal()]) {
             case cm.HListView_android_divider /*1*/:
                 return str.equals(e.m1805h());
             case cm.HListView_hlv_dividerWidth /*2*/:
@@ -365,7 +397,7 @@ public class ManiView {
         if (str == null) {
             return 0;
         }
-        List a = aAccessoriesContainerVar.retrieveAdapterFromView(this).f1276e;
+        List a = aAccessoriesContainerVar.retrieveAdapterFromView(this).mList3;
         for (int i = 0; i < a.size(); i++) {
             if (str.equals(((PartConfig) a.get(i)).name)) {
                 return i;
@@ -403,14 +435,14 @@ public class ManiView {
         }
     }
 
-    void m1720b(AccessoriesContainer aAccessoriesContainerVar, int i) {
+    void m1720b(AccessoriesContainer aAccessoryContainer, int i) {
 //        if (mAndroidDrawer == av.SKIN) {
 //            this.mAndroidify.m1383b(i);
 //        } else if (mAndroidDrawer == av.HAIR_COLOR) {
 //            this.mAndroidify.changeHairColor(i);
 //        } else {
-            m1713a(aAccessoriesContainerVar, (PartConfig) aAccessoriesContainerVar.retrieveAdapterFromView(this).f1276e.get(i), i);
-            switch (AccessoryContainerIndex.theAccessoryContainerIndex[aAccessoriesContainerVar.ordinal()]) {
+            m1713a(aAccessoryContainer, (PartConfig) aAccessoryContainer.retrieveAdapterFromView(this).mList3.get(i), i);
+            switch (AccessoryContainerIndex.theAccessoryContainerIndex[aAccessoryContainer.ordinal()]) {
                 case cm.HListView_android_divider /*1*/:
                 case cm.HListView_hlv_dividerWidth /*2*/:
                 case cm.HListView_hlv_headerDividersEnabled /*3*/:
@@ -469,7 +501,7 @@ public class ManiView {
         int c = m1722c(aAccessoriesContainerVar) + 1;
         AndroidViewAdapter a = aAccessoriesContainerVar.retrieveAdapterFromView(this);
         int i = c == a.getCount() ? 0 : c;
-        m1713a(aAccessoriesContainerVar, (PartConfig) a.f1276e.get(i), i);
+        m1713a(aAccessoriesContainerVar, (PartConfig) a.mList3.get(i), i);
         return i;
     }
 
@@ -477,55 +509,55 @@ public class ManiView {
         int childCount = this.mAssetsView.getChildCount();
         for (int i = 0; i < childCount; i++) {
             VectorView vectorView = (VectorView) this.mAssetsView.getChildAt(i);
-            vectorView.setSelected(m1715a(this.f1229l, ((Integer) vectorView.getTag()).intValue()));
+            vectorView.setSelected(selectCategory(this.mAccessoryContainer, ((Integer) vectorView.getTag()).intValue()));
         }
     }
 
     public void m1731a() {
-        if (this.f1229l == null || !this.f1229l.f1265q) {
+        if (this.mAccessoryContainer == null || !this.mAccessoryContainer.bool1) {
             m1732a(AccessoriesContainer.HAIR);
         } else {
-            m1732a(this.f1229l);
+            m1732a(this.mAccessoryContainer);
         }
     }
 
     public void m1732a(AccessoriesContainer aAccessoriesContainerVar) {
-//        if (mAndroidDrawer == null) {
-//            this.mAndroidify.proceedTutorial(1000, true);
-//            this.mAndroidify.m1386c(3);
-//            this.mAndroidify.proceedTutorial(4, true);
-//            this.mAndroidify.m1386c(1000);
-//            this.mAndroidify.proceedTutorial(3, true);
-//            this.mAssetsView.postDelayed(new aq(this), 2500);
-//            this.mAndroidify.m1386c(1);
-//            this.mAndroidify.proceedTutorial(1, true);
-//            this.mAndroidify.proceedTutorial(2, true);
-//            this.mAndroidify.proceedTutorial(0, true);
-//        } else {
-//            this.mAndroidify.proceedTutorial(0, false);
-//            this.mAndroidify.proceedTutorial(1, false);
-//            this.mAndroidify.proceedTutorial(2, false);
-//            this.mAndroidify.proceedTutorial(3, false);
-//            this.mAndroidify.m1389d(3);
-//            this.mAndroidify.m1386c(4);
-//        }
+        if (mAndroidDrawer == null) {
+            this.mAndroidify.proceedTutorial(1000, true);
+            this.mAndroidify.m1386c(3);
+            this.mAndroidify.proceedTutorial(4, true);
+            this.mAndroidify.m1386c(1000);
+            this.mAndroidify.proceedTutorial(3, true);
+            //this.mAssetsView.postDelayed(new aq(this), 2500);
+            this.mAndroidify.m1386c(1);
+            this.mAndroidify.proceedTutorial(1, true);
+            this.mAndroidify.proceedTutorial(2, true);
+            this.mAndroidify.proceedTutorial(0, true);
+        } else {
+            this.mAndroidify.proceedTutorial(0, false);
+            this.mAndroidify.proceedTutorial(1, false);
+            this.mAndroidify.proceedTutorial(2, false);
+            this.mAndroidify.proceedTutorial(3, false);
+            this.mAndroidify.m1389d(3);
+            this.mAndroidify.m1386c(4);
+        }
 //        if (mAndroidDrawer == av.SKIN) {
 //            this.mAndroidify.m1389d(1);
 //        } else if (mAndroidDrawer == av.SHIRT) {
 //            this.mAndroidify.m1389d(2);
 //        }
-        if (aAccessoriesContainerVar != null && aAccessoriesContainerVar.f1271w && this.f1234q) {
+        if (aAccessoriesContainerVar != null && aAccessoriesContainerVar.bool4 && this.f1234q) {
             this.mAndroidify.showBadge();
         }
-        if (aAccessoriesContainerVar != this.f1229l) {
+        if (aAccessoriesContainerVar != this.mAccessoryContainer) {
             Runnable arVar = new MainViewAccessoryRunnable(this, aAccessoriesContainerVar);
-            if (this.f1229l != null) {
+            if (this.mAccessoryContainer != null) {
                 m1707a(this.f1225h, false, arVar);
             } else {
                 arVar.run();
             }
-        } else if (this.f1229l != null && this.f1229l != AccessoriesContainer.HAIR_COLOR && this.f1229l != AccessoriesContainer.SKIN) {
-            int e = m1726e(this.f1229l);
+        } else if (this.mAccessoryContainer != null && this.mAccessoryContainer != AccessoriesContainer.HAIR_COLOR && this.mAccessoryContainer != AccessoriesContainer.SKIN) {
+            int e = m1726e(this.mAccessoryContainer);
             m1733a(e, false);
             m1706a(e);
             this.mAssetsView.invalidate();
@@ -534,18 +566,18 @@ public class ManiView {
 
     public boolean m1733a(int i, boolean z) {
         boolean z2 = false;
-        if (!m1715a(this.f1229l, i) || this.f1229l == AccessoriesContainer.HAIR_COLOR || this.f1229l == AccessoriesContainer.SKIN || !z) {
-            m1720b(this.f1229l, i);
+        if (!selectCategory(this.mAccessoryContainer, i) || this.mAccessoryContainer == AccessoriesContainer.HAIR_COLOR || this.mAccessoryContainer == AccessoriesContainer.SKIN || !z) {
+            m1720b(this.mAccessoryContainer, i);
             z2 = true;
         } else {
-            m1720b(this.f1229l, 0);
+            m1720b(this.mAccessoryContainer, 0);
         }
         m1728e();
         return z2;
     }
 
     public void m1734b() {
-        if (this.f1229l == null || !this.f1229l.f1266r) {
+        if (this.mAccessoryContainer == null || !this.mAccessoryContainer.bool2) {
             if (m1716b(AccessoriesContainer.NBA, this.mAndroidify.getCurrentConfig().getOutfit()) > 0) {
                 m1732a(AccessoriesContainer.NBA);
                 return;
@@ -554,7 +586,7 @@ public class ManiView {
                 return;
             }
         }
-        m1732a(this.f1229l);
+        m1732a(this.mAccessoryContainer);
     }
 
     public void m1735c() {
@@ -562,7 +594,7 @@ public class ManiView {
     }
 
     public boolean m1736d() {
-        if (this.f1229l == null) {
+        if (this.mAccessoryContainer == null) {
             return false;
         }
         m1732a(null);

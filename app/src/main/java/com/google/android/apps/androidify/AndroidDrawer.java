@@ -1118,4 +1118,16 @@ public class AndroidDrawer {
         }
         return this.f1364b;
     }
+
+    public int m2191a(float v, float v1) {
+        return 0;
+    }
+
+    public void m2293d(int i) {
+
+    }
+
+    public void setAdapter(AndroidViewAdapter aAndroidViewAdapter) {
+
+    }
 }

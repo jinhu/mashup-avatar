@@ -78,7 +78,7 @@ public class Util {
         return createBitmap;
     }
 
-    public static Bitmap m1098a(View view) {
+    public static Bitmap convertToBitmap(View view) {
         Bitmap createBitmap = Bitmap.createBitmap(view.getWidth(), view.getHeight(), Config.ARGB_8888);
         Canvas canvas = new Canvas(createBitmap);
         canvas.save();

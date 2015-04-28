@@ -10,18 +10,18 @@ import java.util.HashMap;
 import java.util.List;
 
 public class AssetCatalogue {
-    private HashMap f1162a;
+    private HashMap mHashMAp;
 
     public AssetCatalogue() {
-        this.f1162a = null;
+        this.mHashMAp = null;
     }
 
     public List<PartConfig> getAssets(String str) {
-        return (List<PartConfig>) this.f1162a.get(str);
+        return (List<PartConfig>) this.mHashMAp.get(str);
     }
 
     public void initAssets(Context context) throws IOException {
-        this.f1162a = new HashMap();
+        this.mHashMAp = new HashMap();
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(context.getAssets().open("assets.tsv")));
         bufferedReader.readLine();
         bufferedReader.readLine();
@@ -62,10 +62,10 @@ public class AssetCatalogue {
                 z4 = z2;
             }
             PartConfig partConfigVar = new PartConfig(str, str2, str3, lineWith3orMoreTokens, z3, num, num2, z4);
-            ArrayList arrayList = (ArrayList) this.f1162a.get(str);
+            ArrayList arrayList = (ArrayList) this.mHashMAp.get(str);
             if (arrayList == null) {
                 arrayList = new ArrayList();
-                this.f1162a.put(str, arrayList);
+                this.mHashMAp.put(str, arrayList);
             }
             arrayList.add(partConfigVar);
         }

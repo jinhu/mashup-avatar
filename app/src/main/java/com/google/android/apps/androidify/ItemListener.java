@@ -20,7 +20,7 @@ public class ItemListener implements AdapterView.OnItemClickListener {
 //        if (av.values()[i] == av.NBA) {
 //            this.mAndroidify.m1403s();
 //        } else {
-//            this.mAndroidify.m1377a(av.values()[i].f1263o);
+//            this.mAndroidify.m1377a(av.values()[i].mString);
 //        }
 
     }
