@@ -4,7 +4,9 @@ import android.graphics.Picture;
 import android.os.SystemClock;
 import android.view.MotionEvent;
 import android.view.View;
+
 import com.google.android.Util;
+
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -23,7 +25,7 @@ public class Interaction {
     private Picture f1811i;
     private ArrayList f1812j;
     boolean f1813k;
-    C0265l f1814l;
+    MotionEventComperable f1814l;
     long f1815m;
     private long f1816n;
     boolean f1817o;
@@ -54,7 +56,15 @@ public class Interaction {
     }
 
     private void m2102a(long j) {
-        this.f1806d.postDelayed(new C0264k(this), 500 + j);
+        Runnable runner = () -> {
+            if (f1807e != null) {
+                f1807e.onTouchedMe(f1817o);
+            }
+            f1809g = null;
+            f1813k = false;
+            f1817o = false;
+        };
+        this.f1806d.postDelayed(runner, 500 + j);
     }
 
     public void m2107a(MotionEvent motionEvent) {
@@ -77,7 +87,13 @@ public class Interaction {
                 j3 = a.getEventTime();
                 Util.debug("Time correction for motion events replay is " + j);
             }
-            this.f1806d.post(new C0261h(this));
+            this.f1806d.post(() -> {
+                if (this.f1807e != null) {
+                    this.f1807e.onTouchedMe();
+                }
+                this.f1813k = true;
+                this.f1817o = false;
+            });
             this.f1812j.clear();
             long j4 = j2;
             String str = readLine;
@@ -85,24 +101,48 @@ public class Interaction {
             MotionEvent motionEvent = null;
             Object obj = 1;
             while (str != null) {
-                MotionEvent a2 = m2099a(str, j);
-                if (a2.getAction() == 0 && motionEvent != null) {
+                MotionEvent motionEvent1 = m2099a(str, j);
+                if (motionEvent1.getAction() == 0 && motionEvent != null) {
                     Util.debug("Found down action, creating motion action between pointer positions.");
                     if (motionEvent.getAction() != 1) {
                         throw new RuntimeException("Start event for interpolation not an up event");
                     }
-                    C0265l c0265l = new C0265l(MotionEvent.obtain(a2), null);
-                    this.f1812j.add(c0265l);
-                    this.f1806d.postDelayed(new C0262i(this, c0265l), j4);
+                    MotionEventComperable motionEventComperable = new MotionEventComperable(MotionEvent.obtain(motionEvent1), null);
+                    this.f1812j.add(motionEventComperable);
+
+                    this.f1806d.postDelayed(() -> {
+                        if (!this.f1817o) {
+                            Util.debug("  Drawing: Setting current interpolator: " + motionEventComperable.toString());
+                            this.f1814l = motionEventComperable;
+                            this.f1815m = SystemClock.uptimeMillis();
+                            this.f1806d.invalidate();
+                        }
+
+                    }, j4);
                 }
                 if (obj == null) {
-                    j4 += a2.getEventTime() - j5;
+                    j4 += motionEvent1.getEventTime() - j5;
                 }
-                Util.debug("  Playing event: " + a2.toString() + " with delay " + j4);
-                this.f1806d.postDelayed(new C0263j(this, a2), j4);
-                j5 = a2.getEventTime();
+                Util.debug("  Playing event: " + motionEvent1.toString() + " with delay " + j4);
+                this.f1806d.postDelayed(() -> {
+                    if (!this.f1817o) {
+                        if (motionEvent1.getAction() == 0) {
+                            Util.debug("REPLAY: TOUCH DOWN");
+                        }
+                        MotionEvent obtain = MotionEvent.obtain(motionEvent1.getDownTime() + uptimeMillis, uptimeMillis + motionEvent1.getEventTime(),
+                                motionEvent1.getAction(), motionEvent1.getX(), motionEvent1.getY(), motionEvent1.getMetaState());
+                        MotionEvent obtain2 = MotionEvent.obtain(obtain);
+                        Util.debug("  Drawing setting last touch event " + obtain2);
+                        this.f1806d.dispatchTouchEvent(obtain);
+                        this.f1809g = obtain2;
+                        this.f1814l = null;
+                        this.f1806d.invalidate();
+                    }
+                }
+                        , j4);
+                j5 = motionEvent1.getEventTime();
                 obj = null;
-                MotionEvent motionEvent2 = a2;
+                MotionEvent motionEvent2 = motionEvent1;
                 str = bufferedReader.readLine();
                 motionEvent = motionEvent2;
             }

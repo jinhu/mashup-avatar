@@ -5,14 +5,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 
-import java.io.IOException;
 import java.util.List;
 
 import dev.game.legend.avatar.R;
 import dev.game.legend.svgandroid.SVG;
 import it.sephiroth.android.library.widget.HListView;
-
-;
 
 public class AndroidViewAdapter extends BaseAdapter {
     final /* synthetic */ ManiView mMainView;

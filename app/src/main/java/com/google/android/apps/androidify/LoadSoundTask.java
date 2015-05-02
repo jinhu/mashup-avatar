@@ -7,10 +7,10 @@ import dev.game.legend.avatar.R;
 
 class LoadSoundTask extends AsyncTask {
     final /* synthetic */ Context f1600a;
-    final /* synthetic */ dh f1601b;
+    final /* synthetic */ DroidConfig f1601b;
 
-    LoadSoundTask(dh dhVar, Context context) {
-        this.f1601b = dhVar;
+    LoadSoundTask(DroidConfig aDroidConfigVar, Context context) {
+        this.f1601b = aDroidConfigVar;
         this.f1600a = context;
     }
 

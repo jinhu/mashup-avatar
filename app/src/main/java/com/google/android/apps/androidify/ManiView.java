@@ -17,7 +17,6 @@ import java.util.List;
 
 import dev.game.legend.avatar.R;
 import dev.game.legend.svgandroid.SVG;
-import it.sephiroth.android.library.widget.AdapterView;
 import it.sephiroth.android.library.widget.HListView;
 
 import static com.google.android.apps.androidify.Constants.ANDROID_COLOR;
@@ -62,23 +61,23 @@ public class ManiView {
         this.f1225h = (ViewGroup) viewGroup.findViewById(R.id.item_drawer_parent);
         this.mLayoutInflater = (LayoutInflater) this.f1226i.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         this.mAssetDatabase = AssetDatabase.instance(this.f1226i);
-        this.f1230m = this.mAssetDatabase.getSvgFromResource((int) R.raw.trash_icon);
-        this.f1231n = this.mAssetDatabase.getSvgFromResource((int) R.raw.android_fullhead);
-        this.mSVG = this.mAssetDatabase.getSvgFromResource((int) R.raw.new_badge);
-        this.f1233p = new PictureDrawable(this.mAssetDatabase.getSvgFromResource((int) R.raw.color_square_selection).getPicture());
-        SVG a = this.mAssetDatabase.getSvgFromResource((int) R.raw.drawer_icons_01);
-        SVG a2 = this.mAssetDatabase.getSvgFromResource((int) R.raw.drawer_nba);
-        SVG a3 = this.mAssetDatabase.getSvgFromResource((int) R.raw.drawer_icons_02);
-        SVG a4 = this.mAssetDatabase.getSvgFromResource((int) R.raw.drawer_icons_03);
-        SVG a5 = this.mAssetDatabase.getSvgFromResource((int) R.raw.drawer_icons_04);
-        SVG a6 = this.mAssetDatabase.getSvgFromResource((int) R.raw.drawer_icons_05);
-        SVG a7 = this.mAssetDatabase.getSvgFromResource((int) R.raw.drawer_icons_06);
-        SVG a8 = this.mAssetDatabase.getSvgFromResource((int) R.raw.drawer_icons_07);
-        SVG a9 = this.mAssetDatabase.getSvgFromResource((int) R.raw.drawer_icons_08);
-        SVG a10 = this.mAssetDatabase.getSvgFromResource((int) R.raw.drawer_icons_09);
-        SVG a11 = this.mAssetDatabase.getSvgFromResource((int) R.raw.drawer_icons_10);
-        SVG a12 = this.mAssetDatabase.getSvgFromResource((int) R.raw.drawer_icons_11);
-        SVG a13 = this.mAssetDatabase.getSvgFromResource((int) R.raw.drawer_icons_12);
+        this.f1230m = this.mAssetDatabase.getSvgFromResource(R.raw.trash_icon);
+        this.f1231n = this.mAssetDatabase.getSvgFromResource(R.raw.android_fullhead);
+        this.mSVG = this.mAssetDatabase.getSvgFromResource(R.raw.new_badge);
+        this.f1233p = new PictureDrawable(this.mAssetDatabase.getSvgFromResource(R.raw.color_square_selection).getPicture());
+        SVG a = this.mAssetDatabase.getSvgFromResource(R.raw.drawer_icons_01);
+        SVG a2 = this.mAssetDatabase.getSvgFromResource(R.raw.drawer_nba);
+        SVG a3 = this.mAssetDatabase.getSvgFromResource(R.raw.drawer_icons_02);
+        SVG a4 = this.mAssetDatabase.getSvgFromResource(R.raw.drawer_icons_03);
+        SVG a5 = this.mAssetDatabase.getSvgFromResource(R.raw.drawer_icons_04);
+        SVG a6 = this.mAssetDatabase.getSvgFromResource(R.raw.drawer_icons_05);
+        SVG a7 = this.mAssetDatabase.getSvgFromResource(R.raw.drawer_icons_06);
+        SVG a8 = this.mAssetDatabase.getSvgFromResource(R.raw.drawer_icons_07);
+        SVG a9 = this.mAssetDatabase.getSvgFromResource(R.raw.drawer_icons_08);
+        SVG a10 = this.mAssetDatabase.getSvgFromResource(R.raw.drawer_icons_09);
+        SVG a11 = this.mAssetDatabase.getSvgFromResource(R.raw.drawer_icons_10);
+        SVG a12 = this.mAssetDatabase.getSvgFromResource(R.raw.drawer_icons_11);
+        SVG a13 = this.mAssetDatabase.getSvgFromResource(R.raw.drawer_icons_12);
         ArrayList arrayList = new ArrayList();
         List arrayList2 = new ArrayList();
         arrayList.add(a);
@@ -133,32 +132,26 @@ public class ManiView {
         if (!z) {
             arrayList2 = null;
         }
-        hListView.setAdapter(getAdapter((List) arrayList, layoutInflater, hListView2, arrayList2));
-        this.mCategoryView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> aAdapterView, View aView, int i, long l) {
-                mAndroidify.m1392f();
-                m1732a(AccessoriesContainer.values()[i]);
-                mAndroidify.m1377a(AccessoriesContainer.values()[i].mString);
+        hListView.setAdapter(getAdapter(arrayList, layoutInflater, hListView2, arrayList2));
+        this.mCategoryView.setOnItemClickListener((aAdapterView, aView, i, l) -> {
+            mAndroidify.m1392f();
+            m1732a(AccessoriesContainer.values()[i]);
+            mAndroidify.m1377a(AccessoriesContainer.values()[i].mString);
 
-            }
         });
 
-        this.mAssetsView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> aAdapterView, View aView, int i, long l) {
-                if (m1733a(i, true)) {
-                    int a = 0;//mAssetsView.sele.mCategoryView(mAndroidDrawer.getWidth() - 1, mAndroidDrawer.getHeight() / 2);
-                    com.google.android.Util.debug("[SELECT] Last index on screen=" + a);
-                    if (a != -1) {
-                        int width = (int) (mAndroidDrawer.getWidth() - aView.getRight());
-                        if (a == i || (a == i + 1 && width < aView.getWidth() / 2)) {
-                            mAndroidDrawer.m2293d(1);
-                        }
+        this.mAssetsView.setOnItemClickListener((aAdapterView, aView, i, l) -> {
+            if (m1733a(i, true)) {
+                int a1 = 0;//mAssetsView.sele.mCategoryView(mAndroidDrawer.getWidth() - 1, mAndroidDrawer.getHeight() / 2);
+                com.google.android.Util.debug("[SELECT] Last index on screen=" + a1);
+                if (a1 != -1) {
+                    int width = (int) (mAndroidDrawer.getWidth() - aView.getRight());
+                    if (a1 == i || (a1 == i + 1 && width < aView.getWidth() / 2)) {
+                        mAndroidDrawer.m2293d(1);
                     }
                 }
             }
-         });
+        });
     }
 
     AndroidViewAdapter getAdapter(AccessoriesContainer aAccessoriesContainerVar, List list, LayoutInflater layoutInflater, HListView hListView) {
@@ -254,24 +247,24 @@ public class ManiView {
                 SVG a3;
                 SVG a4;
                 switch (AccessoryContainerIndex.theAccessoryContainerIndex[aAccessoriesContainerVar.ordinal()]) {
-                    case cm.HListView_hlv_headerDividersEnabled /*3*/:
+                    case HListViewConstants.HListView_hlv_headerDividersEnabled /*3*/:
                         svg = this.mAssetDatabase.getSVG(aAccessoriesContainerVar.mString, ((PartConfig) list.get(i)).name, null);
                         vectorView.setVectors( this.f1231n, svg);
                         break;
-                    case cm.HListView_hlv_footerDividersEnabled /*4*/:
+                    case HListViewConstants.HListView_hlv_footerDividersEnabled /*4*/:
                         a3 = this.mAssetDatabase.getSVG(aAccessoriesContainerVar.mString, ((PartConfig) list.get(i)).name, "back");
                         a4 = this.mAssetDatabase.getSVG(aAccessoriesContainerVar.mString, ((PartConfig) list.get(i)).name, "front");
                         SVG a5 = this.mAssetDatabase.getSVG(aAccessoriesContainerVar.mString, ((PartConfig) list.get(i)).name, "backextra");
                         svg = this.mAssetDatabase.getSVG(aAccessoriesContainerVar.mString, ((PartConfig) list.get(i)).name, "frontextra");
                         vectorView.setVectors((SVG[]) Util.collect(SVG.class, a3, a5, this.f1231n, a4, svg));
                         break;
-                    case cm.HListView_hlv_overScrollHeader /*5*/:
+                    case HListViewConstants.HListView_hlv_overScrollHeader /*5*/:
                         a3 = this.mAssetDatabase.getSVG(aAccessoriesContainerVar.mString, ((PartConfig) list.get(i)).name, "leg");
                         a4 = this.mAssetDatabase.getSVG(aAccessoriesContainerVar.mString, ((PartConfig) list.get(i)).name, "top");
                         svg = this.mAssetDatabase.getSVG(aAccessoriesContainerVar.mString, ((PartConfig) list.get(i)).name, "skirt");
                         vectorView.setVectors((SVG[]) Util.collect(SVG.class, a3, a4, svg));
                         break;
-                    case cm.HListView_hlv_overScrollFooter /*6*/:
+                    case HListViewConstants.HListView_hlv_overScrollFooter /*6*/:
                         a3 = this.mAssetDatabase.getSVG(aAccessoriesContainerVar.mString, ((PartConfig) list.get(i)).name, "body");
                         svg = this.mAssetDatabase.getSVG(aAccessoriesContainerVar.mString, ((PartConfig) list.get(i)).name, "top");
                         if (a3 != null) {
@@ -285,10 +278,10 @@ public class ManiView {
                         vectorView.setVectors(svg);
                         break;
                     case 12:
-                        vectorView.setVectors(this.mAssetDatabase.getSvgFromResource((int) R.raw.android_full, ANDROID_COLOR, Integer.valueOf(Constants.mSkinColors[i])));
+                        vectorView.setVectors(this.mAssetDatabase.getSvgFromResource(R.raw.android_full, ANDROID_COLOR, Integer.valueOf(Constants.mSkinColors[i])));
                         break;
                     case 13:
-                        svg = this.mAssetDatabase.getSvgFromResource((int) R.raw.android_hair, Constants.f1190a, Integer.valueOf(Constants.af[i]));
+                        svg = this.mAssetDatabase.getSvgFromResource(R.raw.android_hair, Constants.f1190a, Integer.valueOf(Constants.af[i]));
                         vectorView.setVectors(this.f1231n, svg);
                         break;
                     default:
@@ -359,21 +352,21 @@ public class ManiView {
             str = ((PartConfig) a.get(i)).name;
         }
         switch (AccessoryContainerIndex.theAccessoryContainerIndex[aAccessoriesContainer.ordinal()]) {
-            case cm.HListView_android_divider /*1*/:
+            case HListViewConstants.HListView_android_divider /*1*/:
                 return str.equals(e.m1805h());
-            case cm.HListView_hlv_dividerWidth /*2*/:
+            case HListViewConstants.HListView_hlv_dividerWidth /*2*/:
                 return str.equals(e.m1807i());
-            case cm.HListView_hlv_headerDividersEnabled /*3*/:
+            case HListViewConstants.HListView_hlv_headerDividersEnabled /*3*/:
                 return str.equals(e.m1808j());
-            case cm.HListView_hlv_footerDividersEnabled /*4*/:
+            case HListViewConstants.HListView_hlv_footerDividersEnabled /*4*/:
                 return str.equals(e.getHair());
-            case cm.HListView_hlv_overScrollHeader /*5*/:
+            case HListViewConstants.HListView_hlv_overScrollHeader /*5*/:
                 return str.equals(e.m1802g());
-            case cm.HListView_hlv_overScrollFooter /*6*/:
+            case HListViewConstants.HListView_hlv_overScrollFooter /*6*/:
                 return str.equals(e.getOutfit());
-            case cm.HListView_hlv_measureWithChild /*7*/:
+            case HListViewConstants.HListView_hlv_measureWithChild /*7*/:
                 return str.equals(e.getOutfit());
-            case cm.ExpandableHListView_hlv_childIndicatorPaddingTop /*8*/:
+            case HListViewConstants.ExpandableHListView_hlv_childIndicatorPaddingTop /*8*/:
                 return str.equals(e.getHat());
             case 9:
                 return str.equals(e.m1822x());
@@ -408,21 +401,21 @@ public class ManiView {
 
     List getAccessories(AccessoriesContainer aAccessoriesContainerVar) {
         switch (AccessoryContainerIndex.theAccessoryContainerIndex[aAccessoriesContainerVar.ordinal()]) {
-            case cm.HListView_android_divider /*1*/:
+            case HListViewConstants.HListView_android_divider /*1*/:
                 return this.mAssetDatabase.m1677f();
-            case cm.HListView_hlv_dividerWidth /*2*/:
+            case HListViewConstants.HListView_hlv_dividerWidth /*2*/:
                 return this.mAssetDatabase.m1679g();
-            case cm.HListView_hlv_headerDividersEnabled /*3*/:
+            case HListViewConstants.HListView_hlv_headerDividersEnabled /*3*/:
                 return this.mAssetDatabase.m1681h();
-            case cm.HListView_hlv_footerDividersEnabled /*4*/:
+            case HListViewConstants.HListView_hlv_footerDividersEnabled /*4*/:
                 return this.mAssetDatabase.m1671c();
-            case cm.HListView_hlv_overScrollHeader /*5*/:
+            case HListViewConstants.HListView_hlv_overScrollHeader /*5*/:
                 return this.mAssetDatabase.m1675e();
-            case cm.HListView_hlv_overScrollFooter /*6*/:
+            case HListViewConstants.HListView_hlv_overScrollFooter /*6*/:
                 return this.mAssetDatabase.m1673d();
-            case cm.HListView_hlv_measureWithChild /*7*/:
+            case HListViewConstants.HListView_hlv_measureWithChild /*7*/:
                 return this.mAssetDatabase.m1673d();
-            case cm.ExpandableHListView_hlv_childIndicatorPaddingTop /*8*/:
+            case HListViewConstants.ExpandableHListView_hlv_childIndicatorPaddingTop /*8*/:
                 return this.mAssetDatabase.m1683i();
             case 9:
                 return this.mAssetDatabase.m1685j();
@@ -443,15 +436,15 @@ public class ManiView {
 //        } else {
             m1713a(aAccessoryContainer, (PartConfig) aAccessoryContainer.retrieveAdapterFromView(this).mList3.get(i), i);
             switch (AccessoryContainerIndex.theAccessoryContainerIndex[aAccessoryContainer.ordinal()]) {
-                case cm.HListView_android_divider /*1*/:
-                case cm.HListView_hlv_dividerWidth /*2*/:
-                case cm.HListView_hlv_headerDividersEnabled /*3*/:
-                case cm.HListView_hlv_footerDividersEnabled /*4*/:
-                case cm.HListView_hlv_overScrollHeader /*5*/:
-                case cm.ExpandableHListView_hlv_childIndicatorPaddingTop /*8*/:
+                case HListViewConstants.HListView_android_divider /*1*/:
+                case HListViewConstants.HListView_hlv_dividerWidth /*2*/:
+                case HListViewConstants.HListView_hlv_headerDividersEnabled /*3*/:
+                case HListViewConstants.HListView_hlv_footerDividersEnabled /*4*/:
+                case HListViewConstants.HListView_hlv_overScrollHeader /*5*/:
+                case HListViewConstants.ExpandableHListView_hlv_childIndicatorPaddingTop /*8*/:
                 case 9:
                 case 10:
-                case cm.HListView_hlv_overScrollFooter /*6*/:
+                case HListViewConstants.HListView_hlv_overScrollFooter /*6*/:
                     this.mAndroidify.m1386c(2);
                     this.mAndroidify.proceedTutorial(1000, true);
                 default:
@@ -462,21 +455,21 @@ public class ManiView {
     int m1722c(AccessoriesContainer aAccessoriesContainerVar) {
         AndroidConfig e = this.mAndroidify.getCurrentConfig();
         switch (AccessoryContainerIndex.theAccessoryContainerIndex[aAccessoriesContainerVar.ordinal()]) {
-            case cm.HListView_android_divider /*1*/:
+            case HListViewConstants.HListView_android_divider /*1*/:
                 return m1716b(aAccessoriesContainerVar, e.m1805h());
-            case cm.HListView_hlv_dividerWidth /*2*/:
+            case HListViewConstants.HListView_hlv_dividerWidth /*2*/:
                 return m1716b(aAccessoriesContainerVar, e.m1807i());
-            case cm.HListView_hlv_headerDividersEnabled /*3*/:
+            case HListViewConstants.HListView_hlv_headerDividersEnabled /*3*/:
                 return m1716b(aAccessoriesContainerVar, e.m1808j());
-            case cm.HListView_hlv_footerDividersEnabled /*4*/:
+            case HListViewConstants.HListView_hlv_footerDividersEnabled /*4*/:
                 return m1716b(aAccessoriesContainerVar, e.getHair());
-            case cm.HListView_hlv_overScrollHeader /*5*/:
+            case HListViewConstants.HListView_hlv_overScrollHeader /*5*/:
                 return m1716b(aAccessoriesContainerVar, e.m1802g());
-            case cm.HListView_hlv_overScrollFooter /*6*/:
+            case HListViewConstants.HListView_hlv_overScrollFooter /*6*/:
                 return m1716b(aAccessoriesContainerVar, e.getOutfit());
-            case cm.HListView_hlv_measureWithChild /*7*/:
+            case HListViewConstants.HListView_hlv_measureWithChild /*7*/:
                 return m1716b(aAccessoriesContainerVar, e.getOutfit());
-            case cm.ExpandableHListView_hlv_childIndicatorPaddingTop /*8*/:
+            case HListViewConstants.ExpandableHListView_hlv_childIndicatorPaddingTop /*8*/:
                 return m1716b(aAccessoriesContainerVar, e.getHat());
             case 9:
                 return m1716b(aAccessoriesContainerVar, e.m1822x());
@@ -521,7 +514,7 @@ public class ManiView {
         }
     }
 
-    public void m1732a(AccessoriesContainer aAccessoriesContainerVar) {
+    public void m1732a(AccessoriesContainer anAccessoriesContainer) {
         if (mAndroidDrawer == null) {
             this.mAndroidify.proceedTutorial(1000, true);
             this.mAndroidify.m1386c(3);
@@ -546,11 +539,30 @@ public class ManiView {
 //        } else if (mAndroidDrawer == av.SHIRT) {
 //            this.mAndroidify.m1389d(2);
 //        }
-        if (aAccessoriesContainerVar != null && aAccessoriesContainerVar.bool4 && this.f1234q) {
+        if (anAccessoriesContainer != null && anAccessoriesContainer.bool4 && this.f1234q) {
             this.mAndroidify.showBadge();
         }
-        if (aAccessoriesContainerVar != this.mAccessoryContainer) {
-            Runnable arVar = new MainViewAccessoryRunnable(this, aAccessoriesContainerVar);
+        if (anAccessoriesContainer != this.mAccessoryContainer) {
+            Runnable arVar = ()->{
+                if (this.mAccessoryContainer == null || !this.mAccessoryContainer.bool1) {
+                    if (anAccessoriesContainer != null && anAccessoriesContainer.bool1) {
+                    }
+                } else if (anAccessoriesContainer != null) {
+                }
+                if (anAccessoriesContainer != null && anAccessoriesContainer.bool1) {
+                    //this.mManiView.mAndroidify.getDroidView().setAccessoryType();
+                }
+                this.mAccessoryContainer = anAccessoriesContainer;
+                if (this.mAccessoryContainer != null) {
+                    this.mAndroidDrawer.setAdapter(this.mAccessoryContainer.retrieveAdapterFromView(this));
+                    int c = this.m1724d(this.mAccessoryContainer);
+                    if (c >= 0) {
+                        this.mCategoryView.setSelection(c);
+                        this.m1728e();
+                    }
+                    this.m1707a(this.f1225h, true, null);
+                }
+            };
             if (this.mAccessoryContainer != null) {
                 m1707a(this.f1225h, false, arVar);
             } else {

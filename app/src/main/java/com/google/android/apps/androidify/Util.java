@@ -100,12 +100,12 @@ public class Util {
         return displayMetrics;
     }
 
-    public static ci m1906a(View view, float f, float f2, View view2) {
+    public static DroidCoordinate m1906a(View view, float f, float f2, View view2) {
         int[] iArr = new int[2];
         view.getLocationOnScreen(iArr);
         int[] iArr2 = new int[2];
         view2.getLocationOnScreen(iArr2);
-        return new ci(((float) (iArr[0] - iArr2[0])) + f, ((float) (iArr[1] - iArr2[1])) + f2);
+        return new DroidCoordinate(((float) (iArr[0] - iArr2[0])) + f, ((float) (iArr[1] - iArr2[1])) + f2);
     }
 
     public static List m1907a(ViewGroup viewGroup) {
@@ -131,7 +131,7 @@ public class Util {
     }
 
     public static void m1909a(float f, float f2, long j, long j2, Interpolator interpolator, Object c0218f) {
-        ValueAnimator ofFloat = ValueAnimator.ofFloat(new float[]{f, f2});
+        ValueAnimator ofFloat = ValueAnimator.ofFloat(f, f2);
         ofFloat.setDuration(j2);
         ofFloat.setStartDelay(j);
         if (interpolator != null) {

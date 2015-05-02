@@ -60,7 +60,7 @@ public class AndroidDrawer {
     private AnimationContainer ac;
     private AnimationContainer ad;
     private int ae;
-    private ci af;
+    private DroidCoordinate af;
     private Matrix ag;
     private RectF mRectF;
     private Context context;
@@ -86,10 +86,10 @@ public class AndroidDrawer {
     private Picture f1381s = null;
     private Picture f1382t = null;
     private Picture f1383u = null;
-    private bb accessories = null;
-    private bb f1385w = null;
-    private bb f1386x = null;
-    private bb f1387y = null;
+    private SvgToStringBinder accessories = null;
+    private SvgToStringBinder f1385w = null;
+    private SvgToStringBinder f1386x = null;
+    private SvgToStringBinder f1387y = null;
     private Path bodyClip;
 
     public AndroidDrawer(Context context) {
@@ -103,19 +103,19 @@ public class AndroidDrawer {
         this.ac = new AnimationContainer();
         this.ad = new AnimationContainer();
         this.ae = 255;
-        this.af = new ci();
+        this.af = new DroidCoordinate();
         this.ag = new Matrix();
         this.mRectF = new RectF(POINT_TO_REF_7.x - f1210u, 0.0f, POINT_TO_REF_7.x + f1210u, 0.0f);
         this.aj = new float[2];
         this.f1364b = new Picture[2];
         this.context = context;
         AssetDatabase a = AssetDatabase.instance(context);
-        Picture body = a.getSvgFromResource((int) R.raw.android_body).getPicture();
-        Picture head = a.getSvgFromResource((int) R.raw.android_head).getPicture();
-        Picture anntenna = a.getSvgFromResource((int) R.raw.android_antenna).getPicture();
-        Picture arm = a.getSvgFromResource((int) R.raw.android_arm).getPicture();
-        Picture leg = a.getSvgFromResource((int) R.raw.android_leg).getPicture();
-        this.mFoot = a.getSvgFromResource((int) R.raw.android_foot).getPicture();
+        Picture body = a.getSvgFromResource(R.raw.android_body).getPicture();
+        Picture head = a.getSvgFromResource(R.raw.android_head).getPicture();
+        Picture anntenna = a.getSvgFromResource(R.raw.android_antenna).getPicture();
+        Picture arm = a.getSvgFromResource(R.raw.android_arm).getPicture();
+        Picture leg = a.getSvgFromResource(R.raw.android_leg).getPicture();
+        this.mFoot = a.getSvgFromResource(R.raw.android_foot).getPicture();
         this.mAntenna = anntenna;
         this.mDroidBody = new Part(body);
         this.mDroidHead = new Part(head);
@@ -177,11 +177,11 @@ public class AndroidDrawer {
     }
 
     public Picture m1831a(String str) {
-        return (this.accessories == null || !this.accessories.f1389a.equals(str) || this.accessories.mSVG == null) ? (this.f1385w == null || !this.f1385w.f1389a.equals(str) || this.f1385w.mSVG == null) ? (this.f1386x == null || !this.f1386x.f1389a.equals(str) || this.f1386x.mSVG == null) ? (this.f1387y == null || !this.f1387y.f1389a.equals(str) || this.f1387y.mSVG == null) ? null : this.f1387y.mSVG.getPicture() : this.f1386x.mSVG.getPicture() : this.f1385w.mSVG.getPicture() : this.accessories.mSVG.getPicture();
+        return (this.accessories == null || !this.accessories.name.equals(str) || this.accessories.mSVG == null) ? (this.f1385w == null || !this.f1385w.name.equals(str) || this.f1385w.mSVG == null) ? (this.f1386x == null || !this.f1386x.name.equals(str) || this.f1386x.mSVG == null) ? (this.f1387y == null || !this.f1387y.name.equals(str) || this.f1387y.mSVG == null) ? null : this.f1387y.mSVG.getPicture() : this.f1386x.mSVG.getPicture() : this.f1385w.mSVG.getPicture() : this.accessories.mSVG.getPicture();
     }
 
     public AndAnimation m1832a(AnimationType aAnimationTypeVar) {
-        return (AndAnimation) this.animations.get(aAnimationTypeVar.toString());
+        return this.animations.get(aAnimationTypeVar.toString());
     }
 
     public void m1833a(float f) {
@@ -473,8 +473,8 @@ public class AndroidDrawer {
             f5 = i == 0 ? this.ac.f1060M : this.ac.f1061N;
             this.mRectF.left = (POINT_TO_REF_7.x - f1210u) + f3;
             this.mRectF.right = f3 + (POINT_TO_REF_7.x + f1210u);
-            this.mRectF.top = by.m1898a(f5, 0.0f, 1.0f, POINT_TO_REF_7.y, POINT_TO_REF_3.y) + f4;
-            this.mRectF.bottom = by.m1898a(f5, 0.0f, 1.0f, POINT_TO_REF_7.y, POINT_TO_REF_5.y) + f4;
+            this.mRectF.top = SmoothRandomGenerator.m1898a(f5, 0.0f, 1.0f, POINT_TO_REF_7.y, POINT_TO_REF_3.y) + f4;
+            this.mRectF.bottom = SmoothRandomGenerator.m1898a(f5, 0.0f, 1.0f, POINT_TO_REF_7.y, POINT_TO_REF_5.y) + f4;
             canvas.clipRect(this.mRectF);
             canvas.drawCircle(POINT_TO_REF_7.x, POINT_TO_REF_7.y, POINT_TO_REF_7.y - POINT_TO_REF_3.y, this.workPaint);
             canvas.restore();
@@ -488,7 +488,7 @@ public class AndroidDrawer {
         if (part != null) {
             SVG a9 = part.getSvg(this.context, 0);
             canvas.save();
-            canvas.translate(this.ac.f1056I + POINT_CENTER_OF_BODY.x, by.m1898a(this.ac.f1057J, this.ac.f1068U.m1610b(Animation.PROP_POSITION_Y), this.ac.f1068U.m1603a(Animation.PROP_POSITION_Y), this.f1366d - 25.0f, this.f1365c - 80.0f) + part.f1103g);
+            canvas.translate(this.ac.f1056I + POINT_CENTER_OF_BODY.x, SmoothRandomGenerator.m1898a(this.ac.f1057J, this.ac.f1068U.m1610b(Animation.PROP_POSITION_Y), this.ac.f1068U.m1603a(Animation.PROP_POSITION_Y), this.f1366d - 25.0f, this.f1365c - 80.0f) + part.f1103g);
             //canvas.scale(this.mLocation7.f1063P, this.mLocation7.f1062O, a9.scale.centerX(), a9.scale.centerY());
             canvas.drawPicture(a9.getPicture());
             canvas.restore();
@@ -779,11 +779,11 @@ public class AndroidDrawer {
         } else {
             this.f1360W = m1693a(this.skinColor);
         }
-        this.mDroidHead.picture = aDb.getSvgFromResource((int) R.raw.android_head, ANDROID_COLOR, Integer.valueOf(this.skinColor)).getPicture();
-        this.mDroidBody.picture = aDb.getSvgFromResource((int) R.raw.android_body, ANDROID_COLOR, Integer.valueOf(this.skinColor)).getPicture();
-        this.mLeg.picture = aDb.getSvgFromResource((int) R.raw.android_leg, ANDROID_COLOR, Integer.valueOf(this.skinColor)).getPicture();
-        this.mFoot = aDb.getSvgFromResource((int) R.raw.android_foot, ANDROID_COLOR, Integer.valueOf(this.skinColor)).getPicture();
-        this.mAntenna = aDb.getSvgFromResource((int) R.raw.android_antenna, ANDROID_COLOR, Integer.valueOf(this.skinColor)).getPicture();
+        this.mDroidHead.picture = aDb.getSvgFromResource(R.raw.android_head, ANDROID_COLOR, Integer.valueOf(this.skinColor)).getPicture();
+        this.mDroidBody.picture = aDb.getSvgFromResource(R.raw.android_body, ANDROID_COLOR, Integer.valueOf(this.skinColor)).getPicture();
+        this.mLeg.picture = aDb.getSvgFromResource(R.raw.android_leg, ANDROID_COLOR, Integer.valueOf(this.skinColor)).getPicture();
+        this.mFoot = aDb.getSvgFromResource(R.raw.android_foot, ANDROID_COLOR, Integer.valueOf(this.skinColor)).getPicture();
+        this.mAntenna = aDb.getSvgFromResource(R.raw.android_antenna, ANDROID_COLOR, Integer.valueOf(this.skinColor)).getPicture();
 
         String hair = config.getHair();
 
@@ -873,7 +873,7 @@ public class AndroidDrawer {
         if (hatType != null) {
             partConfig = aDb.getHatFromString(hatType);
             if (partConfig != null) {
-                this.accessories = new bb(outfit, hatType, aDb.getSvg(partConfig, config));
+                this.accessories = new SvgToStringBinder(outfit, hatType, aDb.getSvg(partConfig, config));
             } else {
                 this.accessories = null;
             }
@@ -885,7 +885,7 @@ public class AndroidDrawer {
         if (hatType != null) {
             partConfig = aDb.m1682i(hatType);
             if (partConfig != null) {
-                this.f1385w = new bb(outfit, hatType, aDb.getSvg(partConfig, config));
+                this.f1385w = new SvgToStringBinder(outfit, hatType, aDb.getSvg(partConfig, config));
             } else {
                 this.f1385w = null;
             }
@@ -897,7 +897,7 @@ public class AndroidDrawer {
         if (hatType != null) {
             partConfig = aDb.m1684j(hatType);
             if (partConfig != null) {
-                this.f1386x = new bb(outfit, hatType, aDb.getSvg(partConfig, config));
+                this.f1386x = new SvgToStringBinder(outfit, hatType, aDb.getSvg(partConfig, config));
             } else {
                 this.f1386x = null;
             }
@@ -909,7 +909,7 @@ public class AndroidDrawer {
         if (hatType != null) {
             partConfig = aDb.m1686k(hatType);
             if (partConfig != null) {
-                this.f1387y = new bb(outfit, hatType, aDb.getSvg(partConfig, config));
+                this.f1387y = new SvgToStringBinder(outfit, hatType, aDb.getSvg(partConfig, config));
             } else {
                 this.f1387y = null;
             }
@@ -936,17 +936,17 @@ public class AndroidDrawer {
 
     public void m1846a(boolean z) {
         switch (z ? RAANDOM.nextInt(6) : RAANDOM.nextInt(4) + 1) {
-            case cm.HListView_android_entries /*0*/:
+            case HListViewConstants.HListView_android_entries /*0*/:
                 m1863l();
-            case cm.HListView_android_divider /*1*/:
+            case HListViewConstants.HListView_android_divider /*1*/:
                 m1862k();
-            case cm.HListView_hlv_dividerWidth /*2*/:
+            case HListViewConstants.HListView_hlv_dividerWidth /*2*/:
                 m1861j();
-            case cm.HListView_hlv_headerDividersEnabled /*3*/:
+            case HListViewConstants.HListView_hlv_headerDividersEnabled /*3*/:
                 m1860i();
-            case cm.HListView_hlv_footerDividersEnabled /*4*/:
+            case HListViewConstants.HListView_hlv_footerDividersEnabled /*4*/:
                 m1859h();
-            case cm.HListView_hlv_overScrollHeader /*5*/:
+            case HListViewConstants.HListView_hlv_overScrollHeader /*5*/:
                 m1858g();
             default:
         }
@@ -1106,12 +1106,12 @@ public class AndroidDrawer {
     }
 
     public Picture[] m1864m() {
-        if (this.f1385w == null || !this.f1385w.f1389a.equals("mDroidHead")) {
+        if (this.f1385w == null || !this.f1385w.name.equals("mDroidHead")) {
             this.f1364b[1] = null;
         } else {
             this.f1364b[1] = this.f1385w.mSVG.getPicture();
         }
-        if (this.accessories == null || !this.accessories.f1389a.equals("mDroidHead")) {
+        if (this.accessories == null || !this.accessories.name.equals("mDroidHead")) {
             this.f1364b[0] = null;
         } else {
             this.f1364b[0] = this.accessories.mSVG.getPicture();

@@ -12,7 +12,7 @@ public enum AccessoryType {
     
     public boolean enabled;
 
-    private AccessoryType(boolean z) {
+    AccessoryType(boolean z) {
         this.enabled = z;
     }
 }

@@ -59,8 +59,29 @@ public class AndroidBaseAdapter extends BaseAdapter {
             drawView.setDroidDrawer(c);
             drawView.setIndex(i2);
             drawView.m1426a();
-            drawView.setOnClickListener(new bq(this, a, i2, i3));
-        } else {
+            drawView.setOnClickListener(v -> {
+                if (a == this.f1440e) {
+                    Util.debug("Selecting already selected droid.");
+                    if (this.f1439d != null) {
+                        this.f1439d.shareAll(i2, i3, this.m1887b(i2, i3));
+                        return;
+                    }
+                    return;
+                }
+                if (this.f1440e > -1 && this.f1441f != null) {
+                    this.f1441f.setBackgroundColor(this.f1436a);
+                    Util.debug("galdebug resetting last selected at " + this.f1441f);
+                }
+                this.f1440e = a;
+                this.f1441f = view;
+                Util.debug("galdebug last selected now " + this.f1441f);
+                view.setBackgroundResource(R.drawable.btn_bg_selected_gallery);
+                view.invalidate();
+                if (this.f1439d != null) {
+                    this.f1439d.shareOnce(i2, i3, this.m1887b(i2, i3));
+                }
+            });
+    } else {
             drawView.setVisibility(View.INVISIBLE);
             drawView.setOnClickListener(null);
         }
@@ -161,7 +182,11 @@ public class AndroidBaseAdapter extends BaseAdapter {
                     findViewById.setLayoutParams(layoutParams);
                     view.requestLayout();
                 }
-                view.setOnClickListener(new bp(this));
+                view.setOnClickListener(v -> {
+                    if (this.f1439d != null) {
+                        this.f1439d.shareOnce();
+                    }
+                });
             } else if (!this.f1438c) {
                 view = this.mLayoutInflater.inflate(R.layout.griditem_gallery_single, null);
                 m1875a(view, R.id.dv_android1, i, 0);

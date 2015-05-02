@@ -72,10 +72,10 @@ public class DroidView extends SurfaceView implements OnGestureListener, OnScale
     private Picture f838P = null;
     private Picture f839Q = null;
     private Picture f840R = null;
-    private bg f841S = null;
-    private bg f842T = null;
-    private bg f843U = null;
-    private bg f844V = null;
+    private SvgToPartConfigBinder f841S = null;
+    private SvgToPartConfigBinder f842T = null;
+    private SvgToPartConfigBinder f843U = null;
+    private SvgToPartConfigBinder f844V = null;
     private RectF mRect1;
     private RectF f846Z;
     private float aA = 1.0f;
@@ -94,7 +94,7 @@ public class DroidView extends SurfaceView implements OnGestureListener, OnScale
     private Picture mGlassIconOn;
     private Picture mBeardIconOn;
     private Picture[] mAccessory;
-    private ci aR = new ci();
+    private DroidCoordinate aR = new DroidCoordinate();
     private Matrix aS = new Matrix();
     private RectF aT;
     private float aW;
@@ -202,7 +202,6 @@ public class DroidView extends SurfaceView implements OnGestureListener, OnScale
         this.ak = new AnimationContainer();
         this.mAccessory = new Picture[3];
         //this.aT = new RectF(mLocation5.x - f1210u, 0.0f, mLocation5.x + f1210u, 0.0f);
-        this.mAnimationTask = new be(this);
     }
 
     public DroidView(Context context, AttributeSet attributeSet) {
@@ -215,7 +214,6 @@ public class DroidView extends SurfaceView implements OnGestureListener, OnScale
         this.ak = new AnimationContainer();
         this.mAccessory = new Picture[3];
         //this.aT = new RectF(mLocation5.x - f1210u, 0.0f, mLocation5.x + f1210u, 0.0f);
-        this.mAnimationTask = new be(this);
     }
 
     public DroidView(Context context, AttributeSet attributeSet, int i) {
@@ -228,7 +226,6 @@ public class DroidView extends SurfaceView implements OnGestureListener, OnScale
         this.ak = new AnimationContainer();
         this.mAccessory = new Picture[3];
         //        this.aT = new RectF(mLocation5.x - f1210u, 0.0f, mLocation5.x + f1210u, 0.0f);
-        this.mAnimationTask = new be(this);
     }
 
     public DroidView(Androidify androidify, Picture picture, Picture picture2, Picture picture3, Picture picture4, Picture picture5, Picture picture6) {
@@ -242,7 +239,6 @@ public class DroidView extends SurfaceView implements OnGestureListener, OnScale
         this.mRectF = new RectF();
         this.mAccessory = new Picture[3];
         this.aT = new RectF(mAnimationContainer.mLocation5.x - f1210u, 0.0f, mAnimationContainer.mLocation5.x + f1210u, 0.0f);
-        this.mAnimationTask = new be(this);
         initDroid(androidify, picture, picture2, picture3, picture4, picture5, picture6);
     }
 
@@ -255,7 +251,7 @@ public class DroidView extends SurfaceView implements OnGestureListener, OnScale
     }
 
     private void m1431a(Canvas canvas, AndAnimation aAndAnimationVar, AccessoryType aType) {
-//        switch (bf.f1406a[aType.ordinal()]) {
+//        switch (bf.mAccessoryType[aType.ordinal()]) {
 //            case cm.HListView_android_divider /*1*/:
 //            case cm.HListView_hlv_dividerWidth /*2*/:
 //            case cm.HListView_hlv_headerDividersEnabled /*3*/:
@@ -275,7 +271,7 @@ public class DroidView extends SurfaceView implements OnGestureListener, OnScale
     }
 
     private boolean m1435g(float f, float f2) {
-        if (f2 > ((float) this.mTopY)) {
+        if (f2 > this.mTopY) {
             return f < ((float) this.bg) || f > ((float) this.bh);
         } else {
             float[] fArr = new float[]{f, f2};
@@ -291,7 +287,7 @@ public class DroidView extends SurfaceView implements OnGestureListener, OnScale
     private BodyPart m1436h(float f, float f2) {
         Object obj = 1;
         BodyPart bodyPartVar = new BodyPart();
-        if (this.bq < ((float) this.mTopY) + 0.0f) {
+        if (this.bq < this.mTopY + 0.0f) {
             bodyPartVar.mPart = PartType.HEAD;
             if (this.bp < ((float) this.bc)) {
                 bodyPartVar.mSide = SideType.LEFT;
@@ -531,12 +527,12 @@ public class DroidView extends SurfaceView implements OnGestureListener, OnScale
         addAntennaAnimation();
         this.at = new HashMap();
         this.mBottomMargin = getResources().getDimension(R.dimen.droidview_bottom_margin);
-        this.mHairIcon = androidify.getAssetDatabase().getSvgFromResource((int) R.raw.hair_icon).getPicture();
-        this.mGlassIcon = androidify.getAssetDatabase().getSvgFromResource((int) R.raw.glasses_icon).getPicture();
-        this.mBeardIcon = androidify.getAssetDatabase().getSvgFromResource((int) R.raw.beard_icon).getPicture();
-        this.mHairIconOn = androidify.getAssetDatabase().getSvgFromResource((int) R.raw.hair_icon_on).getPicture();
-        this.mGlassIconOn = androidify.getAssetDatabase().getSvgFromResource((int) R.raw.glasses_icon_on).getPicture();
-        this.mBeardIconOn = androidify.getAssetDatabase().getSvgFromResource((int) R.raw.beard_icon_on).getPicture();
+        this.mHairIcon = androidify.getAssetDatabase().getSvgFromResource(R.raw.hair_icon).getPicture();
+        this.mGlassIcon = androidify.getAssetDatabase().getSvgFromResource(R.raw.glasses_icon).getPicture();
+        this.mBeardIcon = androidify.getAssetDatabase().getSvgFromResource(R.raw.beard_icon).getPicture();
+        this.mHairIconOn = androidify.getAssetDatabase().getSvgFromResource(R.raw.hair_icon_on).getPicture();
+        this.mGlassIconOn = androidify.getAssetDatabase().getSvgFromResource(R.raw.glasses_icon_on).getPicture();
+        this.mBeardIconOn = androidify.getAssetDatabase().getSvgFromResource(R.raw.beard_icon_on).getPicture();
         this.mAccessory[0] = this.mHairIcon;
         this.mAccessory[1] = this.mGlassIcon;
         this.mAccessory[2] = this.mBeardIcon;
@@ -586,17 +582,17 @@ public class DroidView extends SurfaceView implements OnGestureListener, OnScale
 
     public void m1461a(boolean z) {
         switch (z ? RANDOM.nextInt(6) : RANDOM.nextInt(5) + 1) {
-            case cm.HListView_android_entries /*0*/:
+            case HListViewConstants.HListView_android_entries /*0*/:
                 m1479l();
-            case cm.HListView_android_divider /*1*/:
+            case HListViewConstants.HListView_android_divider /*1*/:
                 m1478k();
-            case cm.HListView_hlv_dividerWidth /*2*/:
+            case HListViewConstants.HListView_hlv_dividerWidth /*2*/:
                 m1477j();
-            case cm.HListView_hlv_headerDividersEnabled /*3*/:
+            case HListViewConstants.HListView_hlv_headerDividersEnabled /*3*/:
                 m1476i();
-            case cm.HListView_hlv_footerDividersEnabled /*4*/:
+            case HListViewConstants.HListView_hlv_footerDividersEnabled /*4*/:
                 m1475h();
-            case cm.HListView_hlv_overScrollHeader /*5*/:
+            case HListViewConstants.HListView_hlv_overScrollHeader /*5*/:
                 m1474g();
             default:
         }
@@ -702,12 +698,12 @@ public class DroidView extends SurfaceView implements OnGestureListener, OnScale
         this.bg = (int) ((((float) this.bb) - f5) - f3);
         this.bh = (int) ((f5 + ((float) this.bd)) + f3);
         this.mTopY = (int) fArr[1];
-        this.bj = (int) (((float) this.mTopY) - (f2 * (((mAnimationContainer.mCoordinate2.y - POINT_TO_REF_1.y) * this.mHeadPart.scaleY) * this.au)));
+        this.bj = (int) (this.mTopY - (f2 * (((mAnimationContainer.mCoordinate2.y - POINT_TO_REF_1.y) * this.mHeadPart.scaleY) * this.au)));
         this.bk = (int) (fArr[1] + ((((mAnimationContainer.mCoordinate3.y - POINT_TOP_OF_BODY.y) * this.mBodyPart.scaleY) * this.au) / 2.0f));
         this.bl = (int) (fArr[1] + (((mAnimationContainer.mCoordinate3.y - POINT_TOP_OF_BODY.y) * this.mBodyPart.scaleY) * this.au));
         this.bn = (int) (fArr[1] + ((((mAnimationContainer.mCoordinate3.y - POINT_TOP_OF_BODY.y) * this.mBodyPart.scaleY) + ((mAnimationContainer.mCoordinate7.y - mAnimationContainer.mCoordinate3.y) * this.mArmPart.scaleY)) * this.au));
         this.bm = (int) (fArr[1] + (((mAnimationContainer.mLocation3.y - mAnimationContainer.mLocation4.y) * this.mAntennaPart.scaleY) * this.au));
-        this.mTopY = (int) (((float) this.mTopY) + f822h);
+        this.mTopY = (int) (this.mTopY + f822h);
         this.bj = (int) (((float) this.bj) + f822h);
         this.bk = (int) (((float) this.bk) + f822h);
         this.bl = (int) (((float) this.bl) + f822h);
@@ -753,7 +749,7 @@ public class DroidView extends SurfaceView implements OnGestureListener, OnScale
             f = getResources().getDimension(R.dimen.tutorial_button_width);
             f5 = getResources().getDimension(R.dimen.tutorial_header_height);
             e = getResources().getDimension(R.dimen.tutorial_arrow_bottom_adjust);
-            ci a3 = Util.m1906a(this, (float) this.bf, (float) this.bo, this.mTutorialView);
+            DroidCoordinate a3 = Util.m1906a(this, (float) this.bf, (float) this.bo, this.mTutorialView);
             this.mTutorialView.m1586a(0, a3.f1505a, a3.f1506b);
             this.mTutorialView.m1586a(1, f2 / 2.0f, ((float) getHeight()) - e);
             this.mTutorialView.m1586a(2, (3.0f * f2) / 2.0f, ((float) getHeight()) - e);
@@ -800,10 +796,11 @@ public class DroidView extends SurfaceView implements OnGestureListener, OnScale
     }
 
     public void m1468c(int i) {
-//        if (this.mTutorialView != null && this.mTutorialView.getStepIndex() == i && this.mTutorialView.m1591c() && this.mTutorialView.m1589a()) {
-//            this.mTutorialView.setVisibility(8);
-//            this.mTutorialView = null;
-//        }
+        if (this.mTutorialView != null && this.mTutorialView.getStepIndex() == i && this.mTutorialView.m1591c()
+                && this.mTutorialView.m1589a()) {
+            this.mTutorialView.setVisibility(View.GONE);
+            this.mTutorialView = null;
+        }
     }
 
     public void m1469d() {
@@ -888,7 +885,7 @@ public class DroidView extends SurfaceView implements OnGestureListener, OnScale
 //        if (a) {
 //            this.mAndroidify.getClickListener().last();
 //        }
-        Bitmap bitmap = com.google.android.Util.convertToBitmap((View) this);
+        Bitmap bitmap = com.google.android.Util.convertToBitmap(this);
 //        if (a) {
 //            this.mAndroidify.getClickListener().next();
 //        }
@@ -1631,7 +1628,7 @@ public class DroidView extends SurfaceView implements OnGestureListener, OnScale
         com.google.android.Util.debug("Scaling!!");
         float scaleFactor = scaleGestureDetector.getScaleFactor();
         if (scaleFactor > 0.0f) {
-//            switch (bf.f1407b[m1436h(scaleGestureDetector.getFocusX(), scaleGestureDetector.getFocusY()).mPart.ordinal()]) {
+//            switch (bf.mBaseType[m1436h(scaleGestureDetector.getFocusX(), scaleGestureDetector.getFocusY()).mPart.ordinal()]) {
 //                case cm.HListView_android_divider /*1*/:
 //                    m1472e(scaleFactor, scaleFactor);
 //                    break;
@@ -1663,7 +1660,7 @@ public class DroidView extends SurfaceView implements OnGestureListener, OnScale
 //            this.bw = h.mPart;
 //            this.bu = h.mSide == SideType.LEFT;
 //            Androidify.m1364m();
-//            switch (bf.f1407b[this.bw.ordinal()]) {
+//            switch (bf.mBaseType[this.bw.ordinal()]) {
 //                case cm.HListView_android_divider /*1*/:
 //                    this.PartType.set(POINT_LEFT_BOTTOM_OF_HEAD.x, POINT_TO_REF_1.y, POINT_RIGHT_BOTTOM_OF_HEAD.x, mAnimationContainer.mCoordinate2.y);
 //                    Androidify.m1336a(this.mHeadPart.scaleX, this.mHeadPart.scaleY, motionEvent2.getX(), motionEvent2.getY());
@@ -1693,7 +1690,7 @@ public class DroidView extends SurfaceView implements OnGestureListener, OnScale
 //        if (!this.bu) {
 //            f = -f;
 //        }
-//        switch (bf.f1407b[this.bw.ordinal()]) {
+//        switch (bf.mBaseType[this.bw.ordinal()]) {
 //            case cm.HListView_android_divider /*1*/:
 //                m1472e((this.br + f) / this.br, (this.bs + f2) / this.bs);
 //                Androidify.m1336a(this.mHeadPart.scaleX, this.mHeadPart.scaleY, motionEvent2.getX(), motionEvent2.getY());
@@ -1789,8 +1786,8 @@ public class DroidView extends SurfaceView implements OnGestureListener, OnScale
         this.aa = rectF;
     }
 
-    public void setBody(bg bgVar) {
-        this.f843U = bgVar;
+    public void setBody(SvgToPartConfigBinder aSvgToPartConfigBinderVar) {
+        this.f843U = aSvgToPartConfigBinderVar;
         postInvalidate();
     }
 
@@ -1798,8 +1795,8 @@ public class DroidView extends SurfaceView implements OnGestureListener, OnScale
         this.f848c = z;
     }
 
-    public void setFace(bg bgVar) {
-        this.f842T = bgVar;
+    public void setFace(SvgToPartConfigBinder aSvgToPartConfigBinderVar) {
+        this.f842T = aSvgToPartConfigBinderVar;
         postInvalidate();
     }
 
@@ -1841,14 +1838,14 @@ public class DroidView extends SurfaceView implements OnGestureListener, OnScale
         postInvalidate();
     }
 
-    public void setHand(bg bgVar) {
-        this.f844V = bgVar;
+    public void setHand(SvgToPartConfigBinder aSvgToPartConfigBinderVar) {
+        this.f844V = aSvgToPartConfigBinderVar;
         m1462b();
         postInvalidate();
     }
 
-    public void setHat(bg bgVar) {
-        this.f841S = bgVar;
+    public void setHat(SvgToPartConfigBinder aSvgToPartConfigBinderVar) {
+        this.f841S = aSvgToPartConfigBinderVar;
         m1462b();
         postInvalidate();
     }

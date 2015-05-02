@@ -1,6 +1,7 @@
 package com.google.android.apps.androidify;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.VideoView;
@@ -8,7 +9,7 @@ import android.widget.VideoView;
 import dev.game.legend.avatar.R;
 
 public class IntroActivity extends Activity {
-    private VideoView f883a;
+    private VideoView mVideoView;
 
     public void clickedClose(View view) {
         finish();
@@ -17,8 +18,14 @@ public class IntroActivity extends Activity {
     protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.activity_intro);
-        this.f883a = (VideoView) findViewById(R.id.intro_video);
-        this.f883a.setOnCompletionListener(new bv(this));
-        this.f883a.start();
+        this.mVideoView = (VideoView) findViewById(R.id.intro_video);
+        this.mVideoView.setOnCompletionListener(mp -> {
+                    Intent intent = new Intent(this, Androidify.class);
+                    intent.setFlags(67108864);
+                    this.startActivity(intent);
+                    this.overridePendingTransition(0, 0);
+                }
+        );
+            this.mVideoView .start();
+        }
     }
-}

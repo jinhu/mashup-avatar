@@ -6,27 +6,27 @@ import com.google.android.Util;
 
 /* renamed from: com.google.android.apps.c.j */
 class C0263j implements Runnable {
-    final /* synthetic */ MotionEvent f1821a;
-    final /* synthetic */ Interaction f1822b;
+    final /* synthetic */ MotionEvent motionEvent;
+    final /* synthetic */ Interaction intercation;
 
     C0263j(Interaction aInteraction, MotionEvent motionEvent) {
-        this.f1822b = aInteraction;
-        this.f1821a = motionEvent;
+        this.intercation = aInteraction;
+        this.motionEvent = motionEvent;
     }
 
     public void run() {
-        if (!this.f1822b.f1817o) {
-            if (this.f1821a.getAction() == 0) {
+        if (!this.intercation.f1817o) {
+            if (this.motionEvent.getAction() == 0) {
                 Util.debug("REPLAY: TOUCH DOWN");
             }
-            long uptimeMillis = SystemClock.uptimeMillis() - this.f1821a.getEventTime();
-            MotionEvent obtain = MotionEvent.obtain(this.f1821a.getDownTime() + uptimeMillis, uptimeMillis + this.f1821a.getEventTime(), this.f1821a.getAction(), this.f1821a.getX(), this.f1821a.getY(), this.f1821a.getMetaState());
+            long uptimeMillis = SystemClock.uptimeMillis() - this.motionEvent.getEventTime();
+            MotionEvent obtain = MotionEvent.obtain(this.motionEvent.getDownTime() + uptimeMillis, uptimeMillis + this.motionEvent.getEventTime(), this.motionEvent.getAction(), this.motionEvent.getX(), this.motionEvent.getY(), this.motionEvent.getMetaState());
             MotionEvent obtain2 = MotionEvent.obtain(obtain);
             Util.debug("  Drawing setting last touch event " + obtain2);
-            this.f1822b.f1806d.dispatchTouchEvent(obtain);
-            this.f1822b.f1809g = obtain2;
-            this.f1822b.f1814l = null;
-            this.f1822b.f1806d.invalidate();
+            this.intercation.f1806d.dispatchTouchEvent(obtain);
+            this.intercation.f1809g = obtain2;
+            this.intercation.f1814l = null;
+            this.intercation.f1806d.invalidate();
         }
     }
 }

@@ -1,14 +1,14 @@
 package com.google.android.apps.androidify.p018a;
 
-import com.google.android.apps.androidify.bw;
-import com.google.android.apps.androidify.bx;
+import com.google.android.apps.androidify.DroidInterpolator;
+import com.google.android.apps.androidify.DroidCoordinateArray;
 import java.util.ArrayList;
 import java.util.Iterator;
 
 /* renamed from: com.google.android.apps.androidify.a.i */
 class C0212i {
     private ArrayList f1042a;
-    private bw f1043b;
+    private DroidInterpolator f1043b;
     private double f1044c;
     private float f1045d;
     public double f1046e;
@@ -27,12 +27,12 @@ class C0212i {
     }
 
     void m1617a() {
-        bx bxVar = new bx();
+        DroidCoordinateArray bxVar = new DroidCoordinateArray();
         float f = this.f1045d;
         Iterator it = this.f1042a.iterator();
         while (it.hasNext()) {
             C0210g c0210g = (C0210g) it.next();
-            if (bxVar.m1897b() && c0210g.f988a > 0.0d) {
+            if (bxVar.isEmpty() && c0210g.f988a > 0.0d) {
                 bxVar.m1896a(0.0f, (float) c0210g.f989b);
             }
             float f2 = (float) c0210g.f989b;

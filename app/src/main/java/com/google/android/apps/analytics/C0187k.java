@@ -9,7 +9,7 @@ final class C0187k implements C0183g {
     }
 
     public void m1194a() {
-        this.f673a.f670u.post(new C0188l(this));
+        this.f673a.f670u.post(()->f673a.m1192c());
     }
 
     public void m1195a(long j) {

@@ -25,7 +25,7 @@ class C0181e {
     }
 
     public C0180d[] m1142a() {
-        return (C0180d[]) this.f629a.clone();
+        return this.f629a.clone();
     }
 
     public C0180d m1143b(int i) {

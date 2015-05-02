@@ -16,14 +16,14 @@ import it.sephiroth.android.library.widget.AdapterView;
 public class AndroidModelAdapter extends BaseAdapter implements AdapterView.OnItemClickListener {
     private static final int[] f1485d;
     boolean f1486a;
-    private final ThreadPoolExecutor f1487b;
+    private final ThreadPoolExecutor mTask;
     private int f1488c;
     private final int f1489e;
     private Context mContext;
     private AnimationCatalogue[] f1491g;
     private boolean[] f1492h;
     private AndroidDrawer f1493i;
-    private DrawView f1494j;
+    private DrawView mDrawView;
     private long f1495k;
 
     static {
@@ -35,7 +35,7 @@ public class AndroidModelAdapter extends BaseAdapter implements AdapterView.OnIt
         this.f1495k = 0;
         this.f1486a = false;
         this.f1495k = System.currentTimeMillis();
-        this.f1494j = drawView;
+        this.mDrawView = drawView;
         Util.debug("Init MotionAdapater");
         this.mContext = context;
         this.f1489e = context.getResources().getColor(R.color.bg_grey);
@@ -49,7 +49,7 @@ public class AndroidModelAdapter extends BaseAdapter implements AdapterView.OnIt
         this.f1491g = new AnimationCatalogue[length];
         this.f1492h = new boolean[length];
         m1921c();
-        this.f1487b = new ThreadPoolExecutor(2, 2, 200, TimeUnit.SECONDS, new cg(this));
+        this.mTask = new ThreadPoolExecutor(2, 2, 200, TimeUnit.SECONDS, new DroidDeque(this));
     }
 
     private void m1921c() {
@@ -88,46 +88,44 @@ public class AndroidModelAdapter extends BaseAdapter implements AdapterView.OnIt
     }
 
     public View getView(int i, View view, ViewGroup viewGroup) {
-        if (view != null) {
-            view = (DrawView) view;
-        } else {
-//            view = new DrawView(this.mContext);
-//            view.setDroidDrawer(this.f1493i);
-//            if (this.f1486a) {
-//                view.setShowPoster(false);
-//                view.setLayoutParams(new it.sephiroth.android.library.widget.AbsHListView.LayoutParams(int) Log.performance(this.mContext, 100.0f), -1));
-//            } else {
-//                view.setLayoutParams(new LayoutParams(-1, (int) Log.performance(this.mContext, 225.0f)));
-//            }
-//        }
-//        if (i == this.f1488c) {
-//            view.setBackgroundColor(this.f1489e);
-//        } else {
-//            view.setBackgroundColor(-1);
-//        }
-//        view.setIndex(i);
-//        view.setTag(Integer.valueOf(i));
-//        if (this.f1491g[i] == null) {
-//            view.setMotion(null);
-//            if (f1485d[i] != -1) {
-//                new cf(this, i, view).executeOnExecutor(this.f1487b, new Void[0]);
-//            }
-//        } else {
-//            view.setMotion(this.f1491g[i]);
-//            if (!this.f1486a) {
-//                view.setShowPoster(true);
-//            }
-//        }
-//        if (!this.f1486a) {
-//            view.m1426a();
-//        }
-//        if (i == 0) {
-//            view.setContentDescription("Static image");
-//        } else {
-//            view.setContentDescription("Animation " + i);
+        if (mDrawView == null) {
+            mDrawView = new DrawView(this.mContext);
+            mDrawView.setDroidDrawer(this.f1493i);
+            if (this.f1486a) {
+                mDrawView.setShowPoster(false);
+                mDrawView.setLayoutParams(new it.sephiroth.android.library.widget.AbsHListView.LayoutParams((int) Util.performance(this.mContext, 100.0f), -1));
+            } else {
+                mDrawView.setLayoutParams(new ViewGroup.LayoutParams(-1, (int) Util.performance(this.mContext, 225.0f)));
+            }
         }
-//        m1921c();
-        return view;
+        if (i == this.f1488c) {
+            mDrawView.setBackgroundColor(this.f1489e);
+        } else {
+            mDrawView.setBackgroundColor(-1);
+        }
+        mDrawView.setIndex(i);
+        mDrawView.setTag(Integer.valueOf(i));
+        if (this.f1491g[i] == null) {
+            mDrawView.setMotion(null);
+            if (f1485d[i] != -1) {
+                new DroidAsyncTask(this, i, mDrawView).executeOnExecutor(this.mTask, new Void[0]);
+            }
+        } else {
+            mDrawView.setMotion(this.f1491g[i]);
+            if (!this.f1486a) {
+                mDrawView.setShowPoster(true);
+            }
+        }
+        if (!this.f1486a) {
+            mDrawView.m1426a();
+        }
+        if (i == 0) {
+            mDrawView.setContentDescription("Static image");
+        } else {
+            mDrawView.setContentDescription("Animation " + i);
+        }
+        m1921c();
+        return mDrawView;
     }
 
     @Override

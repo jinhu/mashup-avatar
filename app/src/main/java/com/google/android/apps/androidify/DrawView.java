@@ -141,7 +141,7 @@ public class DrawView extends View {
                 if (currentTimeMillis > 600) {
                     this.f802d = null;
                 } else {
-                    f = by.m1901b((float) currentTimeMillis, 0.0f, 600.0f, 0.0f, 1.0f);
+                    f = SmoothRandomGenerator.m1901b((float) currentTimeMillis, 0.0f, 600.0f, 0.0f, 1.0f);
                     this.f813o = ((double) System.currentTimeMillis()) - this.f817s;
                     while (this.f813o > this.f802d.m1609b()) {
                         this.f813o -= this.f802d.m1609b();
@@ -199,14 +199,14 @@ public class DrawView extends View {
         }
     }
 
-    public void setPose(cj cjVar) {
+    public void setPose(RandomAngleRenerator aRandomAngleReneratorVar) {
    //     this.f801c = cjVar;
     }
 
     public void setProgress(int i) {
         this.f809k = i;
-        this.f807i = (float) ((int) by.m1898a((float) i, 0.0f, 100.0f, 0.0f, ((float) getWidth()) - (2.0f * this.f814p)));
-        this.f811m = by.m1898a((float) i, 0.0f, 100.0f, 0.0f, (float) this.f803e.m1609b());
+        this.f807i = (float) ((int) SmoothRandomGenerator.m1898a((float) i, 0.0f, 100.0f, 0.0f, ((float) getWidth()) - (2.0f * this.f814p)));
+        this.f811m = SmoothRandomGenerator.m1898a((float) i, 0.0f, 100.0f, 0.0f, (float) this.f803e.m1609b());
         invalidate();
     }
 

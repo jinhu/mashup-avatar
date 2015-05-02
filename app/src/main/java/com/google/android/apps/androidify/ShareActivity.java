@@ -2,7 +2,6 @@ package com.google.android.apps.androidify;
 
 import android.app.Activity;
 import android.content.ComponentName;
-import android.content.Context;
 import android.content.Intent;
 import android.content.pm.LabeledIntent;
 import android.content.pm.PackageManager;
@@ -46,7 +45,7 @@ public class ShareActivity extends Activity {
     private int f912h;
     private int f913i;
     private AndroidDrawer f914j;
-    cw f915k;
+    ExportState f915k;
     private DrawView f916l;
     private HListView mHorizontalListView;
     private AssetDatabase f918n;
@@ -86,7 +85,7 @@ public class ShareActivity extends Activity {
     }
 
     public ShareActivity() {
-        this.f915k = cw.SELECTING;
+        this.f915k = ExportState.SELECTING;
         this.f923s = 0;
         this.f925u = new Paint(2);
         this.f926v = 0;
@@ -111,8 +110,8 @@ public class ShareActivity extends Activity {
         }
     }
 
-    private void m1538a(AndroidModelAdapter aAndroidModelAdapterVar, View view) {
-        this.f915k = cw.EXPORTING;
+    private void animateView(AndroidModelAdapter aAndroidModelAdapterVar, View view) {
+        this.f915k = ExportState.EXPORTING;
         this.mProgressRelativeLayout.setEnabled(false);
         m1557a(true);
         AnimationCatalogue animationCatalogue = (AnimationCatalogue) aAndroidModelAdapterVar.getItem(this.f923s);
@@ -186,7 +185,7 @@ public class ShareActivity extends Activity {
     }
 
     public void m1552a() {
-        this.f915k = cw.EXPORTING;
+        this.f915k = ExportState.EXPORTING;
         try {
             File a = m1534a("png");
             OutputStream fileOutputStream = new FileOutputStream(a);
@@ -206,7 +205,7 @@ public class ShareActivity extends Activity {
         } catch (IOException e2) {
             e2.printStackTrace();
         } finally {
-            this.f916l.postDelayed(new cu(this), 500);
+            this.f916l.postDelayed(()->f915k = ExportState.SELECTING, 500);
         }
         try {
             this.f910f.m1189a("Share", "Static", "", 0);
@@ -245,7 +244,7 @@ public class ShareActivity extends Activity {
     }
 
     public void m1556a(AnimationCatalogue aAnimationCatalogue) {
-        this.f911g = new cv(this, aAnimationCatalogue);
+        this.f911g = new GifExportTask(this, aAnimationCatalogue);
         this.f911g.execute(new Void[0]);
     }
 
@@ -267,7 +266,7 @@ public class ShareActivity extends Activity {
         for (int i2 = 0; i2 < childCount; i2++) {
             View childAt = this.mHorizontalListView.getChildAt(i2);
             if (childAt instanceof DrawView) {
-                ((DrawView) childAt).setBackgroundColor(i);
+                childAt.setBackgroundColor(i);
             }
         }
     }
@@ -279,13 +278,13 @@ public class ShareActivity extends Activity {
 
     public void clickedClose(View view) {
         finish();
-        dh.m1956a((Context) this);
+        DroidConfig.m1956a(this);
     }
 
     public void clickedShare(View view) {
-        if (this.f915k != cw.EXPORTING) {
+        if (this.f915k != ExportState.EXPORTING) {
             Util.debug("Button clicked");
-            m1538a(this.mViewAdapter, view);
+            animateView(this.mViewAdapter, view);
         }
     }
 
@@ -297,7 +296,7 @@ public class ShareActivity extends Activity {
             String stringExtra = getIntent().getStringExtra("DroidConfig");
             try {
                 androidConfigVar = new AndroidConfig();
-                androidConfigVar.getInstance((Context) this, stringExtra);
+                androidConfigVar.getInstance(this, stringExtra);
             } catch (Exception e) {
                 e.printStackTrace();
                 androidConfigVar = null;
@@ -308,7 +307,7 @@ public class ShareActivity extends Activity {
             androidConfigVar = null;
         }
         setContentView(R.layout.activity_share);
-        this.f918n = AssetDatabase.instance((Context) this);
+        this.f918n = AssetDatabase.instance(this);
         if (androidConfigVar == null) {
             this.f919o = this.f918n.m1656a();
         } else {
@@ -316,11 +315,11 @@ public class ShareActivity extends Activity {
         }
         this.f924t = getResources().getColor(R.color.bg_grey);
         this.f920p = findViewById(R.id.header);
-        bu.m1894a(this.f920p, getString(R.string.share_your_android), false, false, false, false, true);
+        VisibilityHelper.m1894a(this.f920p, getString(R.string.share_your_android), false, false, false, false, true);
         this.f921q = (TextView) findViewById(R.id.tv_header_main);
         this.f916l = (DrawView) findViewById(R.id.draw_view);
         this.f914j = new AndroidDrawer(this);
-        this.f914j.setAndroidConfig(this.f919o, AssetDatabase.instance((Context) this));
+        this.f914j.setAndroidConfig(this.f919o, AssetDatabase.instance(this));
         this.f916l.setDroidDrawer(this.f914j);
         this.f916l.setShowPoster(false);
         this.mHorizontalListView = (HListView) findViewById(R.id.main_drawer);
@@ -344,7 +343,12 @@ public class ShareActivity extends Activity {
         this.mHorizontalListView.setAdapter(this.mViewAdapter);
         this.mHorizontalListView.setOnItemClickListener(new AndroidModelAdapter(this, androidConfigVar, null));
         this.f922r = findViewById(R.id.btn_motion_share);
-        this.mProgressRelativeLayout.setOnClickListener(new ct(this));
+        this.mProgressRelativeLayout.setOnClickListener(v -> {
+            if (this.f915k != ExportState.EXPORTING) {
+                Util.debug("Bar clicked");
+                this.animateView(this.mViewAdapter, v);
+            }
+        });
         try {
             this.f910f = GoogleAnalyticsTracker.m1177a();
             this.f910f.m1184a("share");

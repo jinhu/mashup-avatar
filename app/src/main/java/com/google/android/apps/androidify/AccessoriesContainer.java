@@ -30,7 +30,7 @@ public enum AccessoriesContainer {
     public AndroidViewAdapter mAdapter;
     public boolean bool4;
 
-    private AccessoriesContainer(String str, boolean z, boolean z2, boolean z3, String str2) {
+    AccessoriesContainer(String str, boolean z, boolean z2, boolean z3, String str2) {
         this.mString3 = null;
         this.bool4 = false;
         this.mString = str;

@@ -1,7 +1,6 @@
 package com.google.android.apps.androidify;
 
 import android.app.Activity;
-import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,7 +20,7 @@ public class StickerActivity extends Activity {
             String stringExtra = getIntent().getStringExtra("DroidConfig");
             try {
                 AndroidConfig androidConfigVar2 = new AndroidConfig();
-                androidConfigVar2.getInstance((Context) this, stringExtra);
+                androidConfigVar2.getInstance(this, stringExtra);
                 androidConfigVar = androidConfigVar2;
             } catch (IOException e) {
                 e.printStackTrace();
@@ -31,7 +30,7 @@ public class StickerActivity extends Activity {
         }
         setContentView(R.layout.activity_sticker);
         List<View> a = Util.m1907a((ViewGroup) findViewById(R.id.sticker_root));
-        AssetDatabase a2 = AssetDatabase.instance((Context) this);
+        AssetDatabase a2 = AssetDatabase.instance(this);
         AndroidDrawer androidDrawerVar = new AndroidDrawer(this);
         androidDrawerVar.m1848b(0.75f);
         if (androidConfigVar != null) {
@@ -49,9 +48,9 @@ public class StickerActivity extends Activity {
                     i2 = 0;
                     i = i2;
                 } else {
-                    cj cjVar = new cj();
-                    cjVar.m1929a();
-                    drawView.setPose(cjVar);
+                    RandomAngleRenerator randomAngleReneratorVar = new RandomAngleRenerator();
+                    randomAngleReneratorVar.m1929a();
+                    drawView.setPose(randomAngleReneratorVar);
                 }
             }
             i2 = i;

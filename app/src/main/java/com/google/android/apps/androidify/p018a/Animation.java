@@ -80,7 +80,7 @@ public enum Animation {
         MASTER_SCALE.f1041Z = 100.0f;
     }
 
-    private Animation(String str) {
+    Animation(String str) {
         this.f1038W = 0;
         this.f1039X = false;
         this.f1040Y = 0.0d;
@@ -88,7 +88,7 @@ public enum Animation {
         this.mName = str;
     }
 
-    private Animation(String str, int i, boolean z) {
+    Animation(String str, int i, boolean z) {
         this.f1038W = 0;
         this.f1039X = false;
         this.f1040Y = 0.0d;

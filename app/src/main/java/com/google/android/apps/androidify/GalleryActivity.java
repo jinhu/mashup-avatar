@@ -2,7 +2,6 @@ package com.google.android.apps.androidify;
 
 import android.app.Activity;
 import android.app.AlertDialog.Builder;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -18,7 +17,7 @@ public class GalleryActivity extends Activity implements GaleryInterface {
     private CharSequence f869a;
     private AndroidConfig f870b;
     private View f871c;
-    private bn f872d;
+    private SelectState f872d;
     private AndroidBaseAdapter f873e;
     private GridView f874f;
     private View f875g;
@@ -26,7 +25,7 @@ public class GalleryActivity extends Activity implements GaleryInterface {
     private TextView f877i;
 
     public GalleryActivity() {
-        this.f872d = bn.BLANK;
+        this.f872d = SelectState.BLANK;
     }
 
     private void share() {
@@ -36,6 +35,7 @@ public class GalleryActivity extends Activity implements GaleryInterface {
         setResult(-1, intent);
         finish();
     }
+
     @Override
     public void shareOnce() {
         Intent intent = new Intent();
@@ -44,25 +44,28 @@ public class GalleryActivity extends Activity implements GaleryInterface {
         setResult(-1, intent);
         finish();
     }
-@Override
+
+    @Override
     public void shareOnce(int i, int i2, AndroidConfig aAndroidConfigVar) {
-        bu.m1894a(this.f875g, aAndroidConfigVar.m1769E(), false, false, false, false, true);
+        VisibilityHelper.m1894a(this.f875g, aAndroidConfigVar.m1769E(), false, false, false, false, true);
         this.f871c.setVisibility(0);
         this.f870b = aAndroidConfigVar;
     }
-@Override
+
+    @Override
     public void shareAll() {
         this.f870b = null;
         this.f871c.setVisibility(4);
     }
-@Override
+
+    @Override
     public void shareAll(int i, int i2, AndroidConfig aAndroidConfigVar) {
         share();
     }
 
     public void clickedClose(View view) {
         finish();
-        dh.m1956a((Context) this);
+        DroidConfig.m1956a(this);
     }
 
     public void clickedEdit(View view) {
@@ -70,7 +73,7 @@ public class GalleryActivity extends Activity implements GaleryInterface {
     }
 
     public void clickedShare(View view) {
-        ShareActivity.m1535a((Activity) this, this.f870b);
+        ShareActivity.m1535a(this, this.f870b);
     }
 
     public void clickedTrash(View view) {
@@ -78,7 +81,12 @@ public class GalleryActivity extends Activity implements GaleryInterface {
         builder.setIcon(R.drawable.ic_launcher);
         builder.setTitle(R.string.dialog_title_discard_droid);
         builder.setMessage(R.string.dialog_msg_discard_droid);
-        builder.setPositiveButton(R.string.dialog_ok_discard_droid, new bm(this));
+        builder.setPositiveButton(R.string.dialog_ok_discard_droid, (dialog, which) -> {
+            Androidify.m1338a(this, this.f870b);
+            this.f873e.m1885a(Androidify.getSaveList(this, true));
+            this.f874f.setAdapter(this.f873e);
+
+        });
         builder.setNegativeButton(R.string.dialog_nok_discard_droid, null);
         builder.show();
     }
@@ -87,12 +95,12 @@ public class GalleryActivity extends Activity implements GaleryInterface {
         super.onCreate(bundle);
         requestWindowFeature(1);
         setContentView(R.layout.activity_gallery);
-        this.f873e = new AndroidBaseAdapter(this, Androidify.getSaveList((Activity) this, true));
-        this.f873e.m1884a((GaleryInterface) this);
+        this.f873e = new AndroidBaseAdapter(this, Androidify.getSaveList(this, true));
+        this.f873e.m1884a(this);
         this.f874f = (GridView) findViewById(R.id.grid_view);
         this.f874f.setAdapter(this.f873e);
         this.f875g = findViewById(R.id.header);
-        bu.m1894a(this.f875g, getString(R.string.menu_my_androids), false, false, false, false, true);
+        VisibilityHelper.m1894a(this.f875g, getString(R.string.menu_my_androids), false, false, false, false, true);
         this.f877i = (TextView) findViewById(R.id.tv_header_main);
         this.f869a = this.f877i.getText();
         this.f876h = (ImageButton) findViewById(R.id.btn_menu_burger);

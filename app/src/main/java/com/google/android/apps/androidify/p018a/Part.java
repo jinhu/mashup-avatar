@@ -9,8 +9,6 @@ import java.util.HashMap;
 import dev.game.legend.avatar.R;
 import dev.game.legend.svgandroid.SVG;
 
-;
-
 /* renamed from: com.google.android.apps.androidify.a.k */
 public class Part {
     private static final HashMap f1096h;

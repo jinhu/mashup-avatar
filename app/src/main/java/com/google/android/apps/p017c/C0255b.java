@@ -1,6 +1,6 @@
 package com.google.android.apps.p017c;
 
-import com.google.android.apps.androidify.cm;
+import com.google.android.apps.androidify.HListViewConstants;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -162,19 +162,19 @@ public class C0255b {
         }
         i5 |= i6;
         switch (i2) {
-            case cm.HListView_android_divider /*1*/:
+            case HListViewConstants.HListView_android_divider /*1*/:
                 bArr2[i3] = b[i5 >>> 18];
                 bArr2[i3 + 1] = b[(i5 >>> 12) & 63];
                 bArr2[i3 + 2] = (byte) 61;
                 bArr2[i3 + 3] = (byte) 61;
                 break;
-            case cm.HListView_hlv_dividerWidth /*2*/:
+            case HListViewConstants.HListView_hlv_dividerWidth /*2*/:
                 bArr2[i3] = b[i5 >>> 18];
                 bArr2[i3 + 1] = b[(i5 >>> 12) & 63];
                 bArr2[i3 + 2] = b[(i5 >>> 6) & 63];
                 bArr2[i3 + 3] = (byte) 61;
                 break;
-            case cm.HListView_hlv_headerDividersEnabled /*3*/:
+            case HListViewConstants.HListView_hlv_headerDividersEnabled /*3*/:
                 bArr2[i3] = b[i5 >>> 18];
                 bArr2[i3 + 1] = b[(i5 >>> 12) & 63];
                 bArr2[i3 + 2] = b[(i5 >>> 6) & 63];

@@ -12,7 +12,7 @@ public enum DefaultAccessory {
     
     public String mName;
 
-    private DefaultAccessory(String str) {
+    DefaultAccessory(String str) {
         this.mName = str;
     }
 }

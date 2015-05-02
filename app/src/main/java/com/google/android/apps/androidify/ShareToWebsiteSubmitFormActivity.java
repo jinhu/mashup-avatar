@@ -16,8 +16,8 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.google.android.apps.androidify.p018a.JsonUtil;
 import com.google.android.apps.analytics.GoogleAnalyticsTracker;
+import com.google.android.apps.androidify.p018a.JsonUtil;
 
 import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.message.BasicNameValuePair;
@@ -81,13 +81,13 @@ public class ShareToWebsiteSubmitFormActivity extends Activity {
     }
 
     private void m1568a(int i, int i2) {
-        AssetDatabase a = AssetDatabase.instance((Context) this);
+        AssetDatabase a = AssetDatabase.instance(this);
         DrawView drawView = (DrawView) findViewById(i);
         AndroidDrawer androidDrawerVar = new AndroidDrawer(this);
         androidDrawerVar.setAndroidConfig(this.f946j, a);
         androidDrawerVar.m1848b(0.6f);
         androidDrawerVar.m1834a(0);
-        drawView.setMotion(JsonUtil.getAnimationCatalogue((Context) this, i2));
+        drawView.setMotion(JsonUtil.getAnimationCatalogue(this, i2));
         drawView.setDroidDrawer(androidDrawerVar);
         drawView.m1426a();
         drawView.invalidate();
@@ -192,7 +192,7 @@ public class ShareToWebsiteSubmitFormActivity extends Activity {
         builder.setIcon(R.drawable.ic_launcher);
         builder.setTitle(R.string.dialog_submit_error_title);
         builder.setMessage(R.string.dialog_submit_error_body);
-        builder.setPositiveButton(R.string.dialog_submit_try_again, new da(this));
+        builder.setPositiveButton(R.string.dialog_submit_try_again, (dialog, which) -> {this.m1578a();});
         builder.setNegativeButton(R.string.dialog_submit_cancel, null);
         builder.show();
     }
@@ -200,7 +200,7 @@ public class ShareToWebsiteSubmitFormActivity extends Activity {
     public void m1578a() {
         this.mResultState = ResultState.SUBMITTING;
         m1579b();
-        new ShareTask().execute(new Object[0]);
+        new ShareTask().execute();
     }
 
     public void m1579b() {
@@ -214,8 +214,8 @@ public class ShareToWebsiteSubmitFormActivity extends Activity {
     }
 
     public void clickedClose(View view) {
-        Androidify.m1337a((Activity) this);
-        dh.m1956a((Context) this);
+        Androidify.m1337a(this);
+        DroidConfig.m1956a(this);
     }
 
     public void clickedSend(View view) {
@@ -231,16 +231,16 @@ public class ShareToWebsiteSubmitFormActivity extends Activity {
         try {
             this.f946j = new AndroidConfig();
             this.f938b = getIntent().getStringExtra("configString");
-            this.f946j.getInstance((Context) this, this.f938b);
+            this.f946j.getInstance(this, this.f938b);
         } catch (Throwable e) {
             Throwable th = e;
-            this.f946j = (AndroidConfig) Androidify.getSaveList((Activity) this, false).get(0);
+            this.f946j = (AndroidConfig) Androidify.getSaveList(this, false).get(0);
             com.google.android.Util.m1103a(th);
         }
         this.f944h = getIntent().hasExtra("qrMode");
         setContentView(R.layout.activity_sharetowebsitesubmitform);
-        this.f937a = m1566a((Context) this);
-        Typeface a = TextViewCompat.createTypeface((Context) this);
+        this.f937a = m1566a(this);
+        Typeface a = TextViewCompat.createTypeface(this);
         this.f941e = (EditText) findViewById(R.id.et_location);
         this.f941e.setTypeface(a);
         this.f940d = (EditText) findViewById(R.id.et_droid_name);
@@ -275,10 +275,15 @@ public class ShareToWebsiteSubmitFormActivity extends Activity {
                 //textView.setMovementMethod(LinkMovementMethod.getInstance());
                 //textView.setAutoLinkMask(1);
                 builder.setView(textView);
-                builder.setPositiveButton(resources.getString(R.string.dialog_button_accept), new db(this));
-                builder.setNeutralButton(resources.getString(R.string.dialog_submit_cancel), new dc(this));
-                builder.setOnCancelListener(new dd(this));
-                builder.setOnKeyListener(new de(this));
+                builder.setPositiveButton(resources.getString(R.string.dialog_button_accept), (dialog1, which1) -> {
+                    PreferenceManager.getDefaultSharedPreferences(this).edit().putBoolean("ACCEPTED_TERMS", true).commit();
+                    this.m1578a();
+                });
+                builder.setNeutralButton(resources.getString(R.string.dialog_submit_cancel), ((dialog, which) -> {}));
+                builder.setOnCancelListener((aDialogInterface)->{});
+                builder.setOnKeyListener((aDialogInterface, aKeyCode, aKeyEvent) -> {
+                    return i == 84 && aKeyEvent.getRepeatCount() == 0;
+                });
                 return builder.create();
             default:
                 return null;

@@ -1,6 +1,6 @@
 package com.google.android.apps.analytics;
 
-import com.google.android.apps.androidify.cm;
+import com.google.android.apps.androidify.HListViewConstants;
 import java.util.Locale;
 
 /* renamed from: com.google.android.apps.a.n */
@@ -73,7 +73,7 @@ class C0190n {
                 }
                 stringBuilder.append(c0180d.m1138d()).append("!");
                 switch (i) {
-                    case cm.ExpandableHListView_hlv_childIndicatorPaddingTop /*8*/:
+                    case HListViewConstants.ExpandableHListView_hlv_childIndicatorPaddingTop /*8*/:
                         stringBuilder.append(C0190n.m1198a(C0190n.m1203b(c0180d.m1136b())));
                         break;
                     case 9:

@@ -20,7 +20,7 @@ public class TextViewCompat extends TextView {
 
     public TextViewCompat(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, cm.TextViewCompat, i, 0);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, HListViewConstants.TextViewCompat, i, 0);
         if (obtainStyledAttributes != null) {
             String string = obtainStyledAttributes.getString(0);
             if (string != null) {

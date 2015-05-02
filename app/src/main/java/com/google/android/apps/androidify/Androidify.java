@@ -37,7 +37,6 @@ import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.EditText;
@@ -72,7 +71,7 @@ import static com.google.android.apps.androidify.Constants.mSkinColors;
 
 public class Androidify extends Activity implements Handler.Callback, Interactable, SurfaceHolder.Callback {
     private static Locale f734A;
-    static dh runner;
+    static DroidConfig runner;
     private static ArrayList f736I;
     private static ArrayList f737J;
     private static boolean f738K;
@@ -168,7 +167,7 @@ public class Androidify extends Activity implements Handler.Callback, Interactab
         this.f756Q = false;
         this.ae = -1;
         this.f766b = false;
-        this.af = new Handler((Handler.Callback) this);
+        this.af = new Handler(this);
         this.ag = 0;
 
     }
@@ -257,7 +256,7 @@ public class Androidify extends Activity implements Handler.Callback, Interactab
         if (theAndroidConfig.getHat() != null) {
             PartConfig h = this.mAssetDatabase.getHatFromString(theAndroidConfig.getHat());
             if (h != null) {
-                this.mDroidView.setHat(new bg(h, this.mAssetDatabase.getSvg(h, theAndroidConfig)));
+                this.mDroidView.setHat(new SvgToPartConfigBinder(h, this.mAssetDatabase.getSvg(h, theAndroidConfig)));
                 return;
             }
             this.mDroidView.setHat(null);
@@ -270,7 +269,7 @@ public class Androidify extends Activity implements Handler.Callback, Interactab
         if (theAndroidConfig.m1822x() != null) {
             PartConfig i = this.mAssetDatabase.m1682i(theAndroidConfig.m1822x());
             if (i != null) {
-                this.mDroidView.setFace(new bg(i, this.mAssetDatabase.getSvg(i, theAndroidConfig)));
+                this.mDroidView.setFace(new SvgToPartConfigBinder(i, this.mAssetDatabase.getSvg(i, theAndroidConfig)));
                 return;
             }
             this.mDroidView.setFace(null);
@@ -283,7 +282,7 @@ public class Androidify extends Activity implements Handler.Callback, Interactab
         if (theAndroidConfig.m1824z() != null) {
             PartConfig j = this.mAssetDatabase.m1684j(theAndroidConfig.m1824z());
             if (j != null) {
-                this.mDroidView.setBody(new bg(j, this.mAssetDatabase.getSvg(j, theAndroidConfig)));
+                this.mDroidView.setBody(new SvgToPartConfigBinder(j, this.mAssetDatabase.getSvg(j, theAndroidConfig)));
                 return;
             }
             this.mDroidView.setBody(null);
@@ -296,7 +295,7 @@ public class Androidify extends Activity implements Handler.Callback, Interactab
         if (theAndroidConfig.m1766B() != null) {
             PartConfig k = this.mAssetDatabase.m1686k(theAndroidConfig.m1766B());
             if (k != null) {
-                this.mDroidView.setHand(new bg(k, this.mAssetDatabase.getSvg(k, theAndroidConfig)));
+                this.mDroidView.setHand(new SvgToPartConfigBinder(k, this.mAssetDatabase.getSvg(k, theAndroidConfig)));
                 return;
             }
             this.mDroidView.setHand(null);
@@ -361,9 +360,9 @@ public class Androidify extends Activity implements Handler.Callback, Interactab
 
     private void m1318M() {
         int i = mSkinColors[this.mDroidView.getSkinColorIndex()];
-        this.mDroidView.m1454a(this.mAssetDatabase.getSvgFromResource((int) R.raw.android_leg,
+        this.mDroidView.m1454a(this.mAssetDatabase.getSvgFromResource(R.raw.android_leg,
                         ANDROID_COLOR, Integer.valueOf(i)).getPicture(),
-                this.mAssetDatabase.getSvgFromResource((int) R.raw.android_foot,
+                this.mAssetDatabase.getSvgFromResource(R.raw.android_foot,
                         ANDROID_COLOR, Integer.valueOf(i)).getPicture());
     }
 
@@ -382,19 +381,18 @@ public class Androidify extends Activity implements Handler.Callback, Interactab
 
     private void m1320O() {
         int i = mSkinColors[this.mDroidView.getSkinColorIndex()];
-        this.mDroidView.initNakedDroid(this.mAssetDatabase.getSvgFromResource((int) R.raw.android_head,
-                        ANDROID_COLOR, Integer.valueOf(i)).getPicture(), this.mAssetDatabase.getSvgFromResource((int)
-                        R.raw.android_body, ANDROID_COLOR, Integer.valueOf(i)).getPicture(),
-                this.mAssetDatabase.getSvgFromResource((int) R.raw.android_arm,
+        this.mDroidView.initNakedDroid(this.mAssetDatabase.getSvgFromResource(R.raw.android_head,
+                        ANDROID_COLOR, Integer.valueOf(i)).getPicture(), this.mAssetDatabase.getSvgFromResource(R.raw.android_body, ANDROID_COLOR, Integer.valueOf(i)).getPicture(),
+                this.mAssetDatabase.getSvgFromResource(R.raw.android_arm,
                         ANDROID_COLOR, Integer.valueOf(i)).getPicture(),
-                this.mAssetDatabase.getSvgFromResource((int) R.raw.android_antenna,
+                this.mAssetDatabase.getSvgFromResource(R.raw.android_antenna,
                         ANDROID_COLOR, Integer.valueOf(i)).getPicture());
     }
 
     private void m1321P() {
         AndroidConfig config = new AndroidConfig();
         m1375a(config);
-        ShareActivity.m1535a((Activity) this, config);
+        ShareActivity.m1535a(this, config);
     }
 
     private boolean m1322Q() {
@@ -450,7 +448,7 @@ public class Androidify extends Activity implements Handler.Callback, Interactab
         if (string != null) {
             theAndroidConfig = new AndroidConfig();
             try {
-                theAndroidConfig.getInstance((Context) this, string);
+                theAndroidConfig.getInstance(this, string);
             } catch (Exception e) {
                 e.printStackTrace();
                 theAndroidConfig = null;
@@ -570,11 +568,11 @@ public class Androidify extends Activity implements Handler.Callback, Interactab
         } else if (charSequence.equals(getString(R.string.menu_create_new))) {
             saveVideo();
         } else if (charSequence.equals("share_to_website")) {
-            ShareToWebsiteActivity.m1562a((Activity) this, theAndroidConfig);
+            ShareToWebsiteActivity.m1562a(this, theAndroidConfig);
             m1399o();
         } else if (charSequence.equals(getString(R.string.menu_my_androids))) {
             this.f757R.m1184a("showGallery");
-            ArrayList a = getSaveList((Activity) this, true);
+            ArrayList a = getSaveList(this, true);
             if (a != null && a.size() > 0) {
                 startActivityForResult(new Intent(this, GalleryActivity.class), 100);
             }
@@ -664,7 +662,7 @@ public class Androidify extends Activity implements Handler.Callback, Interactab
 
     private void showGallery(boolean z) {
         this.mDroidView.m1480m();
-        ArrayList a = getSaveList((Activity) this, true);
+        ArrayList a = getSaveList(this, true);
         if (a != null && a.size() != 0) {
             FrameLayout frameLayout = new FrameLayout(this);
             Display defaultDisplay = ((WindowManager) getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay();
@@ -672,7 +670,7 @@ public class Androidify extends Activity implements Handler.Callback, Interactab
             int height = defaultDisplay.getHeight();
             Paint paint = new Paint();
             paint.setDither(true);
-            float a2 = bs.m1889a(this, width, height, m1331a());
+            float a2 = SpecialDroidView.m1889a(this, width, height, m1331a());
             Paint paint2 = new Paint();
             paint2.setFlags(1);
             paint.setShader(new LinearGradient((float) (width / 2), 0.0f, (float) (width / 2), ((float) height) - ((3.0f * a2) / 4.0f), -2236963, -6250336, Shader.TileMode.CLAMP));
@@ -754,7 +752,7 @@ public class Androidify extends Activity implements Handler.Callback, Interactab
         if (runner == null) {
             //this.mDroidView.postDelayed(new mSurfaceHolder(this), 0);
         } else {
-            runner.m1975a();
+            runner.init();
         }
         com.google.android.Util.debug("Sound start-up: " + (System.currentTimeMillis() - currentTimeMillis));
     }
@@ -773,12 +771,12 @@ public class Androidify extends Activity implements Handler.Callback, Interactab
 
     public void m1372a(DroidView droidView) {
         if (this.f767c == null) {
-            this.f767c = this.mAssetDatabase.getSvgFromResource((int) R.raw.android_head, ANDROID_COLOR, f1192c).getPicture();
-            this.f768d = this.mAssetDatabase.getSvgFromResource((int) R.raw.android_body, ANDROID_COLOR, f1192c).getPicture();
-            this.f769e = this.mAssetDatabase.getSvgFromResource((int) R.raw.android_arm, ANDROID_COLOR, f1192c).getPicture();
-            this.f770f = this.mAssetDatabase.getSvgFromResource((int) R.raw.android_antenna, ANDROID_COLOR, f1192c).getPicture();
-            this.f771g = this.mAssetDatabase.getSvgFromResource((int) R.raw.android_leg, ANDROID_COLOR, f1192c).getPicture();
-            this.f772h = this.mAssetDatabase.getSvgFromResource((int) R.raw.android_foot, ANDROID_COLOR, f1192c).getPicture();
+            this.f767c = this.mAssetDatabase.getSvgFromResource(R.raw.android_head, ANDROID_COLOR, f1192c).getPicture();
+            this.f768d = this.mAssetDatabase.getSvgFromResource(R.raw.android_body, ANDROID_COLOR, f1192c).getPicture();
+            this.f769e = this.mAssetDatabase.getSvgFromResource(R.raw.android_arm, ANDROID_COLOR, f1192c).getPicture();
+            this.f770f = this.mAssetDatabase.getSvgFromResource(R.raw.android_antenna, ANDROID_COLOR, f1192c).getPicture();
+            this.f771g = this.mAssetDatabase.getSvgFromResource(R.raw.android_leg, ANDROID_COLOR, f1192c).getPicture();
+            this.f772h = this.mAssetDatabase.getSvgFromResource(R.raw.android_foot, ANDROID_COLOR, f1192c).getPicture();
         }
         droidView.setHairIconOn(null);
         droidView.setHairFront(null);
@@ -1139,7 +1137,7 @@ public class Androidify extends Activity implements Handler.Callback, Interactab
         }
     }
 
-    public void m1394h() {
+    public void startRunner() {
         if (runner != null) {
             runner.m1984b(true);
         }
@@ -1181,7 +1179,7 @@ public class Androidify extends Activity implements Handler.Callback, Interactab
             }
             if (intent.hasExtra("droidConfigIndex")) {
                 int intExtra = intent.getIntExtra("droidConfigIndex", 0);
-                ArrayList a = getSaveList((Activity) this, true);
+                ArrayList a = getSaveList(this, true);
                 this.mManiView.m1735c();
                 m1355e((AndroidConfig) a.get(intExtra));
             } else if (intent.hasExtra("addButton")) {
@@ -1226,25 +1224,22 @@ public class Androidify extends Activity implements Handler.Callback, Interactab
         super.onCreate(bundle);
         com.google.android.Util.debug("Initial onCreate time: " + (System.currentTimeMillis() - currentTimeMillis));
 
-        this.mAssetDatabase = AssetDatabase.instance((Context) this);
+        this.mAssetDatabase = AssetDatabase.instance(this);
         try {
             currentTimeMillis = System.currentTimeMillis();
-            Picture body = this.mAssetDatabase.getSvgFromResource((int) R.raw.android_body).getPicture();
-            Picture head = this.mAssetDatabase.getSvgFromResource((int) R.raw.android_head).getPicture();
-            Picture leg = this.mAssetDatabase.getSvgFromResource((int) R.raw.android_antenna).getPicture();
-            Picture antenna = this.mAssetDatabase.getSvgFromResource((int) R.raw.android_arm).getPicture();
-            Picture foot = this.mAssetDatabase.getSvgFromResource((int) R.raw.android_foot).getPicture();
-            Picture arm = this.mAssetDatabase.getSvgFromResource((int) R.raw.android_legs).getPicture();
+            Picture body = this.mAssetDatabase.getSvgFromResource(R.raw.android_body).getPicture();
+            Picture head = this.mAssetDatabase.getSvgFromResource(R.raw.android_head).getPicture();
+            Picture leg = this.mAssetDatabase.getSvgFromResource(R.raw.android_legs_new).getPicture();
+            Picture antenna = this.mAssetDatabase.getSvgFromResource(R.raw.android_antenna).getPicture();
+            Picture foot = this.mAssetDatabase.getSvgFromResource(R.raw.android_foot).getPicture();
+            Picture arm = this.mAssetDatabase.getSvgFromResource(R.raw.android_arm).getPicture();
             com.google.android.Util.debug("Load initial SVG resources: " + (System.currentTimeMillis() - currentTimeMillis));
             long currentTimeMillis2 = System.currentTimeMillis();
-            this.mOnItemClickListener = new OnItemClickListener(){
-                @Override
-                public void onItemClick(AdapterView adapterView, View view, int i, long j) {
-                    try {
-                        m1355e((AndroidConfig) ((cn) adapterView.getAdapter()).getItem(i));
-                    } catch (Exception e) {
-                        Toast.makeText(getApplicationContext(), getString(R.string.error_load_droid_failed), Toast.LENGTH_SHORT).show();
-                    }
+            this.mOnItemClickListener = (adapterView, view, i, j) -> {
+                try {
+                    m1355e((AndroidConfig) adapterView.getAdapter().getItem(i));
+                } catch (Exception e) {
+                    Toast.makeText(getApplicationContext(), getString(R.string.error_load_droid_failed), Toast.LENGTH_SHORT).show();
                 }
             };
             setContentView(R.layout.activity_androidify_2);
@@ -1260,12 +1255,12 @@ public class Androidify extends Activity implements Handler.Callback, Interactab
             this.f753L = new Interaction(
                     this.mTouchRecordingLayout,
                     this,
-                    this.mAssetDatabase.getSvgFromResource((int) R.raw.touchindicator_down).getPicture(),
-                    this.mAssetDatabase.getSvgFromResource((int) R.raw.touchindicator_up).getPicture(),
+                    this.mAssetDatabase.getSvgFromResource(R.raw.touchindicator_down).getPicture(),
+                    this.mAssetDatabase.getSvgFromResource(R.raw.touchindicator_up).getPicture(),
                     1500);
             this.mTouchRecordingLayout.setTouchRecorder(this.f753L);
             this.mTouchRecordingLayout.setWillNotDraw(false);
-            Typeface a = TextViewCompat.createTypeface((Context) this);
+            Typeface a = TextViewCompat.createTypeface(this);
             findViewById(R.id.tv_header_main).setVisibility(View.INVISIBLE);
             this.mNameField = (EditText) findViewById(R.id.et_droid_name);
             this.mNameField.setVisibility(View.VISIBLE);
@@ -1274,19 +1269,14 @@ public class Androidify extends Activity implements Handler.Callback, Interactab
             initName();
             //this.mNameField.setOnFocusChangeListener(new C0224g(this));
             this.mMenuView = (ImageButton) findViewById(R.id.btn_menu_burger);
-            this.mMenuView.setOnClickListener(new View.OnClickListener() {
-                final /* synthetic */ Androidify f1662a =Androidify.this;
-
-                public void onClick(View view) {
-                    this.f1662a.m1394h();
-                    Intent intent = new Intent(this.f1662a, MenuActivity.class);
-                    this.f1662a.startActivityForResult(intent, 101);
-                    this.f1662a.overridePendingTransition(R.anim.from_left, R.anim.hold_position);
-                }
-
+            this.mMenuView.setOnClickListener(v -> {
+                    this.startRunner();
+                    Intent intent = new Intent(this, MenuActivity.class);
+                    this.startActivityForResult(intent, 101);
+                    this.overridePendingTransition(R.anim.from_left, R.anim.hold_position);
             });
-            Picture picture7 = this.mAssetDatabase.getSvgFromResource((int) R.raw.otherassets_off).getPicture();
-            picture7 = this.mAssetDatabase.getSvgFromResource((int) R.raw.otherassets_close).getPicture();
+            Picture picture7 = this.mAssetDatabase.getSvgFromResource(R.raw.otherassets_off).getPicture();
+            picture7 = this.mAssetDatabase.getSvgFromResource(R.raw.otherassets_close).getPicture();
             this.mManiView = new ManiView(this, (ViewGroup) findViewById(R.id.drawer), !getPreferences(0).contains("SAW_NEW_BADGE"));
             this.mTouchRecordingLayout.setBackgroundColor(-1);
             com.google.android.Util.debug("UI setup time: " + (System.currentTimeMillis() - currentTimeMillis2));
@@ -1300,17 +1290,11 @@ public class Androidify extends Activity implements Handler.Callback, Interactab
         }
         this.mCheckmark = (ImageButton) findViewById(R.id.btn_checkmark);
         this.mCheckmark.setVisibility(View.VISIBLE);
-        this.mCheckmark.setOnClickListener(new View.OnClickListener() {
-            final /* synthetic */ Androidify f1698a = Androidify.this;
-
-            @Override
-            public void onClick(View view) {
-                this.f1698a.m1399o();
-                this.f1698a.m1343a(this.f1698a.getString(R.string.menu_share));
-                mDroidView.m1468c(4);
-            }
-
-        });
+        this.mCheckmark.setOnClickListener(v -> {
+                this.m1399o();
+                this.m1343a(this.getString(R.string.menu_share));
+                mDroidView.m1468c(View.INVISIBLE);
+});
         if (getPreferences(0).contains("SAW_TUTORIAL")) {
             if (this.tutorialView != null) {
                 this.tutorialView.setVisibility(View.INVISIBLE);
@@ -1338,10 +1322,10 @@ public class Androidify extends Activity implements Handler.Callback, Interactab
         com.google.android.Util.debug("--> onCreateDialog: start");
         getResources();
         switch (i) {
-            case cm.HListView_hlv_overScrollFooter /*6*/:
+            case HListViewConstants.HListView_hlv_overScrollFooter /*6*/:
                 this.f753L.m2108a(getResources().openRawResource(R.raw.startupevents));
                 break;
-            case cm.HListView_hlv_measureWithChild /*7*/:
+            case HListViewConstants.HListView_hlv_measureWithChild /*7*/:
                 m1322Q();
                 break;
             case 10:
@@ -1511,7 +1495,7 @@ public class Androidify extends Activity implements Handler.Callback, Interactab
     public void surfaceCreated(SurfaceHolder surfaceHolder) {
         try {
             AssetFileDescriptor openFd = getAssets().openFd("intro_30fps_13.mp4");
-            DisplayMetrics a = Util.getMetrix((Activity) this);
+            DisplayMetrics a = Util.getMetrix(this);
             Util.debug("screenSize = " + a);
             MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();
             mediaMetadataRetriever.setDataSource(openFd.getFileDescriptor(), openFd.getStartOffset(), openFd.getLength());
@@ -1580,8 +1564,13 @@ public class Androidify extends Activity implements Handler.Callback, Interactab
         move(this.tutorialView, false);
         move(this.mHeader, true);
         move(this.mDrawer, true);
-        startMoving(this.mNameField, true, 1.0f, new AnimationTask(this));
-        this.mDroidView.postDelayed(new AnimationTask(this), 1000);
+        Androidify.runner = new DroidConfig(this);
+        startMoving(this.mNameField, true, 1.0f, ()->{
+            Androidify.runner.init();
+        });
+        this.mDroidView.postDelayed(()->{
+            Androidify.runner.init();
+        }, 1000);
     }
 
     public void showBadge   () {

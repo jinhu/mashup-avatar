@@ -54,7 +54,7 @@ public class ProgressRelativeLayout extends RelativeLayout {
 
     public void setProgress(int i) {
         this.f896a = i;
-        this.f900e = (int) by.m1898a((float) i, 0.0f, 100.0f, 0.0f, (float) getWidth());
+        this.f900e = (int) SmoothRandomGenerator.m1898a((float) i, 0.0f, 100.0f, 0.0f, (float) getWidth());
         invalidate();
     }
 

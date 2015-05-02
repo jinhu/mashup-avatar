@@ -32,11 +32,8 @@ public class Plane {
 
 	public boolean arrived() {
 
-		if (moveY == 0 && moveX == 0) {
-			return true;
-		}
+		return moveY == 0 && moveX == 0;
 
-		return false;
 	}
 
 	public void setDirection(int dx, int dy) {

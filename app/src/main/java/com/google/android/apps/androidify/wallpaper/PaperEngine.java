@@ -6,7 +6,6 @@ import android.graphics.Canvas;
 import android.os.Handler;
 import android.util.Log;
 import android.view.GestureDetector;
-import android.view.GestureDetector.OnGestureListener;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 
@@ -39,7 +38,7 @@ public class PaperEngine implements OnSharedPreferenceChangeListener {
     private float f1689q;
     private long f1690r;
     private SharedPreferences f1691s;
-    private OnGestureListener f1692t;
+    private GestureDetector.OnGestureListener mGeastureListener;
     private final Runnable f1693u;
     private SharedPreferences f1694v;
 
@@ -51,8 +50,8 @@ public class PaperEngine implements OnSharedPreferenceChangeListener {
         this.f1686n = -1;
         this.f1687o = 0;
         this.f1688p = false;
-        this.f1692t = new C0243c(this);
-        this.f1673a = new GestureDetector(this.f1692t);
+        this.mGeastureListener = new GestureListener(this);
+        this.f1673a = new GestureDetector(this.mGeastureListener);
         this.f1693u = new PaperRunner(this);
         this.f1691s = aLiveWallpaper.getSharedPreferences("AndroidifyWallpaperSettings", 0);
         this.f1691s.registerOnSharedPreferenceChangeListener(this);
